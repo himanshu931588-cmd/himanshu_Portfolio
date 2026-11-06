@@ -6,6 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initInteractiveLoader();
+  initCustomCursor();
   initTheme();
   initSoundFX();
   initNavigation();
@@ -646,5 +647,104 @@ function setCurrentYear() {
   const yearEl = document.getElementById('current-year');
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
+  }
+}
+
+/* ==========================================================================
+   10. Tactical Cyber-Architect Custom Cursor (Desktop Only)
+   ========================================================================== */
+function initCustomCursor() {
+  // Only initialize on desktop devices that have fine pointer and hover support
+  const isPointerDevice = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if (!isPointerDevice) return;
+
+  const dot = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+  if (!dot || !ring) return;
+
+  document.body.classList.add('custom-cursor-active');
+
+  let mouseX = -100, mouseY = -100;
+  let ringX = -100, ringY = -100;
+  let hasMoved = false;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!hasMoved) {
+      ringX = mouseX;
+      ringY = mouseY;
+      hasMoved = true;
+    }
+    dot.classList.remove('cursor-hidden');
+    ring.classList.remove('cursor-hidden');
+  }, { passive: true });
+
+  window.addEventListener('mouseleave', () => {
+    dot.classList.add('cursor-hidden');
+    ring.classList.add('cursor-hidden');
+  });
+
+  window.addEventListener('mouseenter', () => {
+    dot.classList.remove('cursor-hidden');
+    ring.classList.remove('cursor-hidden');
+  });
+
+  // Smooth lerp animation loop for 60fps/120fps high-refresh displays
+  function animateCursor() {
+    if (hasMoved) {
+      // 1:1 instantaneous tracking for the precision laser dot
+      dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+
+      // Smooth fluid spring lerp for the outer tactical crosshair ring
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+    }
+    requestAnimationFrame(animateCursor);
+  }
+  requestAnimationFrame(animateCursor);
+
+  // Dynamic Hover and State Management using Event Delegation
+  document.addEventListener('mouseover', (e) => {
+    const isClickable = e.target.closest('a, button, .btn, .filter-btn, .collab-card, .project-card, .unique-logo-emblem, .loader-core-wrapper, .theme-toggle-btn, .spec-icon, .skill-pill, .interactive-logo, .avatar-photo-wrapper, .banner-avatar-group');
+    const isTextInput = e.target.closest('input[type="text"], input[type="email"], textarea');
+
+    if (isTextInput) {
+      ring.classList.add('cursor-text');
+      dot.classList.add('cursor-text');
+      ring.classList.remove('cursor-hover');
+      dot.classList.remove('cursor-hover');
+    } else if (isClickable) {
+      ring.classList.add('cursor-hover');
+      dot.classList.add('cursor-hover');
+      ring.classList.remove('cursor-text');
+      dot.classList.remove('cursor-text');
+    } else {
+      ring.classList.remove('cursor-hover', 'cursor-text');
+      dot.classList.remove('cursor-hover', 'cursor-text');
+    }
+  });
+
+  // Tactical Mousedown & Click Micro-Ripple
+  window.addEventListener('mousedown', () => {
+    ring.classList.add('cursor-active');
+    dot.classList.add('cursor-active');
+    createClickRipple(mouseX, mouseY);
+  });
+
+  window.addEventListener('mouseup', () => {
+    ring.classList.remove('cursor-active');
+    dot.classList.remove('cursor-active');
+  });
+
+  function createClickRipple(x, y) {
+    if (x <= 0 || y <= 0) return;
+    const ripple = document.createElement('div');
+    ripple.className = 'cursor-click-ripple';
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 450);
   }
 }

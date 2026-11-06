@@ -2692,6 +2692,214 @@ a {
 .delay-4 { animation-delay: 0.48s; }
 
 /* ==========================================================================
+   Tactical Cyber-Architect Custom Cursor
+   Enabled exclusively for pointer/desktop devices (disabled on touchscreens)
+   ========================================================================== */
+.custom-cursor-dot,
+.custom-cursor-ring {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active * {
+    cursor: none !important;
+  }
+
+  .custom-cursor-dot {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.95), 0 0 20px rgba(255, 255, 255, 0.4);
+    transition: opacity 0.25s ease, transform 0.08s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+    will-change: transform;
+  }
+
+  .custom-cursor-ring {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    pointer-events: none;
+    z-index: 999998;
+    transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15), inset 0 0 8px rgba(255, 255, 255, 0.05);
+    transition: width 0.26s cubic-bezier(0.16, 1, 0.3, 1),
+                height 0.26s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.25s ease,
+                background-color 0.25s ease,
+                box-shadow 0.25s ease,
+                border-radius 0.25s ease,
+                opacity 0.25s ease;
+    will-change: transform, width, height;
+  }
+
+  /* Crosshair tick marks on the ring */
+  .custom-cursor-ring .crosshair {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .crosshair-top {
+    top: -4px;
+    left: 50%;
+    width: 1px;
+    height: 4px;
+    transform: translateX(-50%);
+  }
+  .crosshair-bottom {
+    bottom: -4px;
+    left: 50%;
+    width: 1px;
+    height: 4px;
+    transform: translateX(-50%);
+  }
+  .crosshair-left {
+    top: 50%;
+    left: -4px;
+    width: 4px;
+    height: 1px;
+    transform: translateY(-50%);
+  }
+  .crosshair-right {
+    top: 50%;
+    right: -4px;
+    width: 4px;
+    height: 1px;
+    transform: translateY(-50%);
+  }
+
+  /* Hover State (Interactive Buttons, Links, Cards, Emblems) */
+  .custom-cursor-ring.cursor-hover {
+    width: 62px;
+    height: 62px;
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), inset 0 0 18px rgba(255, 255, 255, 0.2);
+  }
+
+  .custom-cursor-ring.cursor-hover .crosshair {
+    opacity: 0.2;
+    transform: scale(0.6);
+  }
+
+  .custom-cursor-dot.cursor-hover {
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    box-shadow: 0 0 15px #ffffff;
+  }
+
+  /* Active State (Mousedown / Click feedback) */
+  .custom-cursor-ring.cursor-active {
+    width: 28px;
+    height: 28px;
+    border-width: 2.5px;
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.28);
+    box-shadow: 0 0 25px #ffffff;
+    transition-duration: 0.08s;
+  }
+
+  .custom-cursor-dot.cursor-active {
+    transform: translate(-50%, -50%) scale(1.6);
+  }
+
+  /* Text-Input & Editorial Focus State */
+  .custom-cursor-ring.cursor-text {
+    width: 4px;
+    height: 26px;
+    border-radius: 2px;
+    border-color: #ffffff;
+    background: #ffffff;
+    box-shadow: 0 0 12px #ffffff;
+  }
+  .custom-cursor-ring.cursor-text .crosshair {
+    display: none;
+  }
+  .custom-cursor-dot.cursor-text {
+    opacity: 0;
+  }
+
+  /* Hidden State (When cursor leaves browser window) */
+  .custom-cursor-dot.cursor-hidden,
+  .custom-cursor-ring.cursor-hidden {
+    opacity: 0 !important;
+  }
+
+  /* Click Micro-Ripple */
+  .cursor-click-ripple {
+    position: fixed;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    pointer-events: none;
+    z-index: 999997;
+    transform: translate(-50%, -50%) scale(0.2);
+    animation: cursorRipple 0.45s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+  }
+
+  @keyframes cursorRipple {
+    0% {
+      width: 15px;
+      height: 15px;
+      opacity: 0.9;
+      transform: translate(-50%, -50%) scale(0.2);
+    }
+    100% {
+      width: 75px;
+      height: 75px;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  /* Light Theme Cursor Adaptation */
+  [data-theme="light"] .custom-cursor-dot {
+    background: #000000;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  }
+  [data-theme="light"] .custom-cursor-ring {
+    border-color: rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  }
+  [data-theme="light"] .custom-cursor-ring .crosshair {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  [data-theme="light"] .custom-cursor-ring.cursor-hover {
+    border-color: #000000;
+    background: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+  }
+  [data-theme="light"] .custom-cursor-ring.cursor-active {
+    border-color: #000000;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  }
+  [data-theme="light"] .custom-cursor-ring.cursor-text {
+    border-color: #000000;
+    background: #000000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  [data-theme="light"] .cursor-click-ripple {
+    border-color: rgba(0, 0, 0, 0.65);
+  }
+}
+
+/* ==========================================================================
    Responsive Media Queries
    ========================================================================== */
 @media (max-width: 992px) {
