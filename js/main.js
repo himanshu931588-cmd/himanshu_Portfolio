@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectFilters();
   initStatsCounter();
   initGitHubLiveSync();
-  initCertModal();
+  initLightboxModals();
   initContactForm();
   setCurrentYear();
 });
@@ -751,33 +751,38 @@ function initCustomCursor() {
 }
 
 /* ==========================================================================
-   11. National Science Day Certificate Lightbox Modal
+   11. Lightbox Modals (Certificate & Reading Nook Bookshelf)
    ========================================================================== */
-function initCertModal() {
-  const trigger = document.getElementById('cert-preview-trigger');
-  const modal = document.getElementById('cert-modal');
-  const closeBtn = document.getElementById('cert-modal-close');
-  const backdrop = document.getElementById('cert-modal-backdrop');
+function initLightboxModals() {
+  bindModal('cert-preview-trigger', 'cert-modal', 'cert-modal-close', 'cert-modal-backdrop');
+  bindModal('books-photo-trigger', 'books-modal', 'books-modal-close', 'books-modal-backdrop');
 
-  if (!trigger || !modal) return;
+  function bindModal(triggerId, modalId, closeBtnId, backdropId) {
+    const trigger = document.getElementById(triggerId);
+    const modal = document.getElementById(modalId);
+    const closeBtn = document.getElementById(closeBtnId);
+    const backdrop = document.getElementById(backdropId);
 
-  function openModal() {
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
+    if (!trigger || !modal) return;
 
-  function closeModal() {
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  trigger.addEventListener('click', openModal);
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  if (backdrop) backdrop.addEventListener('click', closeModal);
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('open')) {
-      closeModal();
+    function openModal() {
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
     }
-  });
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    trigger.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+  }
 }

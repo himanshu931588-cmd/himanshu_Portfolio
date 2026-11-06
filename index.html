@@ -261,6 +261,7 @@
               <p class="profile-card-motto">"I Love Tech and Tech Loves Me."</p>
               <div class="profile-card-chips">
                 <span class="chip-item chip-award"><i class="fa-solid fa-trophy"></i> 2nd Prize National Science Day</span>
+                <span class="chip-item"><i class="fa-solid fa-book-open"></i> Hindi Novels Reader</span>
                 <span class="chip-item"><i class="fa-solid fa-cloud"></i> Cloud Engineer</span>
                 <span class="chip-item"><i class="fa-solid fa-brain"></i> AI / ML</span>
                 <span class="chip-item"><i class="fa-brands fa-github"></i> @himanshu931588-cmd</span>
@@ -288,7 +289,8 @@ himanshu = StudentProfile(
     degree=<span class="code-string">"B.Tech in Computer Science & Engineering"</span>,
     current_status=<span class="code-string">"2nd Year Engineering Student"</span>,
     photo=<span class="code-string">"assets/profile.jpg"</span>,
-    passions=[<span class="code-string">"Cloud & Security (BaseGuard)"</span>, <span class="code-string">"AI/ML (Vero)"</span>, <span class="code-string">"Sustainability"</span>],
+    passions=[<span class="code-string">"Cloud & Security (BaseGuard)"</span>, <span class="code-string">"AI/ML (Vero)"</span>, <span class="code-string">"Reading Hindi Novels (साहित्य)"</span>, <span class="code-string">"Sustainability"</span>],
+    favorite_novels=[<span class="code-string">"मुसाफ़िर कैफ़े"</span>, <span class="code-string">"अक्टूबर जंक्शन"</span>, <span class="code-string">"दीवार में एक खिड़की रहती थी"</span>, <span class="code-string">"Wings of Fire"</span>],
     active_repos=[<span class="code-string">"vero"</span>, <span class="code-string">"baseguard"</span>, <span class="code-string">"KrishiAlert"</span>, <span class="code-string">"ATM_Simulation"</span>]
 )
 
@@ -343,6 +345,92 @@ collab = TeamCollaboration.connect(
               Creator of <strong>KrishiAlert</strong> (preventing crop residue burning through satellite data) and 
               <strong>Vero</strong> (combating deepfakes and verifying digital content authenticity).
             </p>
+          </div>
+
+          <div class="about-card glass-panel">
+            <div class="about-card-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+            <h3>Hobby: Reading Hindi Novels</h3>
+            <p>
+              Deep passion for contemporary Hindi literature and visionary biographies. Avid reader of 
+              <strong>Divya Prakash Dubey</strong>, <strong>Vinod Kumar Shukla</strong>, and <strong>Dr. Kalam</strong>. 
+              Reading nurtures empathy, depth, and creative perspective in software design.
+            </p>
+          </div>
+        </div>
+
+        <!-- Reading Nook & Favorite Hindi Novels Feature -->
+        <div class="reading-nook-card glass-panel" id="hindi-novels-nook">
+          <div class="reading-nook-grid">
+            <div class="reading-img-col">
+              <div class="reading-photo-frame" id="books-photo-trigger" title="Click to view bookshelf in high resolution">
+                <img src="assets/hindi_novels.jpg" alt="Himanshu Mishra's favorite Hindi novels and books collection" class="reading-books-img" />
+                <div class="reading-zoom-badge">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i>
+                  <span>Click to Expand Bookshelf</span>
+                </div>
+              </div>
+              <span class="reading-caption"><i class="fa-solid fa-bookmark"></i> Personal Collection • Hindi Literature &amp; Autobiographies</span>
+            </div>
+
+            <div class="reading-content-col">
+              <div class="reading-badge-pill">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <span>PASSION BEYOND CODE</span>
+              </div>
+              <h3 class="reading-title">The Art of Storytelling: Reading Hindi Novels</h3>
+              <p class="reading-desc">
+                When I step away from code and neural models, I immerse myself in the evocative world of Hindi literature. 
+                Reading fosters empathy, observation, and emotional depth — qualities that fundamentally inspire how I architect 
+                user-centered software and human-focused AI systems.
+              </p>
+
+              <div class="bookshelf-list">
+                <div class="book-item">
+                  <span class="book-icon"><i class="fa-solid fa-book"></i></span>
+                  <div class="book-info">
+                    <span class="book-title">मुसाफ़िर कैफ़े (Musafir Cafe)</span>
+                    <span class="book-author">दिव्य प्रकाश दुबे (Divya Prakash Dubey) • Hind Yugm</span>
+                  </div>
+                </div>
+
+                <div class="book-item">
+                  <span class="book-icon"><i class="fa-solid fa-book"></i></span>
+                  <div class="book-info">
+                    <span class="book-title">अक्टूबर जंक्शन (October Junction)</span>
+                    <span class="book-author">दिव्य प्रकाश दुबे (Divya Prakash Dubey) • Hind Yugm</span>
+                  </div>
+                </div>
+
+                <div class="book-item">
+                  <span class="book-icon"><i class="fa-solid fa-book"></i></span>
+                  <div class="book-info">
+                    <span class="book-title">यार, पापा (Yaar, Papa)</span>
+                    <span class="book-author">दिव्य प्रकाश दुबे (Divya Prakash Dubey) • Hind Yugm</span>
+                  </div>
+                </div>
+
+                <div class="book-item">
+                  <span class="book-icon"><i class="fa-solid fa-award"></i></span>
+                  <div class="book-info">
+                    <span class="book-title">दीवार में एक खिड़की रहती थी</span>
+                    <span class="book-author">विनोद कुमार शुक्ल (Vinod Kumar Shukla) • Sahitya Akademi Award</span>
+                  </div>
+                </div>
+
+                <div class="book-item">
+                  <span class="book-icon"><i class="fa-solid fa-rocket"></i></span>
+                  <div class="book-info">
+                    <span class="book-title">Wings of Fire: An Autobiography</span>
+                    <span class="book-author">Dr. A.P.J. Abdul Kalam with Arun Tiwari</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="reading-quote-pill">
+                <i class="fa-solid fa-quote-left"></i>
+                <span>"साहित्य हमें इंसान बनाए रखता है, और तकनीक हमें आगे बढ़ाती है।" <em>(Literature grounds our humanity; technology propels our future.)</em></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1293,6 +1381,31 @@ collab = TeamCollaboration.connect(
       <div class="cert-modal-footer">
         <span>CGC University, Mohali • Tech Sci Nova 2026 • Ref: NSD/28022026/PP-07</span>
         <a href="assets/certificate_nsd2026.jpg" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full Image
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bookshelf Lightbox Modal -->
+  <div id="books-modal" class="cert-modal" role="dialog" aria-modal="true" aria-label="Bookshelf Preview">
+    <div class="cert-modal-backdrop" id="books-modal-backdrop"></div>
+    <div class="cert-modal-container">
+      <div class="cert-modal-header">
+        <div class="cert-modal-title">
+          <i class="fa-solid fa-book-open"></i>
+          <span>Himanshu's Hindi Literature &amp; Novels Collection</span>
+        </div>
+        <button class="cert-modal-close" id="books-modal-close" aria-label="Close bookshelf preview">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="cert-modal-body">
+        <img src="assets/hindi_novels.jpg" alt="Himanshu Mishra's favorite Hindi novels collection" class="cert-full-img" />
+      </div>
+      <div class="cert-modal-footer">
+        <span>Hindi Novels (Divya Prakash Dubey, Vinod Kumar Shukla) &amp; Wings of Fire (Dr. Kalam)</span>
+        <a href="assets/hindi_novels.jpg" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full Image
         </a>
       </div>

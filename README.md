@@ -15,6 +15,7 @@ Curated specifically for **Himanshu Mishra** ([github.com/himanshu931588-cmd](ht
 - **2nd Year Engineering Student & Collaboration Hub**:
   - Highlights your academic journey pursuing a **B.Tech in Computer Science & Engineering (2025 — 2029)**.
   - Interactive **"Want to Collaborate With Me?"** Hub with instant pre-fill buttons for teaming up on Vero AI, KrishiAlert Agritech, Hackathons, and Open-Source projects.
+  - **Literary Reading Nook**: Showcases your passion for reading contemporary Hindi novels (Divya Prakash Dubey, Vinod Kumar Shukla) and inspiring autobiographies (*Wings of Fire* by Dr. Kalam).
 - **LinkedIn Highlights & Credentials Section (`#credentials`)**:
   - **Academic Foundation**: Data Structures & Algorithms, Object-Oriented Programming (OOP), DBMS, Operating Systems, and Computer Networks.
   - **Hands-on Experience Timeline**: Lead Architect for Vero AI, Founder of KrishiAlert, and Tech Content Creator.
