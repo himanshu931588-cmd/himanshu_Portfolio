@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Himanshu Mishra | Cloud Engineer &amp; AI/ML Specialist</title>
+  <meta name="description" content="Portfolio of Himanshu Mishra (@himanshu931588-cmd) - Passionate Cloud Engineer, AI & Machine Learning Enthusiast, and Sustainable Tech Innovator.">
+  <meta name="keywords" content="Himanshu Mishra, himanshu931588-cmd, Cloud Engineer, AI, Machine Learning, Vero, KrishiAlert, Python, Sustainable Engineering">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236366f1'><path d='M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 17.93V17a1 1 0 0 0-2 0v2.93A8 8 0 0 1 4.07 13H7a1 1 0 0 0 0-2H4.07A8 8 0 0 1 11 4.07V7a1 1 0 0 0 2 0V4.07A8 8 0 0 1 19.93 11H17a1 1 0 0 0 0 2h2.93A8 8 0 0 1 13 19.93z'/></svg>">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Neural Interactive Canvas Background -->
+  <canvas id="neural-canvas"></canvas>
+
+  <!-- Ambient Glow Effects -->
+  <div class="glow-orb orb-primary" aria-hidden="true"></div>
+  <div class="glow-orb orb-secondary" aria-hidden="true"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-symbol">&lt;HM/&gt;</span>
+        <span class="logo-name">Himanshu Mishra</span>
+      </a>
+
+      <nav class="nav-links" id="nav-menu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#specialties" class="nav-link">Expertise</a>
+        <a href="#playground" class="nav-link highlight-link">
+          <i class="fa-solid fa-shield-halved"></i> Vero AI Demo
+        </a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Tech Stack</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle visual theme" title="Toggle Theme">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+
+        <!-- GitHub Profile Direct Link -->
+        <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="btn btn-outline btn-sm nav-cta">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="section hero" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <!-- Availability Badge -->
+          <div class="status-pill animate-fade-in">
+            <span class="pulse-indicator"></span>
+            <span>Cloud Engineer • AI/ML Enthusiast • Sustainable Tech</span>
+          </div>
+
+          <h1 class="hero-title animate-fade-in delay-1">
+            Engineering Cloud &amp; AI Systems <br>
+            <span class="gradient-text">for Real-World Impact.</span>
+          </h1>
+
+          <p class="hero-description animate-fade-in delay-2">
+            Hi, I'm <strong>Himanshu Mishra</strong> (<a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="text-highlight">@himanshu931588-cmd</a>). 
+            Passionate developer building intelligent platforms like <strong>Vero</strong> (AI content authenticity) and 
+            <strong>KrishiAlert</strong> (sustainable satellite agriculture). Driven by the belief that <em>"I Love Tech and Tech Loves Me."</em>
+          </p>
+
+          <div class="hero-cta animate-fade-in delay-3">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-diagram-project"></i> Explore Projects
+            </a>
+            <a href="#playground" class="btn btn-secondary">
+              <i class="fa-solid fa-shield-halved"></i> Try Vero AI Demo
+            </a>
+            <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="btn btn-outline">
+              <i class="fa-brands fa-github"></i> Visit GitHub
+            </a>
+          </div>
+
+          <!-- Quick Stats Counter Strip -->
+          <div class="hero-stats animate-fade-in delay-4">
+            <div class="stat-card">
+              <span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span>
+              <span class="stat-label">Open Source Repos</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="99">0</span><span class="stat-plus">.1%</span>
+              <span class="stat-label">Content Verification</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="100">0</span><span class="stat-plus">%</span>
+              <span class="stat-label">Clean Sustainable Code</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="5">0</span><span class="stat-plus">★</span>
+              <span class="stat-label">Community Impact</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual / Floating Code Terminal -->
+        <div class="hero-graphic animate-fade-in delay-2">
+          <div class="code-terminal-card glass-panel">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">vero_authenticity_engine.py</div>
+              <div class="terminal-badge"><i class="fa-solid fa-cloud"></i> Cloud Live</div>
+            </div>
+            <div class="terminal-body">
+              <pre><code><span class="code-keyword">import</span> tensorflow <span class="code-keyword">as</span> tf
+<span class="code-keyword">from</span> vero.core <span class="code-keyword">import</span> ContentVerifier, MediaInspector
+<span class="code-keyword">from</span> cloud.deploy <span class="code-keyword">import</span> FirebaseServerless
+
+<span class="code-comment"># Initializing Vero Digital Authenticity Engine</span>
+verifier = ContentVerifier(
+    model=<span class="code-string">"vero-ai-multimodal-v1"</span>,
+    detect_deepfakes=<span class="code-keyword">True</span>,
+    satellite_pipeline=<span class="code-string">"KrishiAlert-Sync"</span>
+)
+
+<span class="code-comment"># Real-time multi-format forensic analysis</span>
+result = verifier.analyze(stream=<span class="code-string">"incoming_payload"</span>)
+<span class="code-builtin">print</span>(<span class="code-string">f"🔒 Status: {result.authenticity_verdict}"</span>)
+<span class="code-builtin">print</span>(<span class="code-string">f"⚡ Confidence: {result.confidence_score}%"</span>)</code></pre>
+            </div>
+            <div class="terminal-footer">
+              <span class="status-indicator-green"></span>
+              <span class="footer-text">himanshu931588-cmd | Active Cloud Service</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About & Philosophy Section -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-badge">ABOUT HIMANSHU MISHRA</div>
+        <h2 class="section-title">Innovating at the Intersection of Cloud, AI &amp; Sustainability</h2>
+        <p class="section-subtitle">
+          Passionate developer, content creator, and technology enthusiast focused on high-utility software engineering.
+        </p>
+
+        <div class="about-grid">
+          <div class="about-card glass-panel">
+            <div class="about-card-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <h3>Cloud &amp; DevOps</h3>
+            <p>
+              Designing modern cloud architectures and serverless workflows using <strong>Firebase</strong>, 
+              <strong>Supabase</strong>, <strong>Vercel</strong>, and <strong>Docker</strong> for reliable, frictionless deployments.
+            </p>
+          </div>
+
+          <div class="about-card glass-panel">
+            <div class="about-card-icon"><i class="fa-solid fa-brain"></i></div>
+            <h3>AI &amp; Machine Learning</h3>
+            <p>
+              Building intelligent applications with <strong>TensorFlow</strong>, <strong>PyTorch</strong>, 
+              and <strong>OpenCV</strong>. Architect of <strong>Vero</strong>, an AI-driven platform ensuring digital media authenticity.
+            </p>
+          </div>
+
+          <div class="about-card glass-panel">
+            <div class="about-card-icon"><i class="fa-solid fa-leaf"></i></div>
+            <h3>Sustainable Engineering</h3>
+            <p>
+              Committed to building technology that solves critical ecological challenges—such as 
+              <strong>KrishiAlert</strong>, leveraging satellite monitoring to prevent stubble burning in North India.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Specialties / Focus Areas -->
+    <section class="section" id="specialties">
+      <div class="container">
+        <div class="section-badge">DOMAINS OF EXPERTISE</div>
+        <h2 class="section-title">What I Build &amp; Specialize In</h2>
+        <p class="section-subtitle">Bridging full-stack development, cloud computing, and machine learning models.</p>
+
+        <div class="specialties-grid">
+          <!-- Item 1 -->
+          <div class="specialty-card glass-panel">
+            <div class="spec-header">
+              <span class="spec-icon spec-purple"><i class="fa-solid fa-shield-virus"></i></span>
+              <span class="spec-badge">AI Authenticity</span>
+            </div>
+            <h3>AI Content Verification &amp; Security</h3>
+            <p>
+              Analyzing digital content across text, images, and video to detect synthetic generation, 
+              deepfake artifacts, and misinformation in real time.
+            </p>
+            <ul class="spec-tags">
+              <li>TensorFlow</li>
+              <li>PyTorch</li>
+              <li>Python</li>
+              <li>OpenCV</li>
+            </ul>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="specialty-card glass-panel">
+            <div class="spec-header">
+              <span class="spec-icon spec-emerald"><i class="fa-solid fa-satellite"></i></span>
+              <span class="spec-badge">Sustainable Tech</span>
+            </div>
+            <h3>Agritech &amp; Satellite Monitoring</h3>
+            <p>
+              Bridging geospatial satellite insights with on-ground agricultural access to empower rural 
+              farming communities and reduce harmful emissions.
+            </p>
+            <ul class="spec-tags">
+              <li>Satellite Data</li>
+              <li>HTML5 / JS</li>
+              <li>APIs</li>
+              <li>Supabase</li>
+            </ul>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="specialty-card glass-panel">
+            <div class="spec-header">
+              <span class="spec-icon spec-cyan"><i class="fa-solid fa-cloud"></i></span>
+              <span class="spec-badge">Cloud Architecture</span>
+            </div>
+            <h3>Cloud &amp; Backend Engineering</h3>
+            <p>
+              Architecting resilient serverless APIs, real-time databases, and automated deployment pipelines 
+              across modern cloud ecosystems.
+            </p>
+            <ul class="spec-tags">
+              <li>Firebase</li>
+              <li>Node.js</li>
+              <li>Flask</li>
+              <li>MySQL / SQL</li>
+            </ul>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="specialty-card glass-panel">
+            <div class="spec-header">
+              <span class="spec-icon spec-amber"><i class="fa-solid fa-compass-drafting"></i></span>
+              <span class="spec-badge">Creative &amp; UI/UX</span>
+            </div>
+            <h3>UI/UX Design &amp; Content Creation</h3>
+            <p>
+              Combining modern 3D visualizations, sleek Figma user journeys, and digital media production 
+              to craft intuitive digital experiences.
+            </p>
+            <ul class="spec-tags">
+              <li>Figma</li>
+              <li>Blender</li>
+              <li>Photoshop</li>
+              <li>InDesign</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive AI Playground: Vero Content Authenticity Simulator -->
+    <section class="section playground-section" id="playground">
+      <div class="container">
+        <div class="playground-wrapper glass-panel">
+          <div class="playground-intro">
+            <div class="section-badge"><i class="fa-solid fa-shield-halved"></i> VERO INTERACTIVE ENGINE</div>
+            <h2 class="section-title">Vero: Real-Time Digital Content Authenticity Analyzer</h2>
+            <p>
+              Test the core forensic verification logic of <strong>Vero</strong>. Enter custom text or select preset samples 
+              to simulate real-time AI generation detection, confidence scoring, and token attention mapping.
+            </p>
+          </div>
+
+          <div class="playground-body">
+            <!-- Left: Input Control -->
+            <div class="playground-controls">
+              <label for="demo-input" class="control-label">Enter statement or select a sample report:</label>
+              
+              <div class="preset-chips">
+                <button class="chip-btn active" data-sample="Official KrishiAlert report: satellite sensors confirmed 42% reduction in regional farm fires following equipment dispatch.">Sample 1 (Verified Authentic)</button>
+                <button class="chip-btn" data-sample="URGENT LEAK: AI generated video circulating claims atmospheric servers crashed with fake synthetic audio artifacts.">Sample 2 (Synthetic / Anomaly)</button>
+                <button class="chip-btn" data-sample="ATM simulation engine executed transaction sequence with zero balance variance and valid PIN authentication.">Sample 3 (System Audit)</button>
+              </div>
+
+              <textarea id="demo-input" rows="4" class="playground-textarea" placeholder="Type or paste digital content here to verify authenticity..."></textarea>
+
+              <div class="playground-actions">
+                <button id="run-inference-btn" class="btn btn-primary btn-block">
+                  <i class="fa-solid fa-bolt"></i> Run Vero Verification Scan
+                </button>
+              </div>
+
+              <!-- Tokenization breakdown preview -->
+              <div class="token-container">
+                <span class="token-label">Token Forensic Attention Breakdown:</span>
+                <div id="tokens-display" class="tokens-flow">
+                  <!-- Tokens injected dynamically -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Results & Confidence Meters -->
+            <div class="playground-results">
+              <div class="results-header">
+                <h3>Vero Audit Verdict</h3>
+                <span id="inference-time-badge" class="time-badge"><i class="fa-solid fa-stopwatch"></i> 11.2 ms</span>
+              </div>
+
+              <!-- Primary Classification Result -->
+              <div class="sentiment-box" id="sentiment-result-card">
+                <div class="sentiment-icon-wrapper" id="sentiment-icon">
+                  <i class="fa-solid fa-shield-check"></i>
+                </div>
+                <div class="sentiment-info">
+                  <span class="sentiment-title">Forensic Verdict</span>
+                  <h4 id="sentiment-label">Authentic &amp; Verified</h4>
+                  <span class="confidence-text">Confidence Level: <strong id="sentiment-confidence">97.4%</strong></span>
+                </div>
+              </div>
+
+              <!-- Probability Distribution Bars -->
+              <div class="distribution-list">
+                <div class="dist-item">
+                  <div class="dist-meta">
+                    <span>Authentic / Human Verified</span>
+                    <span id="score-positive">97.4%</span>
+                  </div>
+                  <div class="progress-bar-bg">
+                    <div class="progress-fill fill-green" id="bar-positive" style="width: 97.4%;"></div>
+                  </div>
+                </div>
+
+                <div class="dist-item">
+                  <div class="dist-meta">
+                    <span>Neutral / Unverified Context</span>
+                    <span id="score-neutral">1.9%</span>
+                  </div>
+                  <div class="progress-bar-bg">
+                    <div class="progress-fill fill-blue" id="bar-neutral" style="width: 1.9%;"></div>
+                  </div>
+                </div>
+
+                <div class="dist-item">
+                  <div class="dist-meta">
+                    <span>Synthetic / Deepfake Anomaly</span>
+                    <span id="score-negative">0.7%</span>
+                  </div>
+                  <div class="progress-bar-bg">
+                    <div class="progress-fill fill-red" id="bar-negative" style="width: 0.7%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Extracted Entities / Tags -->
+              <div class="entities-wrapper">
+                <span class="entities-title">Forensic Markers &amp; Entities:</span>
+                <div id="entities-tags" class="entities-tags">
+                  <span class="entity-tag entity-ai">krishialert</span>
+                  <span class="entity-tag entity-metric">42% reduction</span>
+                  <span class="entity-tag entity-sys">satellite</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section (Direct from Himanshu's GitHub) -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-badge">GITHUB SHOWCASE</div>
+        <h2 class="section-title">Featured Projects &amp; Repositories</h2>
+        <p class="section-subtitle">
+          Real open-source repositories from <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="text-highlight">github.com/himanshu931588-cmd</a>.
+        </p>
+
+        <!-- Project Filter Buttons -->
+        <div class="filter-controls">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="ai">AI &amp; Verification</button>
+          <button class="filter-btn" data-filter="agri">Sustainable Tech</button>
+          <button class="filter-btn" data-filter="python">Python Simulations</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1: Vero (AI Platform) -->
+          <article class="project-card glass-panel" data-category="ai">
+            <div class="project-header">
+              <div class="project-type-tag"><i class="fa-solid fa-shield-halved"></i> AI Authenticity Engine</div>
+              <div class="project-links">
+                <a href="https://github.com/himanshu931588-cmd/vero" target="_blank" rel="noopener" class="icon-link" title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="#playground" class="icon-link" title="Live Demo">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            
+            <h3 class="project-title">Vero: Multimodal Digital Content Authenticity Platform</h3>
+            <p class="project-summary">
+              An advanced AI-powered platform designed to analyze, detect, and verify the authenticity of digital 
+              content across text, image, and video formats in real time. Built to combat misinformation and synthetic media.
+            </p>
+
+            <div class="project-metrics">
+              <div class="metric-item">
+                <span class="metric-val">Real-time</span>
+                <span class="metric-key">Verification Speed</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">Multimodal</span>
+                <span class="metric-key">Format Coverage</span>
+              </div>
+            </div>
+
+            <div class="project-tech-stack">
+              <span>JavaScript</span>
+              <span>Python</span>
+              <span>TensorFlow</span>
+              <span>Node.js</span>
+              <span>REST APIs</span>
+            </div>
+          </article>
+
+          <!-- Project 2: KrishiAlert (Sustainable Agritech) -->
+          <article class="project-card glass-panel" data-category="agri">
+            <div class="project-header">
+              <div class="project-type-tag"><i class="fa-solid fa-seedling"></i> Sustainable Agritech</div>
+              <div class="project-links">
+                <a href="https://github.com/himanshu931588-cmd/KrishiAlert" target="_blank" rel="noopener" class="icon-link" title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://github.com/himanshu931588-cmd/KrishiAlert" target="_blank" rel="noopener" class="icon-link" title="Open Source Code">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            
+            <h3 class="project-title">KrishiAlert (KishanSeva): Satellite Stubble-Burning Prevention</h3>
+            <p class="project-summary">
+              A unified digital platform combining satellite monitoring with on-ground agricultural equipment access 
+              to eliminate post-harvest crop residue burning across North India and promote sustainable eco-farming.
+            </p>
+
+            <div class="project-metrics">
+              <div class="metric-item">
+                <span class="metric-val">Satellite</span>
+                <span class="metric-key">Monitoring Sync</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">Zero-Burn</span>
+                <span class="metric-key">Ecological Goal</span>
+              </div>
+            </div>
+
+            <div class="project-tech-stack">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+              <span>Geospatial APIs</span>
+              <span>Cloud Storage</span>
+            </div>
+          </article>
+
+          <!-- Project 3: ATM Simulation (Python) -->
+          <article class="project-card glass-panel" data-category="python">
+            <div class="project-header">
+              <div class="project-type-tag"><i class="fa-solid fa-money-bill-transfer"></i> Python Architecture</div>
+              <div class="project-links">
+                <a href="https://github.com/himanshu931588-cmd/ATM_Simulation" target="_blank" rel="noopener" class="icon-link" title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://github.com/himanshu931588-cmd/ATM_Simulation" target="_blank" rel="noopener" class="icon-link" title="Source Code">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            
+            <h3 class="project-title">ATM Simulation: Stateful Banking System Engine</h3>
+            <p class="project-summary">
+              A Python-based simulation program modeling core automated teller machine workflows: authentication, 
+              real-time session ledger updates, PIN verification, and dynamic withdrawal boundaries.
+            </p>
+
+            <div class="project-metrics">
+              <div class="metric-item">
+                <span class="metric-val">Session</span>
+                <span class="metric-key">Ledger State</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">100%</span>
+                <span class="metric-key">Pure Python Logic</span>
+              </div>
+            </div>
+
+            <div class="project-tech-stack">
+              <span>Python</span>
+              <span>Control Flow</span>
+              <span>State Machines</span>
+              <span>CLI Interface</span>
+            </div>
+          </article>
+
+          <!-- Project 4: Stone Paper Scissor (Game Logic) -->
+          <article class="project-card glass-panel" data-category="python">
+            <div class="project-header">
+              <div class="project-type-tag"><i class="fa-solid fa-gamepad"></i> Game Theory &amp; Logic</div>
+              <div class="project-links">
+                <a href="https://github.com/himanshu931588-cmd/stone_paper_scissor" target="_blank" rel="noopener" class="icon-link" title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://github.com/himanshu931588-cmd/stone_paper_scissor" target="_blank" rel="noopener" class="icon-link" title="Source Code">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            
+            <h3 class="project-title">Stone Paper Scissor: Interactive Python Game Framework</h3>
+            <p class="project-summary">
+              Classic decision-game implementation structured with modular Python functions, randomized computer opponent heuristics, 
+              robust input sanitization, and continuous game-loop state tracking.
+            </p>
+
+            <div class="project-metrics">
+              <div class="metric-item">
+                <span class="metric-val">Modular</span>
+                <span class="metric-key">Functional Design</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">Dynamic</span>
+                <span class="metric-key">Opponent AI</span>
+              </div>
+            </div>
+
+            <div class="project-tech-stack">
+              <span>Python 3</span>
+              <span>Randomization</span>
+              <span>Sanitization</span>
+              <span>Game Loops</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Technology Matrix -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-badge">TECHNICAL ARSENAL</div>
+        <h2 class="section-title">Skills &amp; Technology Stack</h2>
+        <p class="section-subtitle">
+          Languages, frameworks, cloud services, and creative design tools mastered by Himanshu Mishra.
+        </p>
+
+        <div class="skills-category-grid">
+          <!-- Programming Languages -->
+          <div class="skill-category-card glass-panel">
+            <div class="cat-header">
+              <i class="fa-solid fa-code cat-icon"></i>
+              <h3>Programming Languages</h3>
+            </div>
+            <div class="skill-items">
+              <div class="skill-pill"><i class="fa-brands fa-python"></i> Python</div>
+              <div class="skill-pill"><i class="fa-solid fa-c"></i> C++ / C</div>
+              <div class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript</div>
+              <div class="skill-pill"><i class="fa-solid fa-code"></i> TypeScript</div>
+              <div class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5 &amp; CSS3</div>
+              <div class="skill-pill"><i class="fa-brands fa-java"></i> Java (Learning)</div>
+              <div class="skill-pill"><i class="fa-solid fa-database"></i> SQL / MySQL</div>
+            </div>
+          </div>
+
+          <!-- AI & Machine Learning -->
+          <div class="skill-category-card glass-panel">
+            <div class="cat-header">
+              <i class="fa-solid fa-brain cat-icon"></i>
+              <h3>AI &amp; Data Science</h3>
+            </div>
+            <div class="skill-items">
+              <div class="skill-pill"><i class="fa-solid fa-network-wired"></i> TensorFlow</div>
+              <div class="skill-pill"><i class="fa-solid fa-fire"></i> PyTorch</div>
+              <div class="skill-pill"><i class="fa-solid fa-table"></i> NumPy &amp; Pandas</div>
+              <div class="skill-pill"><i class="fa-solid fa-chart-line"></i> Matplotlib</div>
+              <div class="skill-pill"><i class="fa-solid fa-eye"></i> OpenCV</div>
+              <div class="skill-pill"><i class="fa-solid fa-shield-halved"></i> Content Verification</div>
+            </div>
+          </div>
+
+          <!-- Cloud & Databases -->
+          <div class="skill-category-card glass-panel">
+            <div class="cat-header">
+              <i class="fa-solid fa-cloud cat-icon"></i>
+              <h3>Cloud, Databases &amp; DevOps</h3>
+            </div>
+            <div class="skill-items">
+              <div class="skill-pill"><i class="fa-solid fa-fire-flame-curved"></i> Firebase</div>
+              <div class="skill-pill"><i class="fa-solid fa-bolt"></i> Supabase</div>
+              <div class="skill-pill"><i class="fa-solid fa-server"></i> Vercel &amp; Netlify</div>
+              <div class="skill-pill"><i class="fa-brands fa-docker"></i> Docker</div>
+              <div class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git &amp; GitHub</div>
+              <div class="skill-pill"><i class="fa-solid fa-database"></i> Oracle &amp; MySQL</div>
+              <div class="skill-pill"><i class="fa-solid fa-paper-plane"></i> Postman</div>
+            </div>
+          </div>
+
+          <!-- Web & Creative Design -->
+          <div class="skill-category-card glass-panel">
+            <div class="cat-header">
+              <i class="fa-solid fa-palette cat-icon"></i>
+              <h3>Frameworks &amp; Creative Design</h3>
+            </div>
+            <div class="skill-items">
+              <div class="skill-pill"><i class="fa-brands fa-node-js"></i> Node.js</div>
+              <div class="skill-pill"><i class="fa-solid fa-flask"></i> Flask</div>
+              <div class="skill-pill"><i class="fa-solid fa-rocket"></i> Astro</div>
+              <div class="skill-pill"><i class="fa-brands fa-figma"></i> Figma UI/UX</div>
+              <div class="skill-pill"><i class="fa-solid fa-cube"></i> Blender 3D</div>
+              <div class="skill-pill"><i class="fa-solid fa-image"></i> Adobe Photoshop</div>
+              <div class="skill-pill"><i class="fa-solid fa-book-open"></i> Adobe InDesign</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Connect Section -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-badge">LET'S CONNECT</div>
+        <h2 class="section-title">Get in Touch with Himanshu</h2>
+        <p class="section-subtitle">
+          Interested in collaborating on Cloud Architecture, AI Content Verification, or Sustainable Tech? Let's connect!
+        </p>
+
+        <div class="contact-wrapper">
+          <!-- Contact Info -->
+          <div class="contact-info glass-panel">
+            <h3>Direct Contact Channels</h3>
+            <p>
+              I'm always excited to discuss innovative cloud engineering solutions, machine learning systems, 
+              or sustainable tech initiatives.
+            </p>
+
+            <div class="info-list">
+              <a href="mailto:himanshu931588@gmail.com" class="info-item">
+                <div class="info-icon"><i class="fa-regular fa-envelope"></i></div>
+                <div>
+                  <span class="info-label">Direct Email</span>
+                  <span class="info-val">himanshu931588@gmail.com</span>
+                </div>
+              </a>
+
+              <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="info-item">
+                <div class="info-icon"><i class="fa-brands fa-github"></i></div>
+                <div>
+                  <span class="info-label">GitHub Handle</span>
+                  <span class="info-val">@himanshu931588-cmd</span>
+                </div>
+              </a>
+
+              <div class="info-item">
+                <div class="info-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <div>
+                  <span class="info-label">Focus Areas</span>
+                  <span class="info-val">Cloud Systems, AI/ML &amp; Sustainable Tech</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links-block">
+              <span class="social-heading">Connect Across Networks:</span>
+              <div class="social-icons">
+                <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="social-btn" title="GitHub - himanshu931588-cmd">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:himanshu931588@gmail.com" class="social-btn" title="Send Email">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+                <a href="https://github.com/himanshu931588-cmd/vero" target="_blank" rel="noopener" class="social-btn" title="Vero Project">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </a>
+                <a href="https://github.com/himanshu931588-cmd/KrishiAlert" target="_blank" rel="noopener" class="social-btn" title="KrishiAlert Project">
+                  <i class="fa-solid fa-seedling"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-card glass-panel">
+            <form id="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Your Name <span class="required">*</span></label>
+                  <input type="text" id="name" name="name" placeholder="Alex / Recruiter / Collaborator" required>
+                  <span class="field-error" id="name-error"></span>
+                </div>
+                <div class="form-group">
+                  <label for="email">Your Email <span class="required">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="collaborate@domain.com" required>
+                  <span class="field-error" id="email-error"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject / Project Discussion <span class="required">*</span></label>
+                <input type="text" id="subject" name="subject" placeholder="Collaboration on Vero AI / Cloud Architecture..." required>
+                <span class="field-error" id="subject-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message <span class="required">*</span></label>
+                <textarea id="message" name="message" rows="5" placeholder="Share your message or opportunity..." required></textarea>
+                <span class="field-error" id="message-error"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
+                <span>Send Message</span> <i class="fa-solid fa-paper-plane"></i>
+              </button>
+
+              <div id="form-feedback" class="form-feedback" role="alert"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-left">
+        <a href="#hero" class="footer-logo">
+          <span class="logo-symbol">&lt;HM/&gt;</span>
+          <span>Himanshu Mishra</span>
+        </a>
+        <p class="footer-copy">Crafted with pure HTML5, CSS3, &amp; Vanilla JavaScript. Zero framework bloat.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#specialties">Specialties</a>
+        <a href="#playground">Vero AI</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Tech Stack</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener">GitHub Profile</a>
+      </div>
+
+      <div class="footer-right">
+        <p>&copy; <span id="current-year">2026</span> Himanshu Mishra (@himanshu931588-cmd). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/neural-canvas.js"></script>
+  <script src="js/playground.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
