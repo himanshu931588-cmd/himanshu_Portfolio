@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectFilters();
   initStatsCounter();
   initGitHubLiveSync();
+  initCertModal();
   initContactForm();
   setCurrentYear();
 });
@@ -747,4 +748,36 @@ function initCustomCursor() {
     document.body.appendChild(ripple);
     setTimeout(() => ripple.remove(), 450);
   }
+}
+
+/* ==========================================================================
+   11. National Science Day Certificate Lightbox Modal
+   ========================================================================== */
+function initCertModal() {
+  const trigger = document.getElementById('cert-preview-trigger');
+  const modal = document.getElementById('cert-modal');
+  const closeBtn = document.getElementById('cert-modal-close');
+  const backdrop = document.getElementById('cert-modal-backdrop');
+
+  if (!trigger || !modal) return;
+
+  function openModal() {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  trigger.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
+    }
+  });
 }

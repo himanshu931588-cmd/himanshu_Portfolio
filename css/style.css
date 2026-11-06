@@ -1391,10 +1391,486 @@ a {
   max-width: 580px;
 }
 
+.award-timeline-item {
+  border-left: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.5rem;
+}
+
+.exp-dot-trophy {
+  width: 22px;
+  height: 22px;
+  left: -32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: #000000;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="light"] .exp-dot-trophy {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.award-tag-role {
+  color: #ffffff;
+  font-weight: 800;
+}
+[data-theme="light"] .award-tag-role {
+  color: #000000;
+}
+
+.chip-award {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+[data-theme="light"] .chip-award {
+  background: rgba(0, 0, 0, 0.12) !important;
+  border-color: #000000 !important;
+  color: #000000 !important;
+}
+
+.stat-card-award {
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+}
+
 .banner-cta-group {
   display: flex;
   align-items: center;
   gap: 0.85rem;
+}
+
+/* ==========================================================================
+   National Level Science Exhibition 2nd Position Showcase Card
+   ========================================================================== */
+.achievement-showcase-card {
+  margin-bottom: 2.5rem;
+  padding: 2.25rem 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: linear-gradient(135deg, rgba(20, 20, 26, 0.95) 0%, rgba(10, 10, 14, 0.98) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .achievement-showcase-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.18);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.achievement-badge-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.award-trophy-tag {
+  background: #ffffff;
+  color: #000000;
+  font-weight: 800;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="light"] .award-trophy-tag {
+  background: #000000;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.award-level-tag {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: #e4e4e7;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+[data-theme="light"] .award-level-tag {
+  border-color: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 0, 0, 0.03);
+  color: #3f3f46;
+}
+
+.award-date-tag {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.achievement-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 2.25rem;
+  align-items: center;
+}
+
+.achievement-cert-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.cert-img-frame {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.65);
+  background: #000000;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-cert-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.cert-zoom-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  opacity: 0;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: opacity 0.25s ease;
+}
+
+.achievement-cert-wrapper:hover .cert-img-frame {
+  transform: translateY(-4px);
+  border-color: #ffffff;
+  box-shadow: 0 20px 45px rgba(255, 255, 255, 0.15);
+}
+
+.achievement-cert-wrapper:hover .achievement-cert-img {
+  transform: scale(1.03);
+}
+
+.achievement-cert-wrapper:hover .cert-zoom-overlay {
+  opacity: 1;
+}
+
+.cert-caption {
+  display: block;
+  margin-top: 0.65rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.achievement-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.achievement-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.institution-pill {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.3rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+[data-theme="light"] .institution-pill {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.institution-pill a {
+  color: inherit;
+  text-decoration: none;
+}
+.institution-pill a:hover {
+  text-decoration: underline;
+}
+
+.event-tag {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+.achievement-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.team-quote-box {
+  background: rgba(0, 0, 0, 0.35);
+  border-left: 3px solid #ffffff;
+  padding: 1.1rem 1.25rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .team-quote-box {
+  background: rgba(0, 0, 0, 0.03);
+  border-left-color: #000000;
+}
+
+.quote-lead {
+  color: var(--text-primary);
+  font-size: 0.96rem;
+  margin-bottom: 0.5rem;
+}
+
+.quote-body {
+  margin-bottom: 0.5rem;
+}
+
+.quote-mentor {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.team-members-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.team-label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.team-member-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.member-chip {
+  padding: 0.4rem 0.9rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 0.84rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.member-chip:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+[data-theme="light"] .member-chip {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .member-chip:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: #000000;
+}
+
+.member-chip.member-highlight {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  font-weight: 700;
+}
+
+[data-theme="light"] .member-chip.member-highlight {
+  border-color: #000000;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.achievement-footer-motto {
+  font-size: 0.86rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Certificate Lightbox Modal */
+.cert-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.cert-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cert-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.cert-modal-container {
+  position: relative;
+  z-index: 2;
+  width: 92%;
+  max-width: 900px;
+  max-height: 90vh;
+  background: #0d0d11;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cert-modal.open .cert-modal-container {
+  transform: scale(1);
+}
+
+[data-theme="light"] .cert-modal-container {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.cert-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cert-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.cert-modal-close {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.35rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: transform var(--transition-fast);
+}
+
+.cert-modal-close:hover {
+  transform: rotate(90deg);
+}
+
+.cert-modal-body {
+  padding: 1.25rem;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: calc(90vh - 120px);
+}
+
+.cert-full-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.cert-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 992px) {
+  .achievement-body-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
 }
 
 /* ==========================================================================
