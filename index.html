@@ -92,6 +92,9 @@
     </div>
   </div>
 
+  <!-- Fixed Site Background Artwork Layer -->
+  <div class="site-bg-layer" aria-hidden="true"></div>
+
   <!-- Neural Interactive Canvas Background -->
   <canvas id="neural-canvas"></canvas>
 
@@ -712,7 +715,15 @@ collab = TeamCollaboration.connect(
           Real open-source repositories from <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="text-highlight">github.com/himanshu931588-cmd</a>.
         </p>
 
-        <!-- Project Filter Buttons -->
+        <!-- Project Search Bar & Filter Controls -->
+        <div class="project-search-container">
+          <div class="project-search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="project-search" placeholder="Search projects by tech or keyword (e.g. Python, AI, Satellite, JavaScript)..." aria-label="Search projects">
+            <button id="clear-search-btn" class="clear-search-btn" title="Clear search" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+
         <div class="filter-controls">
           <button class="filter-btn active" data-filter="all">All Projects</button>
           <button class="filter-btn" data-filter="ai">AI &amp; Verification</button>
