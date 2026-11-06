@@ -61,6 +61,11 @@
 
       <div class="loader-text-group">
         <div class="loader-identity">
+          <!-- Profile Photo in Loader -->
+          <div class="loader-avatar-wrap">
+            <img src="assets/profile.jpg" alt="Himanshu Mishra" class="loader-avatar-img" />
+            <span class="loader-avatar-ring"></span>
+          </div>
           <span class="loader-badge"><i class="fa-solid fa-graduation-cap"></i> 2nd Year Engineering Student</span>
           <h2 class="loader-name">Himanshu Mishra</h2>
           <span class="loader-tagline">Cloud Architect • AI/ML Specialist • Open to Collaborate</span>
@@ -99,18 +104,7 @@
     <div class="nav-container">
       <a href="#hero" class="nav-logo" title="Himanshu Mishra Portfolio">
         <div class="nav-logo-emblem">
-          <svg class="nav-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="hm-grad-nav" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#818cf8"/>
-                <stop offset="50%" stop-color="#06b6d4"/>
-                <stop offset="100%" stop-color="#c084fc"/>
-              </linearGradient>
-            </defs>
-            <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" stroke="url(#hm-grad-nav)" stroke-width="4.5" fill="rgba(99, 102, 241, 0.15)" />
-            <path d="M28 34 L28 66 M28 50 L44 50 M44 34 L44 66" stroke="#818cf8" stroke-width="5.5" stroke-linecap="round" />
-            <path d="M52 66 L52 34 L64 50 L76 34 L76 66" stroke="#38bdf8" stroke-width="5.5" stroke-linecap="round" />
-          </svg>
+          <img src="assets/profile.jpg" alt="Himanshu Mishra Avatar" class="nav-profile-thumb" />
           <span class="logo-orbit-dot"></span>
         </div>
         <div class="nav-logo-text">
@@ -220,8 +214,30 @@
           </div>
         </div>
 
-        <!-- Hero Visual / Floating Code Terminal -->
+        <!-- Hero Visual: Floating Profile Showcase Card + Code Terminal -->
         <div class="hero-graphic animate-fade-in delay-2">
+          <!-- Profile Photo Feature Card -->
+          <div class="hero-profile-showcase glass-panel">
+            <div class="profile-photo-container">
+              <img src="assets/profile.jpg" alt="Himanshu Mishra - 2nd Year Engineering Student" class="hero-profile-img" />
+              <div class="photo-orbital-glow"></div>
+              <span class="photo-status-badge" title="Actively Open to Team Up!"><i class="fa-solid fa-bolt"></i> Open to Collab</span>
+            </div>
+            <div class="profile-card-details">
+              <div class="profile-card-header">
+                <h3>Himanshu Mishra</h3>
+                <span class="profile-card-sub"><i class="fa-solid fa-graduation-cap"></i> 2nd Year B.Tech CSE</span>
+              </div>
+              <p class="profile-card-motto">"I Love Tech and Tech Loves Me."</p>
+              <div class="profile-card-chips">
+                <span class="chip-item"><i class="fa-solid fa-cloud"></i> Cloud Engineer</span>
+                <span class="chip-item"><i class="fa-solid fa-brain"></i> AI / ML</span>
+                <span class="chip-item"><i class="fa-brands fa-github"></i> @himanshu931588-cmd</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Interactive Code Terminal -->
           <div class="code-terminal-card glass-panel">
             <div class="terminal-header">
               <div class="terminal-dots">
@@ -240,7 +256,7 @@ himanshu = StudentProfile(
     name=<span class="code-string">"Himanshu Mishra"</span>,
     degree=<span class="code-string">"B.Tech in Computer Science & Engineering"</span>,
     current_status=<span class="code-string">"2nd Year Engineering Student"</span>,
-    linkedin=<span class="code-string">"linkedin.com/in/himanshu931588"</span>,
+    photo=<span class="code-string">"assets/profile.jpg"</span>,
     passions=[<span class="code-string">"Cloud Infrastructure"</span>, <span class="code-string">"AI/ML"</span>, <span class="code-string">"Sustainability"</span>]
 )
 
@@ -380,9 +396,7 @@ collab = TeamCollaboration.connect(
       </div>
     </section>
 
-    <!-- =======================================================================
-         LinkedIn Credentials & Education Section (Curated from LinkedIn Profile)
-         ======================================================================= -->
+    <!-- LinkedIn Credentials & Education Section -->
     <section class="section" id="credentials">
       <div class="container">
         <div class="section-badge"><i class="fa-brands fa-linkedin"></i> LINKEDIN HIGHLIGHTS</div>
@@ -482,11 +496,12 @@ collab = TeamCollaboration.connect(
           </div>
         </div>
 
-        <!-- LinkedIn Direct Connect Banner -->
+        <!-- LinkedIn Direct Connect Banner with Real Profile Photo -->
         <div class="linkedin-connect-banner glass-panel">
           <div class="banner-avatar-group">
-            <div class="avatar-shield">
-              <i class="fa-brands fa-linkedin-in"></i>
+            <div class="avatar-photo-wrapper">
+              <img src="assets/profile.jpg" alt="Himanshu Mishra" class="banner-profile-photo" />
+              <span class="avatar-linkedin-badge"><i class="fa-brands fa-linkedin-in"></i></span>
             </div>
             <div class="banner-profile-info">
               <h4>Himanshu Mishra on LinkedIn</h4>
@@ -954,7 +969,13 @@ collab = TeamCollaboration.connect(
 
         <div class="contact-wrapper">
           <div class="contact-info glass-panel">
-            <h3>Direct Contact Channels</h3>
+            <div class="contact-author-badge">
+              <img src="assets/profile.jpg" alt="Himanshu Mishra" class="contact-avatar-img" />
+              <div>
+                <h3>Himanshu Mishra</h3>
+                <span class="contact-avatar-role">2nd Year Computer Science &amp; Eng.</span>
+              </div>
+            </div>
             <p>
               I'm always excited to discuss innovative cloud engineering solutions, collaborate on open-source repositories, 
               or join forces on hackathons.
@@ -1061,13 +1082,7 @@ collab = TeamCollaboration.connect(
     <div class="container footer-content">
       <div class="footer-left">
         <a href="#hero" class="footer-logo">
-          <div class="nav-logo-emblem">
-            <svg class="nav-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" stroke="url(#hm-grad-nav)" stroke-width="4.5" fill="rgba(99, 102, 241, 0.15)" />
-              <path d="M28 34 L28 66 M28 50 L44 50 M44 34 L44 66" stroke="#818cf8" stroke-width="5.5" stroke-linecap="round" />
-              <path d="M52 66 L52 34 L64 50 L76 34 L76 66" stroke="#38bdf8" stroke-width="5.5" stroke-linecap="round" />
-            </svg>
-          </div>
+          <img src="assets/profile.jpg" alt="Himanshu Mishra" class="footer-avatar-thumb" />
           <span>Himanshu Mishra</span>
         </a>
         <p class="footer-copy">2nd Year Engineering Student • Cloud Engineer &amp; AI Specialist • Eager to collaborate.</p>
