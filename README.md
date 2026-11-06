@@ -2,22 +2,32 @@
 
 A modern, responsive portfolio website built with pure semantic **HTML5**, **CSS3**, and **Vanilla JavaScript** (Zero build dependencies, zero framework bloat, instant loading).
 
-Curated specifically for **Himanshu Mishra** ([github.com/himanshu931588-cmd](https://github.com/himanshu931588-cmd)) — Cloud Engineer, AI/ML Specialist, and Sustainable Tech Innovator.
+Curated specifically for **Himanshu Mishra** ([github.com/himanshu931588-cmd](https://github.com/himanshu931588-cmd) • [linkedin.com/in/himanshu931588](https://linkedin.com/in/himanshu931588)) — 2nd Year Computer Science & Engineering Student, Cloud Architect, AI/ML Specialist, and Open Source Collaborator.
 
 ---
 
 ## 🌟 Highlights & Key Features
 
-- **Personalized to GitHub Profile**: Showcases real pinned open-source projects including:
-  - **Vero**: AI-powered platform for digital content authenticity and multi-format synthetic media verification.
-  - **KrishiAlert (KishanSeva)**: Sustainable satellite agriculture system to prevent crop stubble burning across North India.
-  - **ATM Simulation**: Stateful banking system simulation engine built in Python.
-  - **Stone Paper Scissor**: Modular decision-game logic framework in Python.
-- **Interactive Vero AI Forensics Engine**: A live in-browser interactive simulator demonstrating tokenization attention weights, forensic marker detection, and authentic vs. synthetic/deepfake probability distributions.
-- **Interactive Synaptic Neural Background Canvas**: Real-time canvas simulation connecting synaptic nodes with mouse cursor repulsion and glowing neural connections.
-- **Dual Visual Themes (Dark & Light Mode)**: Fully themed with glassmorphism, glowing accents, and `localStorage` persistence.
-- **Full Tech Arsenal**: Covering Python, C++, JavaScript, TypeScript, TensorFlow, PyTorch, Firebase, Supabase, Docker, MySQL, and Figma/Blender.
-- **Interactive Contact Form**: Direct links to `himanshu931588@gmail.com` and GitHub profile with client-side form validation and toast feedback.
+- **2nd Year Engineering Student & Collaboration Hub**:
+  - Highlights your academic journey pursuing a **B.Tech in Computer Science & Engineering**.
+  - Interactive **"Want to Collaborate With Me?"** Hub with instant pre-fill buttons for teaming up on Vero AI, KrishiAlert Agritech, Hackathons, and Open-Source projects.
+- **LinkedIn Highlights & Credentials Section (`#credentials`)**:
+  - **Academic Foundation**: Data Structures & Algorithms, Object-Oriented Programming (OOP), DBMS, Operating Systems, and Computer Networks.
+  - **Hands-on Experience Timeline**: Lead Architect for Vero AI, Founder of KrishiAlert, and Tech Content Creator.
+  - **LinkedIn Direct Connect Banner**: One-click connect button linking directly to your LinkedIn profile.
+- **Unique Bespoke Brand Logo**:
+  - Custom Hexagonal Cyber Shield SVG emblem with dual-tone gradient stroke, interconnected circuit glyphs (`H` & `M`), and a 3D pulsing orbit beacon.
+- **Interactive Starting Loading Page (Preloader)**:
+  - Hologram quantum core with 3 rotating orbital energy rings.
+  - Tap or click core to fast-launch; Spacebar / Enter shortcut.
+  - Live system diagnostic boot logs and dynamic 0% → 100% progress counter.
+- **Real Open-Source Projects**:
+  - **Vero**: AI-powered multimodal platform for digital content authenticity & deepfake verification.
+  - **KrishiAlert (KishanSeva)**: Sustainable satellite agriculture system to eliminate crop stubble burning across North India.
+  - **ATM Simulation**: Stateful banking transaction engine built in Python.
+  - **Stone Paper Scissor**: Modular game logic framework in Python.
+- **Interactive Vero AI Forensics Playground**:
+  - Real-time in-browser NLP tokenization with forensic attention weights and authentic vs. synthetic media classification.
 
 ---
 
@@ -35,35 +45,14 @@ Then visit `http://localhost:3000` in your browser.
 
 ---
 
-## 📁 Project Structure
-
-```text
-portyui/
-├── index.html            # Main markup with real projects & bio for Himanshu Mishra
-├── css/
-│   └── style.css         # Glassmorphism, CSS variables, dark/light themes, responsive layout
-├── js/
-│   ├── main.js           # Theme toggle, project filtering, scroll spy, contact form
-│   ├── neural-canvas.js  # Synaptic constellation canvas background
-│   └── playground.js     # Interactive Vero AI content authenticity simulator
-└── README.md             # Project documentation
-```
-
----
-
 ## 🌐 Deploy to GitHub Pages
 
-1. Initialize Git in the `portyui` folder (if not already):
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: Himanshu Mishra portfolio website"
-   ```
-2. Create a repository on GitHub (e.g. `himanshu931588-cmd.github.io` or `portfolio`).
-3. Push to your repository:
-   ```bash
-   git remote add origin https://github.com/himanshu931588-cmd/portfolio.git
-   git branch -M main
-   git push -u origin main
-   ```
-4. On GitHub, navigate to **Settings > Pages** and select the `main` branch to make it live instantly!
+```powershell
+# Add your GitHub repository as remote:
+git remote add origin https://github.com/himanshu931588-cmd/portfolio.git
+
+# Push to main branch:
+git branch -M main
+git push -u origin main
+```
+On GitHub, open **Settings > Pages** and select the **main** branch to publish it live!
