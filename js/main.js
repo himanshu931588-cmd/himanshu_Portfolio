@@ -1,16 +1,118 @@
 /**
  * Main Application Script for Himanshu Mishra (@himanshu931588-cmd)
- * Handles Theme Management, Project Filtering, Navigation, Stats Counter, and Contact Form.
+ * 2nd Year Engineering Student • Cloud Architect & AI Specialist
+ * Handles Interactive Preloader, Unique Brand Logo FX, Theme, Collaboration Hub, Filters, and Form.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initInteractiveLoader();
   initTheme();
   initNavigation();
+  initCollabHub();
   initProjectFilters();
   initStatsCounter();
   initContactForm();
   setCurrentYear();
 });
+
+/* ==========================================================================
+   0. Interactive Starting Loading Page (Preloader)
+   ========================================================================== */
+function initInteractiveLoader() {
+  const loader = document.getElementById('interactive-loader');
+  const coreTrigger = document.getElementById('loader-core-trigger');
+  const skipBtn = document.getElementById('loader-skip-btn');
+  const progressBar = document.getElementById('loader-progress-bar');
+  const percentText = document.getElementById('loader-percent');
+  const logText = document.getElementById('loader-log');
+
+  if (!loader || !progressBar || !percentText) return;
+
+  const bootLogs = [
+    '> [01/05] Initializing Himanshu Mishra Neural Environment...',
+    '> [02/05] 2nd Year Engineering Student Core Online...',
+    '> [03/05] Mounting Vero AI Forensics Engine...',
+    '> [04/05] Syncing KrishiAlert Satellite Telemetry...',
+    '> [05/05] Ready! Systems 100% Operational. Welcome.'
+  ];
+
+  let currentPercent = 0;
+  let isFinished = false;
+  let intervalSpeed = 22; // ms per progress tick
+
+  function updateLoader() {
+    if (isFinished) return;
+
+    if (currentPercent < 100) {
+      const increment = Math.max(1, Math.floor(Math.random() * 3) + 1);
+      currentPercent = Math.min(100, currentPercent + increment);
+
+      progressBar.style.width = `${currentPercent}%`;
+      percentText.textContent = `${currentPercent}%`;
+
+      if (currentPercent < 25) {
+        logText.textContent = bootLogs[0];
+      } else if (currentPercent < 50) {
+        logText.textContent = bootLogs[1];
+      } else if (currentPercent < 75) {
+        logText.textContent = bootLogs[2];
+      } else if (currentPercent < 95) {
+        logText.textContent = bootLogs[3];
+      } else {
+        logText.textContent = bootLogs[4];
+      }
+
+      setTimeout(updateLoader, intervalSpeed);
+    } else {
+      finishLoading();
+    }
+  }
+
+  function finishLoading() {
+    if (isFinished) return;
+    isFinished = true;
+    currentPercent = 100;
+    progressBar.style.width = '100%';
+    percentText.textContent = '100%';
+    logText.textContent = '> [READY] Launching Portfolio...';
+
+    setTimeout(() => {
+      loader.classList.add('loader-hidden');
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 700);
+    }, 350);
+  }
+
+  // Interactive core click fast-forwards/launches
+  if (coreTrigger) {
+    coreTrigger.addEventListener('click', () => {
+      intervalSpeed = 4;
+      currentPercent = Math.max(currentPercent, 88);
+      coreTrigger.style.transform = 'scale(1.15)';
+      setTimeout(() => {
+        coreTrigger.style.transform = '';
+        finishLoading();
+      }, 140);
+    });
+  }
+
+  // Skip button click
+  if (skipBtn) {
+    skipBtn.addEventListener('click', finishLoading);
+  }
+
+  // Spacebar or Enter to skip/launch
+  window.addEventListener('keydown', (e) => {
+    if ((e.code === 'Space' || e.code === 'Enter') && !isFinished) {
+      e.preventDefault();
+      finishLoading();
+    }
+  });
+
+  // Start progress
+  setTimeout(updateLoader, 100);
+}
 
 /* ==========================================================================
    1. Theme Management (Dark / Light with LocalStorage)
@@ -97,7 +199,50 @@ function initNavigation() {
 }
 
 /* ==========================================================================
-   3. Project Category Filter Controls
+   3. Collaboration Hub Interactions
+   ========================================================================== */
+function initCollabHub() {
+  const collabBtns = document.querySelectorAll('.collab-action-btn');
+  const directPitchBtn = document.getElementById('direct-pitch-btn');
+  const subjectInput = document.getElementById('subject');
+  const messageArea = document.getElementById('message');
+
+  collabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const collabType = btn.getAttribute('data-collab-type') || 'Student Project Collaboration';
+      
+      if (subjectInput) {
+        subjectInput.value = `Collaboration: ${collabType} (with Himanshu)`;
+      }
+
+      if (messageArea) {
+        messageArea.value = `Hi Himanshu,\n\nI saw your portfolio as a 2nd Year Engineering Student and would love to collaborate with you on ${collabType}.\n\nHere are some thoughts and ideas I have in mind: `;
+      }
+
+      // Smooth scroll to contact form
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          if (messageArea) messageArea.focus();
+        }, 650);
+      }
+
+      showToast(`Collaboration mode: ${collabType} selected!`, 'info');
+    });
+  });
+
+  if (directPitchBtn) {
+    directPitchBtn.addEventListener('click', (e) => {
+      if (subjectInput && !subjectInput.value) {
+        subjectInput.value = `Collaboration Proposal (with 2nd Year Student Himanshu)`;
+      }
+    });
+  }
+}
+
+/* ==========================================================================
+   4. Project Category Filter Controls
    ========================================================================== */
 function initProjectFilters() {
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -132,7 +277,7 @@ function initProjectFilters() {
 }
 
 /* ==========================================================================
-   4. Animated Numerical Stats Counter
+   5. Animated Numerical Stats Counter
    ========================================================================== */
 function initStatsCounter() {
   const statNumbers = document.querySelectorAll('.stat-number');
@@ -163,7 +308,6 @@ function initStatsCounter() {
     function updateCounter(currentTime) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Easing: easeOutQuad
       const easedProgress = 1 - (1 - progress) * (1 - progress);
       const currentVal = Math.floor(easedProgress * target);
 
@@ -181,7 +325,7 @@ function initStatsCounter() {
 }
 
 /* ==========================================================================
-   5. Interactive Contact Form with Validation & Feedback
+   6. Interactive Contact Form with Validation & Feedback
    ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('contact-form');
@@ -192,7 +336,6 @@ function initContactForm() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Clear previous errors
     clearErrors();
 
     const name = form.name.value.trim();
@@ -221,16 +364,15 @@ function initContactForm() {
     }
 
     if (!message) {
-      showError('message', 'Please share a short message about your project or inquiry.');
+      showError('message', 'Please share a short message about your project or collaboration idea.');
       isValid = false;
-    } else if (message.length < 10) {
-      showError('message', 'Please provide at least 10 characters.');
+    } else if (message.length < 8) {
+      showError('message', 'Please provide at least 8 characters.');
       isValid = false;
     }
 
     if (!isValid) return;
 
-    // Simulate sending with loading state
     const originalText = submitBtn.innerHTML;
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Transmitting...';
@@ -240,16 +382,16 @@ function initContactForm() {
       submitBtn.innerHTML = originalText;
 
       feedback.className = 'form-feedback success';
-      feedback.textContent = `Thank you, ${name}! Your message has been received. I'll get back to you within 24 hours.`;
+      feedback.textContent = `Thank you, ${name}! Your collaboration note has been received by Himanshu. He'll get back to you shortly!`;
       
-      showToast(`Message successfully transmitted to Himanshu Mishra!`, 'success');
+      showToast(`Collaboration request sent to Himanshu Mishra!`, 'success');
 
       form.reset();
 
       setTimeout(() => {
         feedback.style.display = 'none';
       }, 7000);
-    }, 1200);
+    }, 1100);
   });
 
   function showError(fieldId, msg) {
@@ -275,7 +417,7 @@ function initContactForm() {
 }
 
 /* ==========================================================================
-   6. Toast Notification Helper
+   7. Toast Notification Helper
    ========================================================================== */
 function showToast(message, type = 'info', duration = 4000) {
   const container = document.getElementById('toast-container');
@@ -304,7 +446,7 @@ function showToast(message, type = 'info', duration = 4000) {
 }
 
 /* ==========================================================================
-   7. Dynamic Current Year
+   8. Dynamic Current Year
    ========================================================================== */
 function setCurrentYear() {
   const yearEl = document.getElementById('current-year');
@@ -312,4 +454,3 @@ function setCurrentYear() {
     yearEl.textContent = new Date().getFullYear();
   }
 }
-
