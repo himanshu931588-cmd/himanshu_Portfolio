@@ -150,20 +150,20 @@ class AIPlayground {
       this.sentimentLabel.textContent = 'Authentic & Verified Content';
       this.sentimentConfidence.textContent = `${auth}%`;
       this.sentimentIcon.innerHTML = '<i class="fa-solid fa-shield-check"></i>';
-      this.sentimentIcon.style.color = '#10b981';
-      this.sentimentIcon.style.background = 'rgba(16, 185, 129, 0.15)';
+      this.sentimentIcon.style.color = '#ffffff';
+      this.sentimentIcon.style.background = 'rgba(255, 255, 255, 0.15)';
     } else if (synth > auth && synth >= neu) {
       this.sentimentLabel.textContent = 'Synthetic / Deepfake Media Detected';
       this.sentimentConfidence.textContent = `${synth}%`;
       this.sentimentIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
-      this.sentimentIcon.style.color = '#f43f5e';
-      this.sentimentIcon.style.background = 'rgba(244, 63, 94, 0.15)';
+      this.sentimentIcon.style.color = '#e4e4e7';
+      this.sentimentIcon.style.background = 'rgba(255, 255, 255, 0.12)';
     } else {
       this.sentimentLabel.textContent = 'Unverified / Neutral Digital Context';
       this.sentimentConfidence.textContent = `${neu}%`;
       this.sentimentIcon.innerHTML = '<i class="fa-solid fa-circle-info"></i>';
-      this.sentimentIcon.style.color = '#38bdf8';
-      this.sentimentIcon.style.background = 'rgba(56, 189, 248, 0.15)';
+      this.sentimentIcon.style.color = '#a1a1aa';
+      this.sentimentIcon.style.background = 'rgba(255, 255, 255, 0.08)';
     }
   }
 
@@ -189,8 +189,8 @@ class AIPlayground {
       const pill = document.createElement('span');
       pill.className = 'token-pill';
       if (isImportant) {
-        pill.style.borderColor = 'rgba(6, 182, 212, 0.45)';
-        pill.style.background = 'rgba(6, 182, 212, 0.15)';
+        pill.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+        pill.style.background = 'rgba(255, 255, 255, 0.15)';
       }
       pill.innerHTML = `${word} <span class="attn-weight">${weight}</span>`;
       this.tokensDisplay.appendChild(pill);

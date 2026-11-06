@@ -31,10 +31,10 @@ class NeuralCanvas {
   getThemeColors() {
     const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
     return {
-      particle: isDark ? 'rgba(129, 140, 248, 0.75)' : 'rgba(99, 102, 241, 0.65)',
-      particleHighlight: isDark ? 'rgba(6, 182, 212, 0.9)' : 'rgba(6, 182, 212, 0.8)',
-      line: isDark ? '99, 102, 241' : '129, 140, 248',
-      mouseLine: isDark ? '6, 182, 212' : '99, 102, 241'
+      particle: isDark ? 'rgba(255, 255, 255, 0.75)' : 'rgba(20, 20, 20, 0.65)',
+      particleHighlight: isDark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 0.95)',
+      line: isDark ? '255, 255, 255' : '40, 40, 40',
+      mouseLine: isDark ? '255, 255, 255' : '0, 0, 0'
     };
   }
 

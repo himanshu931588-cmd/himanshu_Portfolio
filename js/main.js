@@ -7,6 +7,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initInteractiveLoader();
   initTheme();
+  initSoundFX();
   initNavigation();
   initCollabHub();
   initProjectFilters();
@@ -141,6 +142,90 @@ function initTheme() {
       themeIcon.classList.replace('fa-sun', 'fa-moon');
     }
   }
+}
+
+/* ==========================================================================
+   1.1 Audio FX Feedback (Web Audio API Synthesizer - Optional, Crisp UI Clicks)
+   ========================================================================== */
+let audioCtx = null;
+let soundEnabled = localStorage.getItem('himanshu_sound') === 'true';
+
+function playSound(type = 'click') {
+  if (!soundEnabled) return;
+  try {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    const now = audioCtx.currentTime;
+    if (type === 'click') {
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(600, now);
+      osc.frequency.exponentialRampToValueAtTime(180, now + 0.04);
+      gain.gain.setValueAtTime(0.06, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+      osc.start(now);
+      osc.stop(now + 0.04);
+    } else if (type === 'chime') {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(523.25, now);
+      osc.frequency.exponentialRampToValueAtTime(880, now + 0.12);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+      osc.start(now);
+      osc.stop(now + 0.12);
+    }
+  } catch (err) {
+    // AudioContext blocked or not supported
+  }
+}
+
+function initSoundFX() {
+  const soundBtn = document.getElementById('sound-toggle');
+  const soundIcon = document.getElementById('sound-icon');
+  if (!soundBtn || !soundIcon) return;
+
+  function updateSoundUI() {
+    if (soundEnabled) {
+      soundIcon.className = 'fa-solid fa-volume-high';
+      soundBtn.title = 'Sound FX: ON (Click to Mute)';
+      soundBtn.setAttribute('aria-label', 'Sound FX enabled, click to mute');
+    } else {
+      soundIcon.className = 'fa-solid fa-volume-xmark';
+      soundBtn.title = 'Sound FX: OFF (Click to Enable)';
+      soundBtn.setAttribute('aria-label', 'Sound FX muted, click to enable');
+    }
+  }
+
+  updateSoundUI();
+
+  soundBtn.addEventListener('click', () => {
+    soundEnabled = !soundEnabled;
+    localStorage.setItem('himanshu_sound', soundEnabled);
+    updateSoundUI();
+    if (soundEnabled) {
+      playSound('chime');
+      showToast('Sound FX Enabled (Crisp Tactile Clicks)', 'info', 2500);
+    } else {
+      showToast('Sound FX Muted', 'info', 2000);
+    }
+  });
+
+  // Attach tactile sound to interactive elements
+  document.addEventListener('click', (e) => {
+    if (!soundEnabled) return;
+    const target = e.target.closest('button, .btn, .filter-chip, .collab-card, .nav-link, .interactive-logo');
+    if (target && target !== soundBtn) {
+      playSound('click');
+    }
+  });
 }
 
 /* ==========================================================================
