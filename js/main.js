@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCollabHub();
   initProjectFilters();
   initStatsCounter();
+  initGitHubLiveSync();
   initContactForm();
   setCurrentYear();
 });
@@ -446,7 +447,30 @@ function showToast(message, type = 'info', duration = 4000) {
 }
 
 /* ==========================================================================
-   8. Dynamic Current Year
+   8. Live GitHub Profile & Repositories Sync
+   ========================================================================== */
+function initGitHubLiveSync() {
+  fetch('https://api.github.com/users/himanshu931588-cmd')
+    .then(res => {
+      if (!res.ok) throw new Error('API Rate Limited or Offline');
+      return res.json();
+    })
+    .then(data => {
+      if (data && data.public_repos !== undefined) {
+        const repoStat = document.querySelector('.hero-stats .stat-number[data-target="10"]');
+        if (repoStat) {
+          repoStat.setAttribute('data-target', data.public_repos);
+          repoStat.textContent = data.public_repos;
+        }
+      }
+    })
+    .catch(() => {
+      // Graceful offline fallback: curated static metrics remain intact
+    });
+}
+
+/* ==========================================================================
+   9. Dynamic Current Year
    ========================================================================== */
 function setCurrentYear() {
   const yearEl = document.getElementById('current-year');

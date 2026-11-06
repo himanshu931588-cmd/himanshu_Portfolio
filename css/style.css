@@ -2276,3 +2276,236 @@ a {
   color: var(--text-secondary);
   margin: 0;
 }
+
+
+/* ==========================================================================
+   LinkedIn Credentials & Education Section Styling
+   ========================================================================== */
+.linkedin-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.linkedin-column {
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.linkedin-col-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.col-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.icon-edu { background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); }
+.icon-exp { background: rgba(6, 182, 212, 0.15); color: #38bdf8; border: 1px solid rgba(6, 182, 212, 0.3); }
+
+.linkedin-col-header h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.col-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.edu-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.edu-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.edu-degree {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.edu-badge {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.edu-field {
+  font-size: 1rem;
+  color: var(--primary-light);
+  margin-bottom: 0.85rem;
+}
+
+.edu-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.course-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.course-tag {
+  font-size: 0.78rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Experience Timeline inside LinkedIn Section */
+.exp-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 3px;
+  width: 2px;
+  background: linear-gradient(180deg, #38bdf8 0%, rgba(99, 102, 241, 0.4) 100%);
+  border-radius: 2px;
+}
+
+.exp-item {
+  position: relative;
+}
+
+.exp-dot {
+  position: absolute;
+  top: 6px;
+  left: -1.5rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid #38bdf8;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
+}
+
+.exp-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.exp-role {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.exp-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.exp-company {
+  font-size: 0.88rem;
+  color: var(--primary-light);
+  margin-bottom: 0.4rem;
+}
+
+.exp-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* LinkedIn Connect Banner */
+.linkedin-connect-banner {
+  padding: 1.75rem 2.25rem;
+  border-color: rgba(56, 189, 248, 0.35);
+  background: linear-gradient(90deg, rgba(15, 20, 34, 0.8) 0%, rgba(14, 40, 68, 0.45) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.banner-avatar-group {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.avatar-shield {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  background: #0077b5;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  box-shadow: 0 4px 18px rgba(0, 119, 181, 0.4);
+  flex-shrink: 0;
+}
+
+.banner-profile-info h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  color: #f8fafc;
+}
+
+.banner-profile-info p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 580px;
+}
+
+.banner-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+@media (max-width: 992px) {
+  .linkedin-grid {
+    grid-template-columns: 1fr;
+  }
+}
