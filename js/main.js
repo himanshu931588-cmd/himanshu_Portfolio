@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatsCounter();
   initGitHubLiveSync();
   initLightboxModals();
+  initBackToTop();
   initContactForm();
   setCurrentYear();
 });
@@ -785,4 +786,24 @@ function initLightboxModals() {
       }
     });
   }
+}
+
+/* ==========================================================================
+   12. Floating Back to Top Button
+   ========================================================================== */
+function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 450) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }

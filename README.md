@@ -9,7 +9,7 @@ Curated specifically for **Himanshu Mishra** ([github.com/himanshu931588-cmd](ht
 ## 🌟 Highlights & Key Features
 
 - **🏆 National-Level Award & Honors**:
-  - **2nd Position Winner** at the National Science Day 2026 science exhibition held at **CGC University, Mohali** (Tech Sci Nova 2026).
+  - **2nd Position Winner** at the National Science Day 2026 national-level science exhibition (Tech Sci Nova 2026).
   - Project created with **Team Digital Rakshak** focusing on leveraging technology to address real-world safety challenges.
   - Interactive certificate viewer showcasing the verified Certificate of Appreciation (Ref: NSD/28022026/PP-07).
 - **2nd Year Engineering Student & Collaboration Hub**:
