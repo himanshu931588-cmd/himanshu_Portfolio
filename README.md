@@ -9,7 +9,7 @@ Curated specifically for **Himanshu Mishra** ([github.com/himanshu931588-cmd](ht
 ## 🌟 Highlights & Key Features
 
 - **2nd Year Engineering Student & Collaboration Hub**:
-  - Highlights your academic journey pursuing a **B.Tech in Computer Science & Engineering**.
+  - Highlights your academic journey pursuing a **B.Tech in Computer Science & Engineering (2025 — 2029)**.
   - Interactive **"Want to Collaborate With Me?"** Hub with instant pre-fill buttons for teaming up on Vero AI, KrishiAlert Agritech, Hackathons, and Open-Source projects.
 - **LinkedIn Highlights & Credentials Section (`#credentials`)**:
   - **Academic Foundation**: Data Structures & Algorithms, Object-Oriented Programming (OOP), DBMS, Operating Systems, and Computer Networks.
