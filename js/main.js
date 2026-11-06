@@ -88,7 +88,8 @@ function initInteractiveLoader() {
 
   // Interactive core click fast-forwards/launches
   if (coreTrigger) {
-    coreTrigger.addEventListener('click', () => {
+    coreTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
       intervalSpeed = 4;
       currentPercent = Math.max(currentPercent, 88);
       coreTrigger.style.transform = 'scale(1.15)';
@@ -101,8 +102,18 @@ function initInteractiveLoader() {
 
   // Skip button click
   if (skipBtn) {
-    skipBtn.addEventListener('click', finishLoading);
+    skipBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      finishLoading();
+    });
   }
+
+  // Tap anywhere on loader to speed up / finish (great for mobile)
+  loader.addEventListener('click', () => {
+    if (!isFinished) {
+      finishLoading();
+    }
+  });
 
   // Spacebar or Enter to skip/launch
   window.addEventListener('keydown', (e) => {
@@ -111,6 +122,13 @@ function initInteractiveLoader() {
       finishLoading();
     }
   });
+
+  // Mobile failsafe: auto-dismiss preloader within 2.2s so no device gets stuck
+  setTimeout(() => {
+    if (!isFinished) {
+      finishLoading();
+    }
+  }, 2200);
 
   // Start progress
   setTimeout(updateLoader, 100);
@@ -235,7 +253,8 @@ function initNavigation() {
   const navbar = document.getElementById('navbar');
   const mobileToggle = document.getElementById('mobile-toggle');
   const navMenu = document.getElementById('nav-menu');
-  const navLinks = document.querySelectorAll('.nav-link');
+  const navBackdrop = document.getElementById('nav-backdrop');
+  const navLinks = document.querySelectorAll('.nav-link, .mobile-drawer-cta a');
 
   // Sticky Navbar on Scroll
   window.addEventListener('scroll', () => {
@@ -247,19 +266,54 @@ function initNavigation() {
     highlightActiveNavLink();
   }, { passive: true });
 
+  function openMenu() {
+    if (!navMenu || !mobileToggle) return;
+    navMenu.classList.add('open');
+    mobileToggle.classList.add('active');
+    if (navBackdrop) navBackdrop.classList.add('active');
+    document.body.classList.add('nav-open');
+  }
+
+  function closeMenu() {
+    if (!navMenu || !mobileToggle) return;
+    navMenu.classList.remove('open');
+    mobileToggle.classList.remove('active');
+    if (navBackdrop) navBackdrop.classList.remove('active');
+    document.body.classList.remove('nav-open');
+  }
+
   // Mobile Menu Toggle
   if (mobileToggle && navMenu) {
     mobileToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      mobileToggle.classList.toggle('active');
+      const isOpen = navMenu.classList.contains('open');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    if (navBackdrop) {
+      navBackdrop.addEventListener('click', closeMenu);
+    }
+
+    // Close on escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        closeMenu();
+      }
+    });
+
+    // Close when window resized to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && navMenu.classList.contains('open')) {
+        closeMenu();
+      }
     });
 
     // Close mobile menu when clicking any nav link
     navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-        mobileToggle.classList.remove('active');
-      });
+      link.addEventListener('click', closeMenu);
     });
   }
 

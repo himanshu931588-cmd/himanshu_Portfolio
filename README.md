@@ -29,31 +29,41 @@ Curated specifically for **Himanshu Mishra** ([github.com/himanshu931588-cmd](ht
   - **Stone Paper Scissor**: Modular game logic framework in Python.
 - **Interactive Vero AI Forensics Playground**:
   - Real-time in-browser NLP tokenization with forensic attention weights and authentic vs. synthetic media classification.
+- **Ultra-Fast Mobile & PC Optimized**:
+  - **Mobile Responsive Drawer**: Frosted glass slide-out drawer with direct LinkedIn/GitHub action buttons, backdrop overlay, touch gesture handling, and outside tap to dismiss.
+  - **No iOS Auto-Zoom**: Optimized 16px form inputs prevent iOS Safari from zooming in unexpectedly.
+  - **Hardware Accelerated**: Butter-smooth 60fps scrolling on both mobile phones and PC monitors with zero repaint stutter.
+  - **Tap Anywhere Skip**: Preloader can be tapped anywhere on mobile or launched with Spacebar/Enter on PC.
 
 ---
 
-## 🚀 How to Run Locally
+## 📱 How to Open on Mobile and PC
 
-### Option 1: Direct File Open
-Simply double-click [`index.html`](file:///c:/Users/hp/portyui/index.html) or open it with any web browser (Chrome, Edge, Firefox, Safari).
+### 💻 On PC (Fastest)
+- **1-Click**: Double-click [`open_portfolio.bat`](file:///c:/Users/hp/portyui/open_portfolio.bat) to launch immediately in Chrome, Edge, or your default browser.
+- Or directly double-click [`index.html`](file:///c:/Users/hp/portyui/index.html).
 
-### Option 2: Local HTTP Server
-Using Python:
-```bash
-python -m http.server 3000
-```
-Then visit `http://localhost:3000` in your browser.
+### 📲 On Mobile Phone (Local Wi-Fi Testing)
+1. Double-click [`start_local_server.bat`](file:///c:/Users/hp/portyui/start_local_server.bat) on your PC (or run `python -m http.server 3000 --bind 0.0.0.0`).
+2. Make sure your phone and PC are connected to the same Wi-Fi.
+3. Open terminal/PowerShell on PC, run `ipconfig`, and find your IPv4 Address (e.g. `192.168.1.15`).
+4. On your mobile phone browser (Chrome, Safari), go to:
+   ```
+   http://192.168.1.15:3000
+   ```
+   *(replace with your actual PC IP address)*.
 
 ---
 
-## 🌐 Deploy to GitHub Pages
+## 🌐 Deploy to GitHub Pages (Worldwide Access on Mobile & PC)
+
+To make it accessible worldwide from any mobile phone, tablet, or computer:
 
 ```powershell
-# Add your GitHub repository as remote:
-git remote add origin https://github.com/himanshu931588-cmd/portfolio.git
-
-# Push to main branch:
+# In terminal inside c:\Users\hp\portyui:
+git remote add origin https://github.com/himanshu931588-cmd/himanshu931588-cmd.github.io.git
 git branch -M main
 git push -u origin main
 ```
-On GitHub, open **Settings > Pages** and select the **main** branch to publish it live!
+Your portfolio will be live 24/7 at:
+**`https://himanshu931588-cmd.github.io/`**
