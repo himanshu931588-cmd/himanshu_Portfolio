@@ -265,7 +265,8 @@ himanshu = StudentProfile(
     degree=<span class="code-string">"B.Tech in Computer Science & Engineering"</span>,
     current_status=<span class="code-string">"2nd Year Engineering Student"</span>,
     photo=<span class="code-string">"assets/profile.jpg"</span>,
-    passions=[<span class="code-string">"Cloud Infrastructure"</span>, <span class="code-string">"AI/ML"</span>, <span class="code-string">"Sustainability"</span>]
+    passions=[<span class="code-string">"Cloud & Security (BaseGuard)"</span>, <span class="code-string">"AI/ML (Vero)"</span>, <span class="code-string">"Sustainability"</span>],
+    active_repos=[<span class="code-string">"vero"</span>, <span class="code-string">"baseguard"</span>, <span class="code-string">"KrishiAlert"</span>, <span class="code-string">"ATM_Simulation"</span>]
 )
 
 <span class="code-comment"># Want to collaborate on Vero or new ideas?</span>
@@ -732,6 +733,7 @@ collab = TeamCollaboration.connect(
         <div class="filter-controls">
           <button class="filter-btn active" data-filter="all">All Projects</button>
           <button class="filter-btn" data-filter="ai">AI &amp; Verification</button>
+          <button class="filter-btn" data-filter="security">Security &amp; Cloud</button>
           <button class="filter-btn" data-filter="agri">Sustainable Tech</button>
           <button class="filter-btn" data-filter="python">Python Simulations</button>
         </div>
@@ -774,6 +776,47 @@ collab = TeamCollaboration.connect(
               <span>TensorFlow</span>
               <span>Node.js</span>
               <span>REST APIs</span>
+            </div>
+          </article>
+
+          <!-- Project 2: BaseGuard (Cloud & Database Security Platform) -->
+          <article class="project-card glass-panel" data-category="security">
+            <div class="project-header">
+              <div class="project-type-tag"><i class="fa-solid fa-shield-halved"></i> Cloud &amp; Database Security</div>
+              <div class="project-links">
+                <a href="https://github.com/himanshu931588-cmd/baseguard" target="_blank" rel="noopener" class="icon-link" title="GitHub Repository">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://github.com/himanshu931588-cmd/baseguard" target="_blank" rel="noopener" class="icon-link" title="Open Source Code">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            
+            <h3 class="project-title">BaseGuard: Cloud Database &amp; API Security Firewall</h3>
+            <p class="project-summary">
+              An intelligent cybersecurity guardrail engineered to protect cloud databases, REST APIs, and backend 
+              infrastructure with automated anomaly detection, granular role-based access control (RBAC), and zero-trust perimeter verification.
+            </p>
+
+            <div class="project-metrics">
+              <div class="metric-item">
+                <span class="metric-val">Zero-Trust</span>
+                <span class="metric-key">Access Defense</span>
+              </div>
+              <div class="metric-item">
+                <span class="metric-val">Real-time</span>
+                <span class="metric-key">Threat Guard</span>
+              </div>
+            </div>
+
+            <div class="project-tech-stack">
+              <span>Python</span>
+              <span>Cloud Security</span>
+              <span>Database RBAC</span>
+              <span>REST APIs</span>
+              <span>Docker</span>
+              <span>Cryptography</span>
             </div>
           </article>
 

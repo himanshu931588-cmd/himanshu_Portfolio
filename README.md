@@ -23,6 +23,7 @@ Curated specifically for **Himanshu Mishra** ([github.com/himanshu931588-cmd](ht
   - Live system diagnostic boot logs and dynamic 0% → 100% progress counter.
 - **Real Open-Source Projects**:
   - **Vero**: AI-powered multimodal platform for digital content authenticity & deepfake verification.
+  - **BaseGuard**: Cloud database and API security firewall with zero-trust RBAC and threat detection.
   - **KrishiAlert (KishanSeva)**: Sustainable satellite agriculture system to eliminate crop stubble burning across North India.
   - **ATM Simulation**: Stateful banking transaction engine built in Python.
   - **Stone Paper Scissor**: Modular game logic framework in Python.

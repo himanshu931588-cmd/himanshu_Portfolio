@@ -33,7 +33,7 @@ function initInteractiveLoader() {
   const bootLogs = [
     '> [01/05] Initializing Himanshu Mishra Neural Environment...',
     '> [02/05] 2nd Year Engineering Student Core Online...',
-    '> [03/05] Mounting Vero AI Forensics Engine...',
+    '> [03/05] Mounting Vero AI Forensics & BaseGuard Defense...',
     '> [04/05] Syncing KrishiAlert Satellite Telemetry...',
     '> [05/05] Ready! Systems 100% Operational. Welcome.'
   ];
@@ -328,38 +328,69 @@ function initCollabHub() {
 }
 
 /* ==========================================================================
-   4. Project Category Filter Controls
+   4. Project Category Filter Controls & Live Search
    ========================================================================== */
 function initProjectFilters() {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
+  const searchInput = document.getElementById('project-search');
+  const clearSearchBtn = document.getElementById('clear-search-btn');
 
-  if (filterBtns.length === 0 || projectCards.length === 0) return;
+  if (projectCards.length === 0) return;
+
+  let activeCategory = 'all';
+  let searchQuery = '';
+
+  function applyFilters() {
+    projectCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      const cardText = card.textContent.toLowerCase();
+      const matchesCategory = activeCategory === 'all' || cardCategory === activeCategory;
+      const matchesSearch = !searchQuery || cardText.includes(searchQuery);
+
+      if (matchesCategory && matchesSearch) {
+        card.style.display = 'flex';
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(12px)';
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 30);
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (clearSearchBtn) {
+      clearSearchBtn.style.display = searchQuery ? 'inline-flex' : 'none';
+    }
+  }
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
-      const filterCategory = btn.getAttribute('data-filter');
-
-      projectCards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-        if (filterCategory === 'all' || cardCategory === filterCategory) {
-          card.style.display = 'flex';
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(12px)';
-          setTimeout(() => {
-            card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, 30);
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      activeCategory = btn.getAttribute('data-filter') || 'all';
+      applyFilters();
     });
   });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      applyFilters();
+    });
+  }
+
+  if (clearSearchBtn && searchInput) {
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      searchInput.focus();
+      applyFilters();
+    });
+  }
 }
 
 /* ==========================================================================
