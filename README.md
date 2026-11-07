@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website built with pure semantic **HTML5**, **CSS3**, and **Vanilla JavaScript** (Zero build dependencies, zero framework bloat, instant loading).
 
-Curated specifically for **Himanshu Mishra** ([github.com/himanshu931588-cmd](https://github.com/himanshu931588-cmd) • [linkedin.com/in/himanshu931588](https://linkedin.com/in/himanshu931588)) — 2nd Year Computer Science & Engineering Student, Cloud Architect, AI/ML Specialist, and Open Source Collaborator.
+Curated specifically for **Himanshu Mishra** ([github.com/himanshu931588-cmd](https://github.com/himanshu931588-cmd) • [linkedin.com/in/himanshu-mishra-2006jan](https://www.linkedin.com/in/himanshu-mishra-2006jan/)) — 2nd Year Computer Science & Engineering Student, Cloud Architect, AI/ML Specialist, and Open Source Collaborator.
 
 ---
 
