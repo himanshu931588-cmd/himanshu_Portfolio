@@ -21,120 +21,71 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   0. Interactive Starting Loading Page (Preloader)
+   0. Minimalist Aesthetic Preloader
    ========================================================================== */
 function initInteractiveLoader() {
   const loader = document.getElementById('interactive-loader');
-  const coreTrigger = document.getElementById('loader-core-trigger');
-  const skipBtn = document.getElementById('loader-skip-btn');
   const progressBar = document.getElementById('loader-progress-bar');
   const percentText = document.getElementById('loader-percent');
-  const logText = document.getElementById('loader-log');
 
-  if (!loader || !progressBar || !percentText) return;
-
-  const bootLogs = [
-    '> [01/05] Initializing Himanshu Mishra Neural Environment...',
-    '> [02/05] 2nd Year Engineering Student Core Online...',
-    '> [03/05] Mounting Vero AI Forensics & BaseGuard Defense...',
-    '> [04/05] Syncing KrishiAlert Satellite Telemetry...',
-    '> [05/05] Ready! Systems 100% Operational. Welcome.'
-  ];
+  if (!loader) return;
 
   let currentPercent = 0;
   let isFinished = false;
-  let intervalSpeed = 22; // ms per progress tick
-
-  function updateLoader() {
-    if (isFinished) return;
-
-    if (currentPercent < 100) {
-      const increment = Math.max(1, Math.floor(Math.random() * 3) + 1);
-      currentPercent = Math.min(100, currentPercent + increment);
-
-      progressBar.style.width = `${currentPercent}%`;
-      percentText.textContent = `${currentPercent}%`;
-
-      if (currentPercent < 25) {
-        logText.textContent = bootLogs[0];
-      } else if (currentPercent < 50) {
-        logText.textContent = bootLogs[1];
-      } else if (currentPercent < 75) {
-        logText.textContent = bootLogs[2];
-      } else if (currentPercent < 95) {
-        logText.textContent = bootLogs[3];
-      } else {
-        logText.textContent = bootLogs[4];
-      }
-
-      setTimeout(updateLoader, intervalSpeed);
-    } else {
-      finishLoading();
-    }
-  }
 
   function finishLoading() {
     if (isFinished) return;
     isFinished = true;
     currentPercent = 100;
-    progressBar.style.width = '100%';
-    percentText.textContent = '100%';
-    logText.textContent = '> [READY] Launching Portfolio...';
+    if (progressBar) progressBar.style.width = '100%';
+    if (percentText) percentText.textContent = '100%';
 
     setTimeout(() => {
       loader.classList.add('loader-hidden');
       setTimeout(() => {
         loader.style.display = 'none';
-      }, 700);
-    }, 350);
+      }, 500);
+    }, 250);
   }
 
-  // Interactive core click fast-forwards/launches
-  if (coreTrigger) {
-    coreTrigger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      intervalSpeed = 4;
-      currentPercent = Math.max(currentPercent, 88);
-      coreTrigger.style.transform = 'scale(1.15)';
-      setTimeout(() => {
-        coreTrigger.style.transform = '';
+  function updateLoader() {
+    if (isFinished) return;
+
+    if (currentPercent < 100) {
+      const step = Math.floor(Math.random() * 8) + 8;
+      currentPercent = Math.min(100, currentPercent + step);
+
+      if (progressBar) progressBar.style.width = `${currentPercent}%`;
+      if (percentText) percentText.textContent = `${currentPercent}%`;
+
+      if (currentPercent < 100) {
+        setTimeout(updateLoader, 30);
+      } else {
         finishLoading();
-      }, 140);
-    });
-  }
-
-  // Skip button click
-  if (skipBtn) {
-    skipBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      finishLoading();
-    });
-  }
-
-  // Tap anywhere on loader to speed up / finish (great for mobile)
-  loader.addEventListener('click', () => {
-    if (!isFinished) {
+      }
+    } else {
       finishLoading();
     }
-  });
+  }
 
-  // Spacebar or Enter to skip/launch
+  // Click or keydown to instantly dismiss
+  loader.addEventListener('click', finishLoading);
   window.addEventListener('keydown', (e) => {
-    if ((e.code === 'Space' || e.code === 'Enter') && !isFinished) {
-      e.preventDefault();
-      finishLoading();
-    }
+    if (e.code === 'Space' || e.code === 'Enter') finishLoading();
   });
 
-  // Mobile failsafe: auto-dismiss preloader within 2.2s so no device gets stuck
-  setTimeout(() => {
-    if (!isFinished) {
-      finishLoading();
-    }
-  }, 2200);
+  // Finish on window load if document already parsed
+  if (document.readyState === 'complete') {
+    setTimeout(finishLoading, 200);
+  } else {
+    window.addEventListener('load', () => setTimeout(finishLoading, 150));
+  }
+
+  // Failsafe: max 1.2s timeout
+  setTimeout(finishLoading, 1200);
 
   // Start progress
-  setTimeout(updateLoader, 100);
+  setTimeout(updateLoader, 40);
 }
 
 /* ==========================================================================
