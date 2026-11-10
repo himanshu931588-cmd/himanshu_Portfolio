@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
@@ -15,1371 +15,612 @@
     gtag('js', new Date());
     gtag('config', 'G-6FC0FQWG6L');
   </script>
-  <meta name="theme-color" content="#09090b">
-  <meta name="color-scheme" content="dark light">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Himanshu Mishra | 2nd Year Engineering Student • Cloud &amp; AI Specialist</title>
-  <meta name="description" content="Portfolio of Himanshu Mishra (@himanshu931588-cmd) - 2nd Year Engineering Student, Cloud Engineer, AI/ML Specialist, and Open Source Collaborator.">
-  <meta name="keywords" content="Himanshu Mishra, himanshu931588-cmd, 2nd Year Engineering Student, LinkedIn Himanshu Mishra, Cloud Engineer, AI, Machine Learning, Vero, KrishiAlert, Python">
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'><polygon points='50,6 88,28 88,72 50,94 12,72 12,28' stroke='%23818cf8' stroke-width='6' fill='%230f1422'/><path d='M30 36 L30 64 M30 50 L46 50 M46 36 L46 64' stroke='%23818cf8' stroke-width='6' stroke-linecap='round'/><path d='M54 64 L54 36 L66 50 L78 36 L78 64' stroke='%2338bdf8' stroke-width='6' stroke-linecap='round'/></svg>">
 
-  <!-- Google Fonts: Inter, JetBrains Mono, Plus Jakarta Sans -->
+  <title>HIMANSHU — Cloud Architect · AI Specialist · Engineer</title>
+  <meta name="description" content="Cinematic portfolio of Himanshu Mishra (@himanshu931588-cmd) — 2nd Year B.Tech CSE Student, Cloud Architect, AI/ML Specialist, and Open Source Collaborator.">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Preload Fonts -->
+  <link rel="preload" href="assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/oswald-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/oswald-700.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Google Fonts Fallback & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Oswald:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSJ7FL75"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
-  <!-- Custom Aesthetic Cursor (Desktop Pointer Devices) -->
-  <div class="custom-cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-  <div class="custom-cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+  <!-- Global Film Grain Texture -->
+  <div class="cinematic-grain-overlay" aria-hidden="true"></div>
 
   <!-- =======================================================================
-       Minimalist Aesthetic Site Preloader (No Personal Details)
+       0. Minimalist Cinematic Boot Screen
        ======================================================================= -->
-  <div id="interactive-loader" class="loader-overlay" aria-label="Loading site">
-    <div class="loader-backdrop"></div>
-    <div class="loader-content">
-      <div class="aesthetic-spinner">
-        <div class="spinner-ring"></div>
-        <div class="spinner-dot"></div>
+  <div class="boot-veil" id="bootVeil" aria-label="System Initializing">
+    <div class="boot-box">
+      <div class="boot-monogram">HM</div>
+      <div class="boot-track">
+        <div class="boot-fill" id="bootFill"></div>
       </div>
-      <div class="loader-minimal-meta">
-        <span class="loader-loading-text">Loading</span>
-        <span class="loader-percent" id="loader-percent">0%</span>
-      </div>
-      <div class="loader-progress-container">
-        <div class="loader-progress-track">
-          <div class="loader-progress-bar" id="loader-progress-bar"></div>
-        </div>
+      <div class="boot-meta">
+        <span>INITIALIZING</span>
+        <span id="bootPercent">0%</span>
       </div>
     </div>
   </div>
 
-  <!-- Fixed Site Background Artwork Layer -->
-  <div class="site-bg-layer" aria-hidden="true"></div>
+  <!-- Screen-reader accessible title -->
+  <h1 class="sr-only">Himanshu Mishra — Cloud Architect, AI/ML Specialist, 2nd Year Engineering Student. Welcome to my world.</h1>
 
-  <!-- Neural Interactive Canvas Background -->
-  <canvas id="neural-canvas"></canvas>
+  <!-- =======================================================================
+       Scene 01 — The Monumental Hero Stage (Fixed Viewport)
+       ======================================================================= -->
+  <div class="hero-stage" id="heroStage">
+    <!-- Ambient Particle / Volumetric Canvas -->
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
 
-  <!-- Ambient Glow Effects -->
-  <div class="glow-orb orb-primary" aria-hidden="true"></div>
-  <div class="glow-orb orb-secondary" aria-hidden="true"></div>
+    <!-- Header Navigation -->
+    <header class="hdr" id="hdr">
+      <svg class="hdr__rule" id="hdrRule" aria-hidden="true" preserveAspectRatio="none">
+        <polyline id="hdrRulePath" points="0,42 2000,42" fill="none" stroke="currentColor" stroke-width="1.25" vector-effect="non-scaling-stroke"/>
+      </svg>
 
-  <!-- Header / Navigation -->
-  <header class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="nav-logo" title="Himanshu Mishra Portfolio">
-        <div class="nav-logo-emblem">
-          <span class="nav-brand-monogram">HM</span>
-        </div>
-        <div class="nav-logo-text">
-          <span class="logo-name">Himanshu Mishra</span>
-          <span class="logo-sub">Cloud &amp; AI Specialist</span>
-        </div>
-      </a>
-
-      <nav class="nav-links" id="nav-menu">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#collaborate" class="nav-link highlight-collab">
-          <i class="fa-solid fa-handshake-angle"></i> Collaborate
+      <div class="hdr__left">
+        <a class="hdr__mark" href="#heroStage" aria-label="Himanshu, Home">
+          <span class="mark-word">HIMANSHU</span>
         </a>
-        <a href="#credentials" class="nav-link">
-          <i class="fa-brands fa-linkedin"></i> Experience &amp; Edu
-        </a>
-        <a href="#playground" class="nav-link highlight-link">
-          <i class="fa-solid fa-shield-halved"></i> Vero AI
-        </a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#skills" class="nav-link">Tech Stack</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <div class="mobile-drawer-cta">
-          <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-        </div>
+        <span class="hdr__div" aria-hidden="true"></span>
+        <p class="hdr__roles">
+          <span>Cloud Architect</span>
+          <span>AI / ML Specialist</span>
+          <span>Engineer</span>
+        </p>
+      </div>
+
+      <nav class="hdr__nav" aria-label="Primary">
+        <ul>
+          <li><a href="#heroStage" class="is-active">Home</a></li>
+          <li><a href="#universe">Universe</a></li>
+          <li><a href="#chrono">Timeline</a></li>
+          <li><a href="#projects">Works</a></li>
+          <li><a href="#story">Story</a></li>
+          <li><a href="#fin">Contact</a></li>
+        </ul>
       </nav>
 
-      <div class="nav-actions">
-        <!-- Theme Toggle -->
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle visual theme" title="Toggle Theme">
-          <i class="fa-solid fa-moon" id="theme-icon"></i>
+      <div class="hdr__right">
+        <div class="hdr__meta">
+          <span>Portfolio — MMXXVI</span>
+          <span class="hdr__pips" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+
+        <button class="hdr__sound-btn" id="soundToggle" title="Toggle Cinematic Sound FX" aria-label="Sound Toggle">
+          <i class="fa-solid fa-volume-xmark" id="soundIcon"></i>
         </button>
 
-        <!-- UI Sound Effects Toggle -->
-        <button id="sound-toggle" class="theme-toggle-btn" aria-label="Toggle UI Audio Effects" title="Sound FX: OFF">
-          <i class="fa-solid fa-volume-xmark" id="sound-icon"></i>
-        </button>
-
-        <!-- LinkedIn Direct Link -->
-        <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener" class="btn btn-outline btn-sm nav-cta" title="LinkedIn Profile">
-          <i class="fa-brands fa-linkedin"></i> LinkedIn
-        </a>
-
-        <!-- GitHub Profile Direct Link -->
-        <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="btn btn-outline btn-sm nav-cta">
-          <i class="fa-brands fa-github"></i> GitHub
-        </a>
-
-        <!-- Mobile Menu Toggle Button -->
-        <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle navigation menu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="hdr__burger" id="burgerBtn" aria-expanded="false" aria-label="Toggle Mobile Navigation">
+          <span></span><span></span>
         </button>
       </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <nav class="mobile-nav-drawer" id="mobileDrawer">
+      <a href="#heroStage" class="mobile-nav-link">01 // Home</a>
+      <a href="#universe" class="mobile-nav-link">02 // Technical Universe</a>
+      <a href="#chrono" class="mobile-nav-link">03 // Time Machine</a>
+      <a href="#projects" class="mobile-nav-link">04 // Featured Works</a>
+      <a href="#story" class="mobile-nav-link">05 // Literary Story</a>
+      <a href="#fin" class="mobile-nav-link">06 // Connect</a>
+    </nav>
+
+    <!-- Colossal Wordmark & Volumetric Ember Core -->
+    <div class="hero-centerpiece" aria-hidden="true">
+      <div class="hero-wordmark-wrap">
+        <h2 class="hero-wordmark">HIMANSHU</h2>
+      </div>
+      <div class="hero-ember-core"></div>
     </div>
-  </header>
-  <div id="nav-backdrop" class="nav-backdrop" aria-hidden="true"></div>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="section hero" id="hero">
-      <div class="container hero-container">
-        <div class="hero-content">
-          <!-- Availability / Collaboration Badge -->
-          <div class="status-pill animate-fade-in">
-            <span class="pulse-indicator"></span>
-            <span>2nd Year Engineering Student • Open to Collaborate with You!</span>
+    <!-- Figure in Blazer (Only photo on the entire portfolio) -->
+    <div class="hero-figure-wrap">
+      <div class="hero-figure-frame">
+        <img src="assets/profile.jpg" alt="Himanshu Mishra in Tailored Blazer" class="hero-figure-img" id="heroFigureImg">
+      </div>
+    </div>
+
+    <!-- Cinematic Furniture Layer -->
+    <div class="furniture" aria-hidden="true">
+      <p class="welcome-banner">
+        <span class="dots">•••</span>
+        <span>Welcome to my world</span>
+        <span class="dots">•••</span>
+      </p>
+
+      <span class="chip chip--engineer">•Engineer Himanshu•</span>
+      <span class="chip chip--specialist">•Cloud &amp; AI Architect•</span>
+
+      <span class="arrows-strip arrows-strip--left">&lt;&lt;&lt; SYS.01</span>
+      <span class="arrows-strip arrows-strip--right">SYS.02 &gt;&gt;&gt;</span>
+      <div class="matrix-dots matrix-dots--br"></div>
+    </div>
+
+    <!-- Hero Quick Action Tray -->
+    <div class="hero-cta-tray">
+      <a href="#projects" class="cinematic-btn cinematic-btn--primary">
+        <i class="fa-solid fa-arrow-down-long"></i> Explore Works
+      </a>
+      <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener" class="cinematic-btn cinematic-btn--outline">
+        <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+      </a>
+    </div>
+  </div>
+
+  <!-- Flow Container -->
+  <main class="flow">
+    <!-- Spacer reserving the fixed hero's viewport scroll travel -->
+    <div class="hero-spacer" aria-hidden="true"></div>
+
+    <!-- ====================================================================
+         Scene 02 — The Technical Universe (Interactive 3D Orbit)
+         ==================================================================== -->
+    <section class="scene-section universe-section" id="universe" aria-labelledby="uniTitle">
+      <header class="section-cinematic-hdr">
+        <p class="section-scene-num">Scene 02</p>
+        <h2 class="section-scene-title" id="uniTitle">The Technical Universe</h2>
+        <p class="section-scene-sub">Cloud · Machine Learning · Distributed Systems · Applied Forensics</p>
+      </header>
+
+      <div class="universe-grid">
+        <!-- Python -->
+        <div class="tech-monolith-card" data-tilt>
+          <div class="tech-card-top">
+            <i class="fa-brands fa-python tech-card-icon" style="color: #38bdf8;"></i>
+            <span class="tech-card-idx">01 // CORE</span>
           </div>
+          <h3 class="tech-card-name">Python 3</h3>
+          <p class="tech-card-category">Language &amp; Runtime</p>
+          <p class="tech-card-desc">Advanced algorithmic modeling, asynchronous workers, PyTorch pipeline authoring, and forensic forensic telemetry parsing.</p>
+        </div>
 
-          <h1 class="hero-title animate-fade-in delay-1">
-            Engineering Cloud &amp; AI Systems <br>
-            <span class="gradient-text">for Real-World Impact.</span>
-          </h1>
+        <!-- Google Cloud Platform -->
+        <div class="tech-monolith-card" data-tilt>
+          <div class="tech-card-top">
+            <i class="fa-brands fa-google tech-card-icon" style="color: #ea4335;"></i>
+            <span class="tech-card-idx">02 // CLOUD</span>
+          </div>
+          <h3 class="tech-card-name">Google Cloud</h3>
+          <p class="tech-card-category">Infrastructure &amp; Scale</p>
+          <p class="tech-card-desc">BigQuery data intelligence, Compute Engine orchestration, serverless cloud workflows, IAM policies, and cloud cost governance.</p>
+        </div>
 
-          <p class="hero-description animate-fade-in delay-2">
-            Hi! I'm <strong>Himanshu Mishra</strong> (<a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="text-highlight">@himanshu931588-cmd</a>) — 
-            a <strong>2nd Year Computer Science &amp; Engineering Student</strong>, Cloud Architect, and AI/ML builder. 
-            I'm <strong>actively looking to collaborate with you</strong> on open-source software, hackathons, cloud systems, and research platforms like 
-            <strong>Vero</strong> (AI Content Authenticity) and <strong>KrishiAlert</strong> (Satellite Agritech).
+        <!-- PyTorch & TensorFlow -->
+        <div class="tech-monolith-card" data-tilt>
+          <div class="tech-card-top">
+            <i class="fa-solid fa-brain tech-card-icon" style="color: #ff6f00;"></i>
+            <span class="tech-card-idx">03 // AI/ML</span>
+          </div>
+          <h3 class="tech-card-name">PyTorch &amp; TF</h3>
+          <p class="tech-card-category">Deep Learning</p>
+          <p class="tech-card-desc">Convolutional networks, attention mechanisms, synthetic artifact detection, and token confidence scoring in the Vero engine.</p>
+        </div>
+
+        <!-- Docker & Kubernetes -->
+        <div class="tech-monolith-card" data-tilt>
+          <div class="tech-card-top">
+            <i class="fa-brands fa-docker tech-card-icon" style="color: #0284c7;"></i>
+            <span class="tech-card-idx">04 // DEVOPS</span>
+          </div>
+          <h3 class="tech-card-name">Docker &amp; K8s</h3>
+          <p class="tech-card-category">Container Orchestration</p>
+          <p class="tech-card-desc">Reproducible container builds, zero-downtime deployment topologies, microservice clustering, and isolated sandboxes.</p>
+        </div>
+
+        <!-- Linux & Systems -->
+        <div class="tech-monolith-card" data-tilt>
+          <div class="tech-card-top">
+            <i class="fa-brands fa-linux tech-card-icon" style="color: #facc15;"></i>
+            <span class="tech-card-idx">05 // OS</span>
+          </div>
+          <h3 class="tech-card-name">Linux Systems</h3>
+          <p class="tech-card-category">Kernel &amp; Shell</p>
+          <p class="tech-card-desc">POSIX architecture, automated bash scripting, systemd service management, kernel parameter optimization, and secure daemon hosting.</p>
+        </div>
+
+        <!-- Supabase & PostgreSQL -->
+        <div class="tech-monolith-card" data-tilt>
+          <div class="tech-card-top">
+            <i class="fa-solid fa-database tech-card-icon" style="color: #3ecf8e;"></i>
+            <span class="tech-card-idx">06 // DATA</span>
+          </div>
+          <h3 class="tech-card-name">PostgreSQL</h3>
+          <p class="tech-card-category">Relational &amp; Real-Time</p>
+          <p class="tech-card-desc">Geospatial postGIS indexing, row-level security (RLS), real-time replication streams for satellite telemetry in KrishiAlert.</p>
+        </div>
+
+        <!-- OpenCV & Vision -->
+        <div class="tech-monolith-card" data-tilt>
+          <div class="tech-card-top">
+            <i class="fa-solid fa-eye tech-card-icon" style="color: #c084fc;"></i>
+            <span class="tech-card-idx">07 // VISION</span>
+          </div>
+          <h3 class="tech-card-name">OpenCV</h3>
+          <p class="tech-card-category">Computer Vision</p>
+          <p class="tech-card-desc">Facial landmark alignment, spectral frequency decomposition, deepfake artifact spatial mapping, and morphological processing.</p>
+        </div>
+
+        <!-- BaseGuard Security -->
+        <div class="tech-monolith-card" data-tilt>
+          <div class="tech-card-top">
+            <i class="fa-solid fa-shield-halved tech-card-icon" style="color: var(--ink-hot);"></i>
+            <span class="tech-card-idx">08 // SECURITY</span>
+          </div>
+          <h3 class="tech-card-name">BaseGuard</h3>
+          <p class="tech-card-category">Cloud Defense</p>
+          <p class="tech-card-desc">Automated policy-as-code enforcement, least-privilege credential vetting, and infrastructure vulnerability scanning.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Scene 03 — Chrono Time Machine (Interactive Timeline Engine)
+         ==================================================================== -->
+    <section class="scene-section chrono-section" id="chrono" aria-labelledby="chronoTitle">
+      <header class="section-cinematic-hdr">
+        <p class="section-scene-num">Scene 03</p>
+        <h2 class="section-scene-title" id="chronoTitle">A Journey Through Time</h2>
+        <p class="section-scene-sub">Foundations · Research · Recognition · Engineering</p>
+      </header>
+
+      <div class="chrono-viewport">
+        <div class="chrono-machine">
+          <!-- Timeline Interactive Rail -->
+          <div class="chrono-rail" id="chronoRail">
+            <div class="chrono-node is-active" data-year="2024">
+              <span class="chrono-node-year">2024</span>
+            </div>
+            <div class="chrono-node" data-year="2025">
+              <span class="chrono-node-year">2025</span>
+            </div>
+            <div class="chrono-node" data-year="2026">
+              <span class="chrono-node-year">2026</span>
+            </div>
+            <div class="chrono-node" data-year="2027">
+              <span class="chrono-node-year">2027</span>
+            </div>
+            <div class="chrono-node" data-year="2028">
+              <span class="chrono-node-year">2028</span>
+            </div>
+            <div class="chrono-node" data-year="2029">
+              <span class="chrono-node-year">2029</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Milestone Stage Card (Controlled dynamically via JS) -->
+        <article class="chrono-stage-card" id="chronoCard">
+          <div class="chrono-card-badge" id="chronoBadge">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>FOUNDATIONAL ARCHITECTURE // 2024</span>
+          </div>
+          <h3 class="chrono-card-title" id="chronoCardTitle">Algorithmic Foundations &amp; Low-Level Systems</h3>
+          <p class="chrono-card-body" id="chronoCardBody">
+            Commenced intensive deep dive into computational systems, mastery of Python algorithmic paradigms, 
+            data structures, Linux system internals, and clean architectural design patterns. Laid the rigorous foundation 
+            for scalable cloud and AI systems.
+          </p>
+          <div class="chrono-card-meta" id="chronoCardMeta">
+            <span class="chrono-chip">Python 3</span>
+            <span class="chrono-chip">Data Structures</span>
+            <span class="chrono-chip">Linux Internals</span>
+            <span class="chrono-chip">OOP Design</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Scene 04 — Featured Works / Project Universe
+         ==================================================================== -->
+    <section class="scene-section projects-section" id="projects" aria-labelledby="projTitle">
+      <header class="section-cinematic-hdr">
+        <p class="section-scene-num">Scene 04</p>
+        <h2 class="section-scene-title" id="projTitle">Featured Works</h2>
+        <p class="section-scene-sub">Real-World Impact · Production Code · Architecture</p>
+      </header>
+
+      <div class="projects-cinematic-grid">
+        <!-- Project 1: Vero -->
+        <div class="proj-frame">
+          <div class="proj-header">
+            <span class="proj-badge">AI FORENSICS // 01</span>
+            <span class="proj-status-dot" title="Live System"></span>
+          </div>
+          <div class="proj-body">
+            <h3 class="proj-title">Vero</h3>
+            <p class="proj-tagline">Real-Time Content Authenticity Analyzer</p>
+            <p class="proj-desc">
+              Engineered deep learning forensics pipeline capable of parsing digital text and video tokens in real time, 
+              detecting synthetic anomalies, deepfake artifacts, and providing calibrated verification metrics.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">PyTorch</span>
+              <span class="proj-tag">OpenCV</span>
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">NLP</span>
+            </div>
+            <div class="proj-actions">
+              <a href="https://github.com/himanshu931588-cmd/vero" target="_blank" rel="noopener" class="proj-btn proj-btn--primary">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+              <button class="proj-btn proj-btn--outline" id="openVeroDemo">
+                <i class="fa-solid fa-play"></i> Simulator
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: KrishiAlert -->
+        <div class="proj-frame">
+          <div class="proj-header">
+            <span class="proj-badge">AGRITECH // 02</span>
+            <span class="proj-status-dot" title="Production Ready"></span>
+          </div>
+          <div class="proj-body">
+            <h3 class="proj-title">KrishiAlert</h3>
+            <p class="proj-tagline">Satellite Geospatial Telemetry &amp; Farm Advisory</p>
+            <p class="proj-desc">
+              Connects real-time satellite thermal imaging to predict regional crop fire emergencies and deliver automated SMS 
+              alerts, helping rural farm communities protect critical agricultural yields.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">Satellite APIs</span>
+              <span class="proj-tag">Supabase</span>
+              <span class="proj-tag">PostGIS</span>
+              <span class="proj-tag">Python</span>
+            </div>
+            <div class="proj-actions">
+              <a href="https://github.com/himanshu931588-cmd/KrishiAlert" target="_blank" rel="noopener" class="proj-btn proj-btn--primary">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Digital Rakshak (National Science Day Winner) -->
+        <div class="proj-frame">
+          <div class="proj-header">
+            <span class="proj-badge" style="color: var(--amber);">NATIONAL SCIENCE AWARD // 03</span>
+            <span class="proj-status-dot" style="background: var(--amber); box-shadow: 0 0 8px var(--amber);" title="2nd Position Award"></span>
+          </div>
+          <div class="proj-body">
+            <h3 class="proj-title">Digital Rakshak</h3>
+            <p class="proj-tagline">2nd Position • National Science Day 2026</p>
+            <p class="proj-desc">
+              National award-winning applied science project centered on critical public safety and real-time defense. 
+              Engineered with teammates Vaidehi Gupta, Himanshu Mishra, and Shubham Kumar Singh under expert academic mentorship.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">National Winner</span>
+              <span class="proj-tag">IoT Security</span>
+              <span class="proj-tag">Research</span>
+              <span class="proj-tag">Team Project</span>
+            </div>
+            <div class="proj-actions">
+              <button class="proj-btn proj-btn--primary" id="viewCertBtn">
+                <i class="fa-solid fa-award"></i> Certificate
+              </button>
+              <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener" class="proj-btn proj-btn--outline">
+                <i class="fa-brands fa-linkedin"></i> Story
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: BaseGuard -->
+        <div class="proj-frame">
+          <div class="proj-header">
+            <span class="proj-badge">CLOUD SECURITY // 04</span>
+            <span class="proj-status-dot"></span>
+          </div>
+          <div class="proj-body">
+            <h3 class="proj-title">BaseGuard</h3>
+            <p class="proj-tagline">Policy-as-Code &amp; Cloud Infrastructure Defense</p>
+            <p class="proj-desc">
+              Automated defense framework scanning cloud IAM access vectors, enforcing least-privilege isolation, 
+              and locking down containerized pipelines against configuration drift.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">Cloud Security</span>
+              <span class="proj-tag">Docker</span>
+              <span class="proj-tag">IAM Audit</span>
+              <span class="proj-tag">Python</span>
+            </div>
+            <div class="proj-actions">
+              <a href="https://github.com/himanshu931588-cmd/baseguard" target="_blank" rel="noopener" class="proj-btn proj-btn--primary">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: ATM Simulation -->
+        <div class="proj-frame">
+          <div class="proj-header">
+            <span class="proj-badge">FINTECH CORE // 05</span>
+            <span class="proj-status-dot"></span>
+          </div>
+          <div class="proj-body">
+            <h3 class="proj-title">ATM Engine</h3>
+            <p class="proj-tagline">Transaction Lifecycle &amp; Security Validation</p>
+            <p class="proj-desc">
+              Resilient banking simulation validating strict transactional atomicity, multi-factor credential handshake, 
+              and robust audit trail persistence under simulated concurrent loads.
+            </p>
+            <div class="proj-tags">
+              <span class="proj-tag">Fintech</span>
+              <span class="proj-tag">ACID Transactions</span>
+              <span class="proj-tag">SQLite</span>
+              <span class="proj-tag">Python</span>
+            </div>
+            <div class="proj-actions">
+              <a href="https://github.com/himanshu931588-cmd/ATM_Simulation" target="_blank" rel="noopener" class="proj-btn proj-btn--primary">
+                <i class="fa-brands fa-github"></i> Repository
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Scene 05 — The Literary Nook (Passions Beyond Code)
+         ==================================================================== -->
+    <section class="scene-section story-section" id="story" aria-labelledby="storyTitle">
+      <header class="section-cinematic-hdr">
+        <p class="section-scene-num">Scene 05</p>
+        <h2 class="section-scene-title" id="storyTitle">The Art of Storytelling</h2>
+        <p class="section-scene-sub">Hindi Literature · Human Depth · Creative Perspective</p>
+      </header>
+
+      <div class="story-grid">
+        <div class="story-photo-frame" id="bookshelfModalTrigger" title="Expand Bookshelf">
+          <img src="assets/hindi_novels.jpg" alt="Himanshu Mishra Hindi Novels and Bookshelf" class="story-photo-img">
+          <div class="story-photo-overlay">
+            <span><i class="fa-solid fa-bookmark"></i> Personal Bookshelf Collection</span>
+          </div>
+        </div>
+
+        <div class="story-content">
+          <h3>Beyond Algorithms: The Power of Hindi Prose</h3>
+          <p>
+            Great software engineering requires deep human empathy, patience, and perspective. Beyond technical architectures, 
+            reading classical and modern Hindi literature provides emotional grounding and fuels creative intuition.
           </p>
 
-          <div class="hero-cta animate-fade-in delay-3">
-            <a href="#collaborate" class="btn btn-primary">
-              <i class="fa-solid fa-handshake"></i> Want to Collaborate?
-            </a>
-            <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener" class="btn btn-secondary">
-              <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
-            </a>
-            <a href="#projects" class="btn btn-outline">
-              <i class="fa-solid fa-diagram-project"></i> View Projects
-            </a>
-          </div>
-
-          <!-- Quick Stats Counter Strip -->
-          <div class="hero-stats animate-fade-in delay-4">
-            <div class="stat-card">
-              <span class="stat-number" data-target="2">0</span><span class="stat-plus">nd</span>
-              <span class="stat-label">Year B.Tech Student</span>
+          <div class="novels-list">
+            <div class="novel-row">
+              <span class="novel-title">मुसाफ़िर कैफ़े (Musafir Cafe)</span>
+              <span class="novel-author">दिव्य प्रकाश दुबे</span>
             </div>
-            <div class="stat-divider"></div>
-            <div class="stat-card stat-card-award">
-              <span class="stat-number" data-target="2">0</span><span class="stat-plus">nd</span>
-              <span class="stat-label">National Science Award</span>
+            <div class="novel-row">
+              <span class="novel-title">अक्टूबर जंक्शन (October Junction)</span>
+              <span class="novel-author">दिव्य प्रकाश दुबे</span>
             </div>
-            <div class="stat-divider"></div>
-            <div class="stat-card">
-              <span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span>
-              <span class="stat-label">Open Source Repos</span>
+            <div class="novel-row">
+              <span class="novel-title">दीवार में एक खिड़की रहती थी</span>
+              <span class="novel-author">विनोद कुमार शुक्ल</span>
             </div>
-            <div class="stat-divider"></div>
-            <div class="stat-card">
-              <span class="stat-number" data-target="100">0</span><span class="stat-plus">%</span>
-              <span class="stat-label">Eager to Team Up</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hero Visual: Floating Profile Showcase Card + Code Terminal -->
-        <div class="hero-graphic animate-fade-in delay-2">
-          <!-- Profile Photo Feature Card (Only Photo on Entire Site) -->
-          <div class="hero-profile-showcase glass-panel">
-            <div class="profile-photo-container">
-              <img src="assets/profile.jpg" alt="Himanshu Mishra - 2nd Year Engineering Student" class="hero-profile-img" />
-              <div class="photo-orbital-glow"></div>
-            </div>
-            <div class="profile-card-details">
-              <div class="profile-card-header">
-                <h3>Himanshu Mishra</h3>
-                <span class="profile-card-sub"><i class="fa-solid fa-graduation-cap"></i> 2nd Year B.Tech CSE</span>
-              </div>
-              <p class="profile-card-motto">"I Love Tech and Tech Loves Me."</p>
-              <div class="profile-card-status">
-                <span class="status-pulse-dot"></span>
-                <span>Open for Collaboration &amp; Cloud / AI</span>
-              </div>
+            <div class="novel-row">
+              <span class="novel-title">Wings of Fire (अग्नि की उड़ान)</span>
+              <span class="novel-author">Dr. A.P.J. Abdul Kalam</span>
             </div>
           </div>
 
-          <!-- Floating Interactive Code Terminal -->
-          <div class="code-terminal-card glass-panel">
-            <div class="terminal-header">
-              <div class="terminal-dots">
-                <span class="dot dot-red"></span>
-                <span class="dot dot-yellow"></span>
-                <span class="dot dot-green"></span>
-              </div>
-              <div class="terminal-title">himanshu_collab_init.py</div>
-            </div>
-            <div class="terminal-body">
-              <pre><code><span class="code-keyword">from</span> himanshu <span class="code-keyword">import</span> StudentProfile, TeamCollaboration
-
-<span class="code-comment"># 2nd Year Engineering Student Profile</span>
-himanshu = StudentProfile(
-    name=<span class="code-string">"Himanshu Mishra"</span>,
-    degree=<span class="code-string">"B.Tech in Computer Science & Engineering"</span>,
-    current_status=<span class="code-string">"2nd Year Engineering Student"</span>,
-    passions=[<span class="code-string">"Cloud & Security (BaseGuard)"</span>, <span class="code-string">"AI/ML (Vero)"</span>, <span class="code-string">"Reading Hindi Novels"</span>],
-    active_repos=[<span class="code-string">"vero"</span>, <span class="code-string">"baseguard"</span>, <span class="code-string">"KrishiAlert"</span>, <span class="code-string">"ATM_Simulation"</span>]
-)
-
-<span class="code-comment"># Want to collaborate on Vero or new ideas?</span>
-collab = TeamCollaboration.connect(
-    status=<span class="code-string">"READY_TO_TEAM_UP"</span>,
-    looking_for=[<span class="code-string">"Open-Source Contributors"</span>, <span class="code-string">"Hackathon Partners"</span>]
-)
-<span class="code-builtin">print</span>(<span class="code-string">f"Ready to collaborate: {collab.is_active}"</span>)</code></pre>
-            </div>
-            <div class="terminal-footer">
-              <span class="status-indicator-green"></span>
-              <span class="footer-text">himanshu931588-cmd | Open to Team Up</span>
-            </div>
-          </div>
+          <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener" class="cinematic-btn cinematic-btn--outline">
+            <i class="fa-brands fa-linkedin-in"></i> Discuss Literature on LinkedIn
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- About & Student Background Section -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="section-badge">// ABOUT</div>
-        <h2 class="section-title">2nd Year Engineering Student Passionate About Applied Tech</h2>
-        <p class="section-subtitle">
-          Driven by curiosity, rapid learning, and turning classroom engineering principles into real-world software.
-        </p>
+    <!-- ====================================================================
+         Scene 06 — The Finale (Closing Monolith)
+         ==================================================================== -->
+    <footer class="fin-section" id="fin" aria-labelledby="finTitle">
+      <div class="fin-ember-backdrop" aria-hidden="true"></div>
 
-        <div class="about-grid">
-          <div class="about-card glass-panel">
-            <div class="about-card-icon"><i class="fa-solid fa-user-graduate"></i></div>
-            <h3>2nd Year Engineering Journey</h3>
-            <p>
-              Pursuing a <strong>Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering</strong>. 
-              Mastering Data Structures &amp; Algorithms, Object-Oriented Programming, and Systems Architecture in C++, Python, and JavaScript.
-            </p>
-          </div>
+      <header class="section-cinematic-hdr" style="margin-bottom: 2rem;">
+        <p class="section-scene-num">Scene 06</p>
+        <h2 class="section-scene-title" id="finTitle">Closing Monolith</h2>
+        <p class="section-scene-sub">Connect · Build · Collaborate · Repeat</p>
+      </header>
 
-          <div class="about-card glass-panel">
-            <div class="about-card-icon"><i class="fa-solid fa-people-group"></i></div>
-            <h3>Eager to Collaborate with You</h3>
-            <p>
-              I believe great software is built through collaboration. Whether you are a student peer, senior engineer, 
-              or startup founder, I would love to team up on hackathons, research, and production platforms.
-            </p>
-          </div>
-
-          <div class="about-card glass-panel">
-            <div class="about-card-icon"><i class="fa-solid fa-leaf"></i></div>
-            <h3>Sustainable &amp; Ethical AI</h3>
-            <p>
-              Creator of <strong>KrishiAlert</strong> (preventing crop residue burning through satellite data) and 
-              <strong>Vero</strong> (combating deepfakes and verifying digital content authenticity).
-            </p>
-          </div>
-
-          <div class="about-card glass-panel">
-            <div class="about-card-icon"><i class="fa-solid fa-book-bookmark"></i></div>
-            <h3>Hobby: Reading Hindi Novels</h3>
-            <p>
-              Deep passion for contemporary Hindi literature and visionary biographies. Avid reader of 
-              <strong>Divya Prakash Dubey</strong>, <strong>Vinod Kumar Shukla</strong>, and <strong>Dr. Kalam</strong>. 
-              Reading nurtures empathy, depth, and creative perspective in software design.
-            </p>
-          </div>
-        </div>
-
-        <!-- Reading Nook & Favorite Hindi Novels Feature -->
-        <div class="reading-nook-card glass-panel" id="hindi-novels-nook">
-          <div class="reading-nook-grid">
-            <div class="reading-img-col">
-              <div class="reading-photo-frame" id="books-photo-trigger" title="Click to view bookshelf in high resolution">
-                <img src="assets/hindi_novels.jpg" alt="Himanshu Mishra's favorite Hindi novels and books collection" class="reading-books-img" />
-                <div class="reading-zoom-badge">
-                  <i class="fa-solid fa-magnifying-glass-plus"></i>
-                  <span>Click to Expand Bookshelf</span>
-                </div>
-              </div>
-              <span class="reading-caption"><i class="fa-solid fa-bookmark"></i> Personal Collection • Hindi Literature &amp; Autobiographies</span>
-            </div>
-
-            <div class="reading-content-col">
-              <div class="reading-badge-pill">
-                <i class="fa-solid fa-book-open-reader"></i>
-                <span>PASSION BEYOND CODE</span>
-              </div>
-              <h3 class="reading-title">The Art of Storytelling: Reading Hindi Novels</h3>
-              <p class="reading-desc">
-                When I step away from code and neural models, I immerse myself in the evocative world of Hindi literature. 
-                Reading fosters empathy, observation, and emotional depth — qualities that fundamentally inspire how I architect 
-                user-centered software and human-focused AI systems.
-              </p>
-
-              <div class="bookshelf-list">
-                <div class="book-item">
-                  <span class="book-icon"><i class="fa-solid fa-book"></i></span>
-                  <div class="book-info">
-                    <span class="book-title">मुसाफ़िर कैफ़े (Musafir Cafe)</span>
-                    <span class="book-author">दिव्य प्रकाश दुबे (Divya Prakash Dubey) • Hind Yugm</span>
-                  </div>
-                </div>
-
-                <div class="book-item">
-                  <span class="book-icon"><i class="fa-solid fa-book"></i></span>
-                  <div class="book-info">
-                    <span class="book-title">अक्टूबर जंक्शन (October Junction)</span>
-                    <span class="book-author">दिव्य प्रकाश दुबे (Divya Prakash Dubey) • Hind Yugm</span>
-                  </div>
-                </div>
-
-                <div class="book-item">
-                  <span class="book-icon"><i class="fa-solid fa-book"></i></span>
-                  <div class="book-info">
-                    <span class="book-title">यार, पापा (Yaar, Papa)</span>
-                    <span class="book-author">दिव्य प्रकाश दुबे (Divya Prakash Dubey) • Hind Yugm</span>
-                  </div>
-                </div>
-
-                <div class="book-item">
-                  <span class="book-icon"><i class="fa-solid fa-award"></i></span>
-                  <div class="book-info">
-                    <span class="book-title">दीवार में एक खिड़की रहती थी</span>
-                    <span class="book-author">विनोद कुमार शुक्ल (Vinod Kumar Shukla) • Sahitya Akademi Award</span>
-                  </div>
-                </div>
-
-                <div class="book-item">
-                  <span class="book-icon"><i class="fa-solid fa-rocket"></i></span>
-                  <div class="book-info">
-                    <span class="book-title">Wings of Fire: An Autobiography</span>
-                    <span class="book-author">Dr. A.P.J. Abdul Kalam with Arun Tiwari</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="reading-quote-pill">
-                <i class="fa-solid fa-quote-left"></i>
-                <span>"साहित्य हमें इंसान बनाए रखता है, और तकनीक हमें आगे बढ़ाती है।" <em>(Literature grounds our humanity; technology propels our future.)</em></span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="fin-wordmark-wrap">
+        <h3 class="fin-wordmark">HIMANSHU</h3>
       </div>
-    </section>
 
-    <!-- Dedicated Collaboration Hub Section -->
-    <section class="section collab-section" id="collaborate">
-      <div class="container">
-        <div class="collab-wrapper glass-panel">
-          <div class="collab-header">
-            <div class="section-badge"><i class="fa-solid fa-handshake"></i> TEAM UP &amp; INNOVATE</div>
-            <h2 class="section-title">Want to Collaborate With Me? Let's Team Up!</h2>
-            <p class="section-subtitle">
-              As a 2nd Year Engineering Student, I am actively seeking like-minded builders, student peers, mentors, 
-              and researchers to co-create high-impact solutions.
-            </p>
-          </div>
+      <blockquote class="fin-quote">
+        &ldquo;I Love Tech and Tech Loves Me. Good Code Speaks For Itself.&rdquo;
+      </blockquote>
 
-          <div class="collab-cards-grid">
-            <div class="collab-card glass-panel">
-              <div class="collab-icon-box collab-purple">
-                <i class="fa-solid fa-shield-halved"></i>
-              </div>
-              <h3>1. Expand Vero AI Platform</h3>
-              <p>
-                Collaborate on deepfake detection models, multi-format media forensics, and real-time verification APIs.
-              </p>
-              <button class="btn btn-outline btn-sm collab-action-btn" data-collab-type="Vero AI Platform Enhancement">
-                <i class="fa-solid fa-code-pull-request"></i> Team Up on Vero
-              </button>
-            </div>
-
-            <div class="collab-card glass-panel">
-              <div class="collab-icon-box collab-emerald">
-                <i class="fa-solid fa-seedling"></i>
-              </div>
-              <h3>2. Scale KrishiAlert Agritech</h3>
-              <p>
-                Enhance geospatial satellite data feeds, farmer notification systems, and rural equipment coordination.
-              </p>
-              <button class="btn btn-outline btn-sm collab-action-btn" data-collab-type="KrishiAlert Agritech Expansion">
-                <i class="fa-solid fa-satellite"></i> Team Up on KrishiAlert
-              </button>
-            </div>
-
-            <div class="collab-card glass-panel">
-              <div class="collab-icon-box collab-cyan">
-                <i class="fa-solid fa-trophy"></i>
-              </div>
-              <h3>3. Hackathons &amp; Competitions</h3>
-              <p>
-                Partner up for national and global hackathons in AI, Cloud, Sustainability, or Web3 engineering.
-              </p>
-              <button class="btn btn-outline btn-sm collab-action-btn" data-collab-type="Hackathons & Competitions Squad">
-                <i class="fa-solid fa-bolt"></i> Join Hackathon Squad
-              </button>
-            </div>
-
-            <div class="collab-card glass-panel">
-              <div class="collab-icon-box collab-amber">
-                <i class="fa-solid fa-code-fork"></i>
-              </div>
-              <h3>4. Open-Source Ideas &amp; Research</h3>
-              <p>
-                Have a novel idea in Cloud infrastructure, Python engines, or design? Let's build a repository together!
-              </p>
-              <button class="btn btn-outline btn-sm collab-action-btn" data-collab-type="New Open-Source Project Idea">
-                <i class="fa-solid fa-lightbulb"></i> Pitch a Project
-              </button>
-            </div>
-          </div>
-
-          <div class="collab-banner">
-            <div class="banner-text">
-              <h4>Ready to build something unforgettable together?</h4>
-              <p>Select an initiative above or drop a custom pitch to start collaborating with Himanshu right away.</p>
-            </div>
-            <a href="#contact" class="btn btn-primary" id="direct-pitch-btn">
-              <i class="fa-solid fa-paper-plane"></i> Pitch Collaboration Now
-            </a>
-          </div>
-        </div>
+      <div class="fin-connect-strip">
+        <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener" class="fin-connect-btn fin-connect-btn--primary">
+          <i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn
+        </a>
+        <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="fin-connect-btn fin-connect-btn--secondary">
+          <i class="fa-brands fa-github"></i> GitHub Profile
+        </a>
+        <a href="mailto:himanshu931588@gmail.com" class="fin-connect-btn fin-connect-btn--secondary">
+          <i class="fa-regular fa-envelope"></i> Send Email
+        </a>
       </div>
-    </section>
 
-    <!-- LinkedIn Credentials & Education Section -->
-    <section class="section" id="credentials">
-      <div class="container">
-        <div class="section-badge"><i class="fa-brands fa-linkedin"></i> LINKEDIN HIGHLIGHTS</div>
-        <h2 class="section-title">Education &amp; Experience Highlights</h2>
-        <p class="section-subtitle">
-          Academic foundation, verified skills, and leadership roles featured on Himanshu Mishra's LinkedIn profile.
-        </p>
-
-        <div class="linkedin-grid">
-          <!-- Education Column -->
-          <div class="linkedin-column glass-panel">
-            <div class="linkedin-col-header">
-              <div class="col-icon icon-edu"><i class="fa-solid fa-graduation-cap"></i></div>
-              <div>
-                <h3>Education &amp; Coursework</h3>
-                <span class="col-sub">Academic Foundation</span>
-              </div>
-            </div>
-
-            <div class="edu-card">
-              <div class="edu-meta">
-                <span class="edu-degree">Bachelor of Technology (B.Tech)</span>
-                <span class="edu-badge">2nd Year (2025 — 2029)</span>
-              </div>
-              <h4 class="edu-field">Computer Science &amp; Engineering</h4>
-              <p class="edu-desc">
-                Focusing on core algorithmic problem solving, software engineering lifecycle, 
-                distributed cloud computing, and applied intelligence systems.
-              </p>
-              
-              <div class="course-tags">
-                <span class="course-tag">Data Structures &amp; Algorithms</span>
-                <span class="course-tag">Object-Oriented Programming (OOP)</span>
-                <span class="course-tag">Database Management (DBMS)</span>
-                <span class="course-tag">Operating Systems</span>
-                <span class="course-tag">Computer Networks</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Experience & Leadership Column -->
-          <div class="linkedin-column glass-panel">
-            <div class="linkedin-col-header">
-              <div class="col-icon icon-exp"><i class="fa-solid fa-briefcase"></i></div>
-              <div>
-                <h3>Experience &amp; Leadership</h3>
-                <span class="col-sub">Hands-on Engineering Roles</span>
-              </div>
-            </div>
-
-            <div class="exp-timeline">
-              <!-- National Award Entry -->
-              <div class="exp-item award-timeline-item">
-                <div class="exp-dot exp-dot-trophy"><i class="fa-solid fa-trophy"></i></div>
-                <div class="exp-content">
-                  <div class="exp-meta">
-                    <span class="exp-role award-tag-role"><i class="fa-solid fa-medal"></i> 2nd Position Winner — National Level</span>
-                    <span class="exp-date">Feb 27, 2026</span>
-                  </div>
-                  <h4 class="exp-company">Team Digital Rakshak • National-Level Science Exhibition</h4>
-                  <p class="exp-desc">
-                    National Science Day exhibition (Tech Sci Nova 2026). Engineered technology to solve real-world safety challenges. Team: Vaidehi Gupta, Himanshu Mishra, Shubham Kumar Singh.
-                  </p>
-                </div>
-              </div>
-
-              <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-content">
-                  <div class="exp-meta">
-                    <span class="exp-role">Lead Architect &amp; Core Developer</span>
-                    <span class="exp-date">2024 — Present</span>
-                  </div>
-                  <h4 class="exp-company">Vero AI (Content Authenticity Engine)</h4>
-                  <p class="exp-desc">
-                    Designing the multimodal forensic engine for deepfake detection, synthetic artifact localization, 
-                    and media verification across text, image, and video streams.
-                  </p>
-                </div>
-              </div>
-
-              <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-content">
-                  <div class="exp-meta">
-                    <span class="exp-role">Founder &amp; System Designer</span>
-                    <span class="exp-date">2024</span>
-                  </div>
-                  <h4 class="exp-company">KrishiAlert (KishanSeva Platform)</h4>
-                  <p class="exp-desc">
-                    Conceived satellite monitoring platform to curb post-harvest stubble burning in North India, 
-                    integrating geospatial sensors with farmer equipment resource accessibility.
-                  </p>
-                </div>
-              </div>
-
-              <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-content">
-                  <div class="exp-meta">
-                    <span class="exp-role">Technical Content Creator</span>
-                    <span class="exp-date">Ongoing</span>
-                  </div>
-                  <h4 class="exp-company">Tech Community &amp; Open Source</h4>
-                  <p class="exp-desc">
-                    Creating educational tech guides, architectural walkthroughs, and fostering student collaboration 
-                    under the motto <em>"I Love Tech and Tech Loves Me."</em>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="fin-bar">
+        <span>Portfolio — MMXXVI</span>
+        <div class="fin-socials">
+          <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:himanshu931588@gmail.com">himanshu931588@gmail.com</a>
         </div>
-
-        <!-- National Level Honor & Achievement Card -->
-        <div class="achievement-showcase-card glass-panel" id="national-science-day-award">
-          <div class="achievement-badge-strip">
-            <span class="award-trophy-tag"><i class="fa-solid fa-trophy"></i> 2ND POSITION WINNER</span>
-            <span class="award-level-tag"><i class="fa-solid fa-medal"></i> National-Level Science Exhibition</span>
-            <span class="award-date-tag"><i class="fa-regular fa-calendar-check"></i> February 27, 2026</span>
-          </div>
-
-          <div class="achievement-body-grid">
-            <!-- Left: Certificate Image with Lightbox Zoom Trigger -->
-            <div class="achievement-cert-wrapper" id="cert-preview-trigger" title="Click to view full certificate">
-              <div class="cert-img-frame">
-                <img src="assets/certificate_nsd2026.jpg" alt="National Science Day 2026 Certificate of Appreciation - 2nd Position - Himanshu Mishra" class="achievement-cert-img" id="cert-thumb-img" />
-                <div class="cert-zoom-overlay">
-                  <i class="fa-solid fa-magnifying-glass-plus"></i>
-                  <span>Click to Expand Certificate</span>
-                </div>
-              </div>
-              <span class="cert-caption"><i class="fa-solid fa-shield-check"></i> Verified Certificate of Appreciation • Tech Sci Nova 2026 (Ref: NSD/28022026/PP-07)</span>
-            </div>
-
-            <!-- Right: Story, Team & Project Details -->
-            <div class="achievement-details">
-              <div class="achievement-header">
-                <span class="institution-pill">
-                  <i class="fa-solid fa-award"></i>
-                  <span>National Science Day Exhibition</span>
-                </span>
-                <span class="event-tag">Tech Sci Nova 2026 • Innovation &amp; Research</span>
-              </div>
-
-              <h3 class="achievement-title">
-                Secured 2nd Position at National-Level Science Exhibition
-              </h3>
-
-              <div class="team-quote-box">
-                <p class="quote-lead">
-                  "On the occasion of National Science Day, I am delighted to share that our team, <strong>Digital Rakshak</strong>, secured <strong>2nd position</strong> at a prestigious national-level science exhibition."
-                </p>
-                <p class="quote-body">
-                  Our project was centered on leveraging technology to address real-world safety challenges, embodying the true essence of science — <strong>innovation, critical thinking, and problem-solving</strong>.
-                </p>
-                <p class="quote-mentor">
-                  <i class="fa-solid fa-hands-holding-circle"></i> I extend my sincere gratitude to our mentor for their invaluable guidance and constant support throughout this journey.
-                </p>
-              </div>
-
-              <!-- Team Members Spotlight with LinkedIn Links -->
-              <div class="team-members-container">
-                <span class="team-label"><i class="fa-solid fa-users-gear"></i> Proud to work alongside my amazing team members:</span>
-                <div class="team-member-chips">
-                  <a href="https://www.linkedin.com/in/vaidehi-gupta-81274333a/" target="_blank" rel="noopener" class="member-chip" title="View Vaidehi Gupta on LinkedIn">
-                    <i class="fa-brands fa-linkedin"></i> Vaidehi Gupta
-                  </a>
-                  <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener" class="member-chip member-highlight" title="Himanshu Mishra on LinkedIn">
-                    <i class="fa-brands fa-linkedin"></i> Himanshu Mishra
-                  </a>
-                  <a href="https://www.linkedin.com/in/shubham-kumar-singh-b80944360/" target="_blank" rel="noopener" class="member-chip" title="View Shubham Kumar Singh on LinkedIn">
-                    <i class="fa-brands fa-linkedin"></i> Shubham Kumar Singh
-                  </a>
-                </div>
-              </div>
-
-              <div class="achievement-footer-motto">
-                <i class="fa-solid fa-lightbulb"></i>
-                <span>"Let us continue to harness the power of science to create a safer, smarter, and more progressive future."</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- LinkedIn Direct Connect Banner -->
-        <div class="linkedin-connect-banner glass-panel">
-          <div class="banner-avatar-group">
-            <div class="banner-icon-badge">
-              <i class="fa-brands fa-linkedin-in"></i>
-            </div>
-            <div class="banner-profile-info">
-              <h4>Connect on LinkedIn</h4>
-              <p>Let's connect to discuss internships, student collaboration, hackathons, and open-source cloud architectures.</p>
-            </div>
-          </div>
-          <div class="banner-cta-group">
-            <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener" class="btn btn-primary">
-              <i class="fa-brands fa-linkedin"></i> View LinkedIn Profile
-            </a>
-            <a href="#contact" class="btn btn-outline">
-              <i class="fa-regular fa-paper-plane"></i> Send Direct Note
-            </a>
-          </div>
-        </div>
+        <small>&copy; 2026 Himanshu Mishra &mdash; All rights reserved</small>
       </div>
-    </section>
-
-    <!-- Core Specialties / Focus Areas -->
-    <section class="section" id="specialties">
-      <div class="container">
-        <div class="section-badge">DOMAINS OF EXPERTISE</div>
-        <h2 class="section-title">What I Specialize In</h2>
-        <p class="section-subtitle">Bridging full-stack development, cloud computing, and machine learning models.</p>
-
-        <div class="specialties-grid">
-          <div class="specialty-card glass-panel">
-            <div class="spec-header">
-              <span class="spec-icon spec-purple"><i class="fa-solid fa-shield-virus"></i></span>
-              <span class="spec-badge">AI Authenticity</span>
-            </div>
-            <h3>AI Content Verification &amp; Security</h3>
-            <p>
-              Analyzing digital content across text, images, and video to detect synthetic generation, 
-              deepfake artifacts, and misinformation in real time.
-            </p>
-            <ul class="spec-tags">
-              <li>TensorFlow</li>
-              <li>PyTorch</li>
-              <li>Python</li>
-              <li>OpenCV</li>
-            </ul>
-          </div>
-
-          <div class="specialty-card glass-panel">
-            <div class="spec-header">
-              <span class="spec-icon spec-emerald"><i class="fa-solid fa-satellite"></i></span>
-              <span class="spec-badge">Sustainable Tech</span>
-            </div>
-            <h3>Agritech &amp; Satellite Monitoring</h3>
-            <p>
-              Bridging geospatial satellite insights with on-ground agricultural access to empower rural 
-              farming communities and reduce harmful emissions.
-            </p>
-            <ul class="spec-tags">
-              <li>Satellite Data</li>
-              <li>HTML5 / JS</li>
-              <li>APIs</li>
-              <li>Supabase</li>
-            </ul>
-          </div>
-
-          <div class="specialty-card glass-panel">
-            <div class="spec-header">
-              <span class="spec-icon spec-cyan"><i class="fa-solid fa-cloud"></i></span>
-              <span class="spec-badge">Cloud Architecture</span>
-            </div>
-            <h3>Cloud &amp; Backend Engineering</h3>
-            <p>
-              Architecting resilient serverless APIs, real-time databases, and automated deployment pipelines 
-              across modern cloud ecosystems.
-            </p>
-            <ul class="spec-tags">
-              <li>Firebase</li>
-              <li>Node.js</li>
-              <li>Flask</li>
-              <li>MySQL / SQL</li>
-            </ul>
-          </div>
-
-          <div class="specialty-card glass-panel">
-            <div class="spec-header">
-              <span class="spec-icon spec-amber"><i class="fa-solid fa-compass-drafting"></i></span>
-              <span class="spec-badge">Creative &amp; UI/UX</span>
-            </div>
-            <h3>UI/UX Design &amp; Content Creation</h3>
-            <p>
-              Combining modern 3D visualizations, sleek Figma user journeys, and digital media production 
-              to craft intuitive digital experiences.
-            </p>
-            <ul class="spec-tags">
-              <li>Figma</li>
-              <li>Blender</li>
-              <li>Photoshop</li>
-              <li>InDesign</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Interactive AI Playground: Vero Content Authenticity Simulator -->
-    <section class="section playground-section" id="playground">
-      <div class="container">
-        <div class="playground-wrapper glass-panel">
-          <div class="playground-intro">
-            <div class="section-badge"><i class="fa-solid fa-shield-halved"></i> VERO INTERACTIVE ENGINE</div>
-            <h2 class="section-title">Vero: Real-Time Digital Content Authenticity Analyzer</h2>
-            <p>
-              Test the core forensic verification logic of <strong>Vero</strong>. Enter custom text or select preset samples 
-              to simulate real-time AI generation detection, confidence scoring, and token attention mapping.
-            </p>
-          </div>
-
-          <div class="playground-body">
-            <div class="playground-controls">
-              <label for="demo-input" class="control-label">Enter statement or select a sample report:</label>
-              
-              <div class="preset-chips">
-                <button class="chip-btn active" data-sample="Official KrishiAlert report: satellite sensors confirmed 42% reduction in regional farm fires following equipment dispatch.">Sample 1 (Verified Authentic)</button>
-                <button class="chip-btn" data-sample="URGENT LEAK: AI generated video circulating claims atmospheric servers crashed with fake synthetic audio artifacts.">Sample 2 (Synthetic / Anomaly)</button>
-                <button class="chip-btn" data-sample="ATM simulation engine executed transaction sequence with zero balance variance and valid PIN authentication.">Sample 3 (System Audit)</button>
-              </div>
-
-              <textarea id="demo-input" rows="4" class="playground-textarea" placeholder="Type or paste digital content here to verify authenticity..."></textarea>
-
-              <div class="playground-actions">
-                <button id="run-inference-btn" class="btn btn-primary btn-block">
-                  <i class="fa-solid fa-bolt"></i> Run Vero Verification Scan
-                </button>
-              </div>
-
-              <div class="token-container">
-                <span class="token-label">Token Forensic Attention Breakdown:</span>
-                <div id="tokens-display" class="tokens-flow"></div>
-              </div>
-            </div>
-
-            <div class="playground-results">
-              <div class="results-header">
-                <h3>Vero Audit Verdict</h3>
-                <span id="inference-time-badge" class="time-badge"><i class="fa-solid fa-stopwatch"></i> 11.2 ms</span>
-              </div>
-
-              <div class="sentiment-box" id="sentiment-result-card">
-                <div class="sentiment-icon-wrapper" id="sentiment-icon">
-                  <i class="fa-solid fa-shield-check"></i>
-                </div>
-                <div class="sentiment-info">
-                  <span class="sentiment-title">Forensic Verdict</span>
-                  <h4 id="sentiment-label">Authentic &amp; Verified</h4>
-                  <span class="confidence-text">Confidence Level: <strong id="sentiment-confidence">97.4%</strong></span>
-                </div>
-              </div>
-
-              <div class="distribution-list">
-                <div class="dist-item">
-                  <div class="dist-meta">
-                    <span>Authentic / Human Verified</span>
-                    <span id="score-positive">97.4%</span>
-                  </div>
-                  <div class="progress-bar-bg">
-                    <div class="progress-fill fill-green" id="bar-positive" style="width: 97.4%;"></div>
-                  </div>
-                </div>
-
-                <div class="dist-item">
-                  <div class="dist-meta">
-                    <span>Neutral / Unverified Context</span>
-                    <span id="score-neutral">1.9%</span>
-                  </div>
-                  <div class="progress-bar-bg">
-                    <div class="progress-fill fill-blue" id="bar-neutral" style="width: 1.9%;"></div>
-                  </div>
-                </div>
-
-                <div class="dist-item">
-                  <div class="dist-meta">
-                    <span>Synthetic / Deepfake Anomaly</span>
-                    <span id="score-negative">0.7%</span>
-                  </div>
-                  <div class="progress-bar-bg">
-                    <div class="progress-fill fill-red" id="bar-negative" style="width: 0.7%;"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="entities-wrapper">
-                <span class="entities-title">Forensic Markers &amp; Entities:</span>
-                <div id="entities-tags" class="entities-tags">
-                  <span class="entity-tag entity-ai">krishialert</span>
-                  <span class="entity-tag entity-metric">42% reduction</span>
-                  <span class="entity-tag entity-sys">satellite</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Projects Section (Direct from Himanshu's GitHub) -->
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-badge">GITHUB SHOWCASE</div>
-        <h2 class="section-title">Featured Projects &amp; Repositories</h2>
-        <p class="section-subtitle">
-          Real open-source repositories from <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="text-highlight">github.com/himanshu931588-cmd</a>.
-        </p>
-
-        <!-- Project Search Bar & Filter Controls -->
-        <div class="project-search-container">
-          <div class="project-search-box">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" id="project-search" placeholder="Search projects by tech or keyword (e.g. Python, AI, Satellite, JavaScript)..." aria-label="Search projects">
-            <button id="clear-search-btn" class="clear-search-btn" title="Clear search" style="display: none;"><i class="fa-solid fa-xmark"></i></button>
-          </div>
-        </div>
-
-        <div class="filter-controls">
-          <button class="filter-btn active" data-filter="all">All Projects</button>
-          <button class="filter-btn" data-filter="ai">AI &amp; Verification</button>
-          <button class="filter-btn" data-filter="security">Security &amp; Cloud</button>
-          <button class="filter-btn" data-filter="agri">Sustainable Tech</button>
-          <button class="filter-btn" data-filter="python">Python Simulations</button>
-        </div>
-
-        <div class="projects-grid">
-          <!-- Project 1: Vero (AI Platform) -->
-          <article class="project-card glass-panel" data-category="ai">
-            <div class="project-header">
-              <div class="project-type-tag"><i class="fa-solid fa-shield-halved"></i> AI Authenticity Engine</div>
-              <div class="project-links">
-                <a href="https://github.com/himanshu931588-cmd/vero" target="_blank" rel="noopener" class="icon-link" title="GitHub Repository">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="#playground" class="icon-link" title="Live Demo">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-              </div>
-            </div>
-            
-            <h3 class="project-title">Vero: Multimodal Digital Content Authenticity Platform</h3>
-            <p class="project-summary">
-              An advanced AI-powered platform designed to analyze, detect, and verify the authenticity of digital 
-              content across text, image, and video formats in real time. Built by 1st and 2nd year engineering students.
-            </p>
-
-            <div class="project-metrics">
-              <div class="metric-item">
-                <span class="metric-val">Real-time</span>
-                <span class="metric-key">Verification Speed</span>
-              </div>
-              <div class="metric-item">
-                <span class="metric-val">Multimodal</span>
-                <span class="metric-key">Format Coverage</span>
-              </div>
-            </div>
-
-            <div class="project-tech-stack">
-              <span>JavaScript</span>
-              <span>Python</span>
-              <span>TensorFlow</span>
-              <span>Node.js</span>
-              <span>REST APIs</span>
-            </div>
-          </article>
-
-          <!-- Project 2: BaseGuard (Cloud & Database Security Platform) -->
-          <article class="project-card glass-panel" data-category="security">
-            <div class="project-header">
-              <div class="project-type-tag"><i class="fa-solid fa-shield-halved"></i> Cloud &amp; Database Security</div>
-              <div class="project-links">
-                <a href="https://github.com/himanshu931588-cmd/baseguard" target="_blank" rel="noopener" class="icon-link" title="GitHub Repository">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://github.com/himanshu931588-cmd/baseguard" target="_blank" rel="noopener" class="icon-link" title="Open Source Code">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-              </div>
-            </div>
-            
-            <h3 class="project-title">BaseGuard: Cloud Database &amp; API Security Firewall</h3>
-            <p class="project-summary">
-              An intelligent cybersecurity guardrail engineered to protect cloud databases, REST APIs, and backend 
-              infrastructure with automated anomaly detection, granular role-based access control (RBAC), and zero-trust perimeter verification.
-            </p>
-
-            <div class="project-metrics">
-              <div class="metric-item">
-                <span class="metric-val">Zero-Trust</span>
-                <span class="metric-key">Access Defense</span>
-              </div>
-              <div class="metric-item">
-                <span class="metric-val">Real-time</span>
-                <span class="metric-key">Threat Guard</span>
-              </div>
-            </div>
-
-            <div class="project-tech-stack">
-              <span>Python</span>
-              <span>Cloud Security</span>
-              <span>Database RBAC</span>
-              <span>REST APIs</span>
-              <span>Docker</span>
-              <span>Cryptography</span>
-            </div>
-          </article>
-
-          <!-- Project 2: KrishiAlert (Sustainable Agritech) -->
-          <article class="project-card glass-panel" data-category="agri">
-            <div class="project-header">
-              <div class="project-type-tag"><i class="fa-solid fa-seedling"></i> Sustainable Agritech</div>
-              <div class="project-links">
-                <a href="https://github.com/himanshu931588-cmd/KrishiAlert" target="_blank" rel="noopener" class="icon-link" title="GitHub Repository">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://github.com/himanshu931588-cmd/KrishiAlert" target="_blank" rel="noopener" class="icon-link" title="Open Source Code">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-              </div>
-            </div>
-            
-            <h3 class="project-title">KrishiAlert (KishanSeva): Satellite Stubble-Burning Prevention</h3>
-            <p class="project-summary">
-              A unified digital platform combining satellite monitoring with on-ground agricultural equipment access 
-              to eliminate post-harvest crop residue burning across North India and promote sustainable eco-farming.
-            </p>
-
-            <div class="project-metrics">
-              <div class="metric-item">
-                <span class="metric-val">Satellite</span>
-                <span class="metric-key">Monitoring Sync</span>
-              </div>
-              <div class="metric-item">
-                <span class="metric-val">Zero-Burn</span>
-                <span class="metric-key">Ecological Goal</span>
-              </div>
-            </div>
-
-            <div class="project-tech-stack">
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>JavaScript</span>
-              <span>Geospatial APIs</span>
-              <span>Cloud Storage</span>
-            </div>
-          </article>
-
-          <!-- Project 3: ATM Simulation (Python) -->
-          <article class="project-card glass-panel" data-category="python">
-            <div class="project-header">
-              <div class="project-type-tag"><i class="fa-solid fa-money-bill-transfer"></i> Python Architecture</div>
-              <div class="project-links">
-                <a href="https://github.com/himanshu931588-cmd/ATM_Simulation" target="_blank" rel="noopener" class="icon-link" title="GitHub Repository">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://github.com/himanshu931588-cmd/ATM_Simulation" target="_blank" rel="noopener" class="icon-link" title="Source Code">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-              </div>
-            </div>
-            
-            <h3 class="project-title">ATM Simulation: Stateful Banking System Engine</h3>
-            <p class="project-summary">
-              A Python-based simulation program modeling core automated teller machine workflows: authentication, 
-              real-time session ledger updates, PIN verification, and dynamic withdrawal boundaries.
-            </p>
-
-            <div class="project-metrics">
-              <div class="metric-item">
-                <span class="metric-val">Session</span>
-                <span class="metric-key">Ledger State</span>
-              </div>
-              <div class="metric-item">
-                <span class="metric-val">100%</span>
-                <span class="metric-key">Pure Python Logic</span>
-              </div>
-            </div>
-
-            <div class="project-tech-stack">
-              <span>Python</span>
-              <span>Control Flow</span>
-              <span>State Machines</span>
-              <span>CLI Interface</span>
-            </div>
-          </article>
-
-          <!-- Project 4: Stone Paper Scissor (Game Logic) -->
-          <article class="project-card glass-panel" data-category="python">
-            <div class="project-header">
-              <div class="project-type-tag"><i class="fa-solid fa-gamepad"></i> Game Theory &amp; Logic</div>
-              <div class="project-links">
-                <a href="https://github.com/himanshu931588-cmd/stone_paper_scissor" target="_blank" rel="noopener" class="icon-link" title="GitHub Repository">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://github.com/himanshu931588-cmd/stone_paper_scissor" target="_blank" rel="noopener" class="icon-link" title="Source Code">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-              </div>
-            </div>
-            
-            <h3 class="project-title">Stone Paper Scissor: Interactive Python Game Framework</h3>
-            <p class="project-summary">
-              Classic decision-game implementation structured with modular Python functions, randomized computer opponent heuristics, 
-              robust input sanitization, and continuous game-loop state tracking.
-            </p>
-
-            <div class="project-metrics">
-              <div class="metric-item">
-                <span class="metric-val">Modular</span>
-                <span class="metric-key">Functional Design</span>
-              </div>
-              <div class="metric-item">
-                <span class="metric-val">Dynamic</span>
-                <span class="metric-key">Opponent AI</span>
-              </div>
-            </div>
-
-            <div class="project-tech-stack">
-              <span>Python 3</span>
-              <span>Randomization</span>
-              <span>Sanitization</span>
-              <span>Game Loops</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills & Technology Matrix -->
-    <section class="section" id="skills">
-      <div class="container">
-        <div class="section-badge">TECHNICAL ARSENAL</div>
-        <h2 class="section-title">Skills &amp; Technology Stack</h2>
-        <p class="section-subtitle">
-          Languages, frameworks, cloud services, and creative design tools mastered by Himanshu Mishra.
-        </p>
-
-        <div class="skills-category-grid">
-          <div class="skill-category-card glass-panel">
-            <div class="cat-header">
-              <i class="fa-solid fa-code cat-icon"></i>
-              <h3>Programming Languages</h3>
-            </div>
-            <div class="skill-items">
-              <div class="skill-pill"><i class="fa-brands fa-python"></i> Python</div>
-              <div class="skill-pill"><i class="fa-solid fa-c"></i> C++ / C</div>
-              <div class="skill-pill"><i class="fa-brands fa-js"></i> JavaScript</div>
-              <div class="skill-pill"><i class="fa-solid fa-code"></i> TypeScript</div>
-              <div class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5 &amp; CSS3</div>
-              <div class="skill-pill"><i class="fa-brands fa-java"></i> Java (Learning)</div>
-              <div class="skill-pill"><i class="fa-solid fa-database"></i> SQL / MySQL</div>
-            </div>
-          </div>
-
-          <div class="skill-category-card glass-panel">
-            <div class="cat-header">
-              <i class="fa-solid fa-brain cat-icon"></i>
-              <h3>AI &amp; Data Science</h3>
-            </div>
-            <div class="skill-items">
-              <div class="skill-pill"><i class="fa-solid fa-network-wired"></i> TensorFlow</div>
-              <div class="skill-pill"><i class="fa-solid fa-fire"></i> PyTorch</div>
-              <div class="skill-pill"><i class="fa-solid fa-table"></i> NumPy &amp; Pandas</div>
-              <div class="skill-pill"><i class="fa-solid fa-chart-line"></i> Matplotlib</div>
-              <div class="skill-pill"><i class="fa-solid fa-eye"></i> OpenCV</div>
-              <div class="skill-pill"><i class="fa-solid fa-shield-halved"></i> Content Verification</div>
-            </div>
-          </div>
-
-          <div class="skill-category-card glass-panel">
-            <div class="cat-header">
-              <i class="fa-solid fa-cloud cat-icon"></i>
-              <h3>Cloud, Databases &amp; DevOps</h3>
-            </div>
-            <div class="skill-items">
-              <div class="skill-pill"><i class="fa-solid fa-fire-flame-curved"></i> Firebase</div>
-              <div class="skill-pill"><i class="fa-solid fa-bolt"></i> Supabase</div>
-              <div class="skill-pill"><i class="fa-solid fa-server"></i> Vercel &amp; Netlify</div>
-              <div class="skill-pill"><i class="fa-brands fa-docker"></i> Docker</div>
-              <div class="skill-pill"><i class="fa-brands fa-git-alt"></i> Git &amp; GitHub</div>
-              <div class="skill-pill"><i class="fa-solid fa-database"></i> Oracle &amp; MySQL</div>
-              <div class="skill-pill"><i class="fa-solid fa-paper-plane"></i> Postman</div>
-            </div>
-          </div>
-
-          <div class="skill-category-card glass-panel">
-            <div class="cat-header">
-              <i class="fa-solid fa-palette cat-icon"></i>
-              <h3>Frameworks &amp; Creative Design</h3>
-            </div>
-            <div class="skill-items">
-              <div class="skill-pill"><i class="fa-brands fa-node-js"></i> Node.js</div>
-              <div class="skill-pill"><i class="fa-solid fa-flask"></i> Flask</div>
-              <div class="skill-pill"><i class="fa-solid fa-rocket"></i> Astro</div>
-              <div class="skill-pill"><i class="fa-brands fa-figma"></i> Figma UI/UX</div>
-              <div class="skill-pill"><i class="fa-solid fa-cube"></i> Blender 3D</div>
-              <div class="skill-pill"><i class="fa-solid fa-image"></i> Adobe Photoshop</div>
-              <div class="skill-pill"><i class="fa-solid fa-book-open"></i> Adobe InDesign</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact & Connect Section -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-badge">LET'S CONNECT &amp; COLLABORATE</div>
-        <h2 class="section-title">Get in Touch with Himanshu</h2>
-        <p class="section-subtitle">
-          Interested in collaborating with a passionate 2nd Year Engineering Student? Let's connect and build something awesome together!
-        </p>
-
-        <div class="contact-wrapper">
-          <div class="contact-info glass-panel">
-            <div class="contact-author-badge">
-              <div class="contact-icon-avatar">
-                <i class="fa-regular fa-paper-plane"></i>
-              </div>
-              <div>
-                <h3>Himanshu Mishra</h3>
-                <span class="contact-avatar-role">2nd Year Computer Science &amp; Eng.</span>
-              </div>
-            </div>
-            <p>
-              I'm always excited to discuss innovative cloud engineering solutions, collaborate on open-source repositories, 
-              or join forces on hackathons.
-            </p>
-
-            <div class="info-list">
-              <a href="mailto:himanshu931588@gmail.com" class="info-item">
-                <div class="info-icon"><i class="fa-regular fa-envelope"></i></div>
-                <div>
-                  <span class="info-label">Direct Email</span>
-                  <span class="info-val">himanshu931588@gmail.com</span>
-                </div>
-              </a>
-
-              <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener" class="info-item">
-                <div class="info-icon" style="color: #38bdf8;"><i class="fa-brands fa-linkedin"></i></div>
-                <div>
-                  <span class="info-label">LinkedIn Profile</span>
-                  <span class="info-val">linkedin.com/in/himanshu-mishra-2006jan</span>
-                </div>
-              </a>
-
-              <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="info-item">
-                <div class="info-icon"><i class="fa-brands fa-github"></i></div>
-                <div>
-                  <span class="info-label">GitHub Handle</span>
-                  <span class="info-val">@himanshu931588-cmd</span>
-                </div>
-              </a>
-
-              <div class="info-item">
-                <div class="info-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <div>
-                  <span class="info-label">Current Academic Status</span>
-                  <span class="info-val">2nd Year Engineering Student</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="social-links-block">
-              <span class="social-heading">Connect Across Networks:</span>
-              <div class="social-icons">
-                <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener" class="social-btn" title="LinkedIn Profile">
-                  <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener" class="social-btn" title="GitHub - himanshu931588-cmd">
-                  <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="mailto:himanshu931588@gmail.com" class="social-btn" title="Send Email">
-                  <i class="fa-solid fa-envelope"></i>
-                </a>
-                <a href="https://github.com/himanshu931588-cmd/vero" target="_blank" rel="noopener" class="social-btn" title="Vero Project">
-                  <i class="fa-solid fa-shield-halved"></i>
-                </a>
-                <a href="https://github.com/himanshu931588-cmd/KrishiAlert" target="_blank" rel="noopener" class="social-btn" title="KrishiAlert Project">
-                  <i class="fa-solid fa-seedling"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Contact Form -->
-          <div class="contact-form-card glass-panel">
-            <form id="contact-form" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name">Your Name <span class="required">*</span></label>
-                  <input type="text" id="name" name="name" placeholder="Fellow Student / Collaborator / Recruiter" required>
-                  <span class="field-error" id="name-error"></span>
-                </div>
-                <div class="form-group">
-                  <label for="email">Your Email <span class="required">*</span></label>
-                  <input type="email" id="email" name="email" placeholder="collaborate@domain.com" required>
-                  <span class="field-error" id="email-error"></span>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="subject">Subject / Project Collaboration <span class="required">*</span></label>
-                <input type="text" id="subject" name="subject" placeholder="Collaboration on Vero AI / Hackathon / Cloud..." required>
-                <span class="field-error" id="subject-error"></span>
-              </div>
-
-              <div class="form-group">
-                <label for="message">Message <span class="required">*</span></label>
-                <textarea id="message" name="message" rows="5" placeholder="Tell Himanshu what you want to build or collaborate on..." required></textarea>
-                <span class="field-error" id="message-error"></span>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
-                <span>Send Collaboration Request</span> <i class="fa-solid fa-paper-plane"></i>
-              </button>
-
-              <div id="form-feedback" class="form-feedback" role="alert"></div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+    </footer>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-content">
-      <div class="footer-left">
-        <a href="#hero" class="footer-logo">
-          <span class="footer-brand-monogram">HM</span>
-          <span>Himanshu Mishra</span>
-        </a>
-        <p class="footer-copy">2nd Year Engineering Student • Cloud Engineer &amp; AI Specialist • Eager to collaborate.</p>
+  <!-- =======================================================================
+       Certificate Modal Lightbox
+       ======================================================================= -->
+  <div class="cinematic-modal" id="certModal" role="dialog" aria-modal="true" aria-label="National Science Day Certificate">
+    <div class="modal-backdrop" id="certModalBackdrop"></div>
+    <div class="modal-box">
+      <div class="modal-header">
+        <h4 class="modal-title">National Science Day 2026 Certificate</h4>
+        <button class="modal-close-btn" id="closeCertBtn" aria-label="Close Modal">&times;</button>
       </div>
-
-      <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#collaborate">Collaborate</a>
-        <a href="#credentials">LinkedIn Edu &amp; Exp</a>
-        <a href="#playground">Vero AI</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Tech Stack</a>
-        <a href="#contact">Contact</a>
-        <a href="https://www.linkedin.com/in/himanshu-mishra-2006jan/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/himanshu931588-cmd" target="_blank" rel="noopener">GitHub</a>
-      </div>
-
-      <div class="footer-right">
-        <p>&copy; <span id="current-year">2026</span> Himanshu Mishra (@himanshu931588-cmd). Built with Passion.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Certificate Lightbox Modal -->
-  <div id="cert-modal" class="cert-modal" role="dialog" aria-modal="true" aria-label="Certificate Preview">
-    <div class="cert-modal-backdrop" id="cert-modal-backdrop"></div>
-    <div class="cert-modal-container">
-      <div class="cert-modal-header">
-        <div class="cert-modal-title">
-          <i class="fa-solid fa-trophy"></i>
-          <span>National Science Day 2026 Certificate • 2nd Position</span>
-        </div>
-        <button class="cert-modal-close" id="cert-modal-close" aria-label="Close certificate preview">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-      <div class="cert-modal-body">
-        <img src="assets/certificate_nsd2026.jpg" alt="National Science Day 2026 Certificate of Appreciation" class="cert-full-img" />
-      </div>
-      <div class="cert-modal-footer">
-        <span>Tech Sci Nova 2026 • National Science Day • Ref: NSD/28022026/PP-07</span>
-        <a href="assets/certificate_nsd2026.jpg" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full Image
-        </a>
+      <div class="modal-body">
+        <img src="assets/certificate_nsd2026.jpg" alt="National Science Day Certificate - 2nd Position - Himanshu Mishra" class="modal-cert-img">
       </div>
     </div>
   </div>
 
-  <!-- Bookshelf Lightbox Modal -->
-  <div id="books-modal" class="cert-modal" role="dialog" aria-modal="true" aria-label="Bookshelf Preview">
-    <div class="cert-modal-backdrop" id="books-modal-backdrop"></div>
-    <div class="cert-modal-container">
-      <div class="cert-modal-header">
-        <div class="cert-modal-title">
-          <i class="fa-solid fa-book-open"></i>
-          <span>Himanshu's Hindi Literature &amp; Novels Collection</span>
-        </div>
-        <button class="cert-modal-close" id="books-modal-close" aria-label="Close bookshelf preview">
-          <i class="fa-solid fa-xmark"></i>
+  <!-- =======================================================================
+       Vero AI Live Verification Simulator Modal
+       ======================================================================= -->
+  <div class="cinematic-modal" id="veroModal" role="dialog" aria-modal="true" aria-label="Vero Forensics Simulator">
+    <div class="modal-backdrop" id="veroModalBackdrop"></div>
+    <div class="modal-box" style="max-width: 650px;">
+      <div class="modal-header">
+        <h4 class="modal-title">Vero Forensics Simulator</h4>
+        <button class="modal-close-btn" id="closeVeroBtn" aria-label="Close Modal">&times;</button>
+      </div>
+      <div class="modal-body" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <label for="veroInput" style="font-family: var(--ui); font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim);">
+          Enter digital text sample to scan:
+        </label>
+        <textarea id="veroInput" rows="4" style="width: 100%; background: #070709; border: 1px solid rgba(255,255,255,0.18); color: var(--paper-bright); padding: 0.85rem; border-radius: 4px; font-family: var(--mono); font-size: 0.85rem;">Official KrishiAlert report: satellite telemetry sensors confirmed 42% reduction in regional farm fires following equipment dispatch.</textarea>
+        <button id="runVeroScanBtn" class="cinematic-btn cinematic-btn--primary" style="justify-content: center;">
+          <i class="fa-solid fa-bolt"></i> Run Forensic Scan
         </button>
-      </div>
-      <div class="cert-modal-body">
-        <img src="assets/hindi_novels.jpg" alt="Himanshu Mishra's favorite Hindi novels collection" class="cert-full-img" />
-      </div>
-      <div class="cert-modal-footer">
-        <span>Hindi Novels (Divya Prakash Dubey, Vinod Kumar Shukla) &amp; Wings of Fire (Dr. Kalam)</span>
-        <a href="assets/hindi_novels.jpg" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full Image
-        </a>
+        <div id="veroResultsBox" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; border-radius: 4px; font-family: var(--mono); font-size: 0.85rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+            <span>VERDICT: <strong id="veroVerdict" style="color: #22c55e;">AUTHENTIC &amp; VERIFIED</strong></span>
+            <span>CONFIDENCE: <strong id="veroConfidence" style="color: var(--amber);">98.4%</strong></span>
+          </div>
+          <p style="color: var(--dim); font-size: 0.78rem; margin: 0;">Latent token density matches organic human linguistic patterns with zero synthetic artifact flags.</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Floating Back to Top Button -->
-  <button id="back-to-top" class="back-to-top" aria-label="Scroll to top of page" title="Back to Top">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
-
-  <!-- Toast Notification Container -->
-  <div id="toast-container" class="toast-container" aria-live="polite"></div>
-
-  <!-- Scripts -->
-  <script src="js/neural-canvas.js"></script>
-  <script src="js/playground.js"></script>
-  <script src="js/main.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

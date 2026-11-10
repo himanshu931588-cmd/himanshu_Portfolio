@@ -1,74 +1,61 @@
-# Himanshu Mishra (@himanshu931588-cmd) — Portfolio Website
+# HIMANSHU MISHRA — Cinematic Portfolio
 
-A modern, responsive portfolio website built with pure semantic **HTML5**, **CSS3**, and **Vanilla JavaScript** (Zero build dependencies, zero framework bloat, instant loading).
+A high-fidelity cinematic web portfolio for **Himanshu Mishra** ([github.com/himanshu931588-cmd](https://github.com/himanshu931588-cmd) • [linkedin.com/in/himanshu-mishra-2006jan](https://www.linkedin.com/in/himanshu-mishra-2006jan/)) — 2nd Year Computer Science & Engineering Student (2025–2029), Cloud Architect, and AI/ML Specialist.
 
-Curated specifically for **Himanshu Mishra** ([github.com/himanshu931588-cmd](https://github.com/himanshu931588-cmd) • [linkedin.com/in/himanshu-mishra-2006jan](https://www.linkedin.com/in/himanshu-mishra-2006jan/)) — 2nd Year Computer Science & Engineering Student, Cloud Architect, AI/ML Specialist, and Open Source Collaborator.
-
----
-
-## 🌟 Highlights & Key Features
-
-- **🏆 National-Level Award & Honors**:
-  - **2nd Position Winner** at the National Science Day 2026 national-level science exhibition (Tech Sci Nova 2026).
-  - Project created with **Team Digital Rakshak** focusing on leveraging technology to address real-world safety challenges.
-  - Interactive certificate viewer showcasing the verified Certificate of Appreciation (Ref: NSD/28022026/PP-07).
-- **2nd Year Engineering Student & Collaboration Hub**:
-  - Highlights your academic journey pursuing a **B.Tech in Computer Science & Engineering (2025 — 2029)**.
-  - Interactive **"Want to Collaborate With Me?"** Hub with instant pre-fill buttons for teaming up on Vero AI, KrishiAlert Agritech, Hackathons, and Open-Source projects.
-  - **Literary Reading Nook**: Showcases your passion for reading contemporary Hindi novels (Divya Prakash Dubey, Vinod Kumar Shukla) and inspiring autobiographies (*Wings of Fire* by Dr. Kalam).
-- **LinkedIn Highlights & Credentials Section (`#credentials`)**:
-  - **Academic Foundation**: Data Structures & Algorithms, Object-Oriented Programming (OOP), DBMS, Operating Systems, and Computer Networks.
-  - **Hands-on Experience Timeline**: Lead Architect for Vero AI, Founder of KrishiAlert, and Tech Content Creator.
-  - **LinkedIn Direct Connect Banner**: One-click connect button linking directly to your LinkedIn profile.
-- **Unique Bespoke Brand Logo**:
-  - Custom Hexagonal Cyber Shield SVG emblem with dual-tone gradient stroke, interconnected circuit glyphs (`H` & `M`), and a 3D pulsing orbit beacon.
-- **Interactive Starting Loading Page (Preloader)**:
-  - Hologram quantum core with 3 rotating orbital energy rings.
-  - Tap or click core to fast-launch; Spacebar / Enter shortcut.
-  - Live system diagnostic boot logs and dynamic 0% → 100% progress counter.
-- **Real Open-Source Projects**:
-  - **Vero**: AI-powered multimodal platform for digital content authenticity & deepfake verification.
-  - **BaseGuard**: Cloud database and API security firewall with zero-trust RBAC and threat detection.
-  - **KrishiAlert (KishanSeva)**: Sustainable satellite agriculture system to eliminate crop stubble burning across North India.
-  - **ATM Simulation**: Stateful banking transaction engine built in Python.
-  - **Stone Paper Scissor**: Modular game logic framework in Python.
-- **Interactive Vero AI Forensics Playground**:
-  - Real-time in-browser NLP tokenization with forensic attention weights and authentic vs. synthetic media classification.
-- **Ultra-Fast Mobile & PC Optimized**:
-  - **Mobile Responsive Drawer**: Frosted glass slide-out drawer with direct LinkedIn/GitHub action buttons, backdrop overlay, touch gesture handling, and outside tap to dismiss.
-  - **No iOS Auto-Zoom**: Optimized 16px form inputs prevent iOS Safari from zooming in unexpectedly.
-  - **Hardware Accelerated**: Butter-smooth 60fps scrolling on both mobile phones and PC monitors with zero repaint stutter.
-  - **Tap Anywhere Skip**: Preloader can be tapped anywhere on mobile or launched with Spacebar/Enter on PC.
+Architected with deep obsidian noir, high-voltage crimson embers, authentic film grain, and Anton & Oswald display typography (Zero frameworks, zero build step, instant loading).
 
 ---
 
-## 📱 How to Open on Mobile and PC
+## 🎬 Cinematic Scenes & Experience Architecture
 
-### 💻 On PC (Fastest)
-- **1-Click**: Double-click [`open_portfolio.bat`](file:///c:/Users/hp/portyui/open_portfolio.bat) to launch immediately in Chrome, Edge, or your default browser.
-- Or directly double-click [`index.html`](file:///c:/Users/hp/portyui/index.html).
+- **Scene 01 — The Monumental Hero Stage**:
+  - Deep true black atmosphere with real-time floating dust embers and volumetric lighting.
+  - Colossal distressed wordmark **HIMANSHU** spanning across the background.
+  - Himanshu in his tailored executive blazer commanding the center frame with crimson rim lighting.
+  - Architectural header with drawn SVG rule line, sound synthesizer toggle, and metadata stamps (`PORTFOLIO — MMXXVI`).
+  - Precision furniture: `••• WELCOME TO MY WORLD •••`, technical chips (`•ENGINEER HIMANSHU•`, `•CLOUD & AI ARCHITECT•`), coordinate arrows, and matrix dot clusters.
 
-### 📲 On Mobile Phone (Local Wi-Fi Testing)
-1. Double-click [`start_local_server.bat`](file:///c:/Users/hp/portyui/start_local_server.bat) on your PC (or run `python -m http.server 3000 --bind 0.0.0.0`).
-2. Make sure your phone and PC are connected to the same Wi-Fi.
-3. Open terminal/PowerShell on PC, run `ipconfig`, and find your IPv4 Address (e.g. `192.168.1.15`).
-4. On your mobile phone browser (Chrome, Safari), go to:
-   ```
-   http://192.168.1.15:3000
-   ```
-   *(replace with your actual PC IP address)*.
+- **Scene 02 — The Technical Universe**:
+  - Interactive 3D floating perspective cards for core technologies: **Python 3**, **Google Cloud Platform**, **PyTorch & TensorFlow**, **Docker & Kubernetes**, **Linux Systems**, **PostgreSQL / Supabase**, **OpenCV**, and **BaseGuard Security**.
+  - Dynamic 3D mouse parallax and depth perspective.
+
+- **Scene 03 — Chrono Time Machine (Interactive Timeline Engine)**:
+  - Interactive circular timeline mechanism spanning **2024 to 2029**:
+    - **2024**: Algorithmic Foundations & Low-Level Systems
+    - **2025**: Cloud Infrastructure & BaseGuard Defense
+    - **2026**: National Science Award & Real-World AI Systems (Winner: 2nd Position at National Science Day 2026 with Team Digital Rakshak)
+    - **2027**: Distributed Intelligence & Cloud Scale
+    - **2028**: Enterprise Architecture & Research Innovation
+    - **2029**: B.Tech CSE Graduation & Future Impact
+  - Interactive cursor tracking and sweeping clock beam with harmonic audio feedback.
+
+- **Scene 04 — Featured Works / Project Universe**:
+  - **Vero**: Real-Time AI Forensics & Digital Content Authenticity Analyzer (with embedded interactive simulator).
+  - **KrishiAlert**: Satellite Geospatial Telemetry & Autonomous Farm Advisory.
+  - **Digital Rakshak**: 2nd Position Award-Winning Project at National Science Day 2026 with verified Certificate viewer (Ref: NSD/28022026/PP-07).
+  - **BaseGuard**: Policy-as-Code & Cloud Infrastructure Defense.
+  - **ATM Engine**: Banking Transaction Lifecycle & Security Validation.
+
+- **Scene 05 — The Literary Nook (Passions Beyond Code)**:
+  - Celebration of contemporary Hindi literature and inspirational works: *मुसाफ़िर कैफ़े*, *अक्टूबर जंक्शन*, *दीवार में एक खिड़की रहती थी*, and *Wings of Fire*.
+
+- **Scene 06 — The Finale (Closing Monolith)**:
+  - Colossal **HIMANSHU** typographic monolith emerging through ambient smoke and embers.
+  - Signature quotes: `“I Love Tech and Tech Loves Me. Good Code Speaks For Itself.”`
+  - High-impact direct connection strip linking to LinkedIn, GitHub, and direct email.
 
 ---
 
-## 🌐 Deploy to GitHub Pages (Worldwide Access on Mobile & PC)
+## 💻 Tech Stack
+- **Languages**: Semantic HTML5, CSS3, Modern Vanilla JavaScript (ES Modules).
+- **Typography**: Anton, Bodoni Moda, Oswald, JetBrains Mono.
+- **Audio**: Web Audio API Procedural Synthesizer.
+- **Textures**: Cinematic 35mm film grain & distressed grunge overlays.
+- **Zero Dependencies**: Pure web standards, lightning-fast 60fps performance on all desktop and mobile browsers.
 
-To make it accessible worldwide from any mobile phone, tablet, or computer:
+---
 
-```powershell
-# In terminal inside c:\Users\hp\portyui:
-git remote add origin https://github.com/himanshu931588-cmd/himanshu931588-cmd.github.io.git
-git branch -M main
-git push -u origin main
-```
-Your portfolio will be live 24/7 at:
-**`https://himanshu931588-cmd.github.io/`**
+## 🌐 Live Website & Links
+- **GitHub Repository**: [https://github.com/himanshu931588-cmd/himanshu_Portfolio](https://github.com/himanshu931588-cmd/himanshu_Portfolio)
+- **LinkedIn Profile**: [https://www.linkedin.com/in/himanshu-mishra-2006jan/](https://www.linkedin.com/in/himanshu-mishra-2006jan/)
+- **Contact Email**: [himanshu931588@gmail.com](mailto:himanshu931588@gmail.com)

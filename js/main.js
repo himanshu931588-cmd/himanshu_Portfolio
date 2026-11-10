@@ -1,760 +1,546 @@
 /**
- * Main Application Script for Himanshu Mishra (@himanshu931588-cmd)
- * 2nd Year Engineering Student • Cloud Architect & AI Specialist
- * Handles Interactive Preloader, Unique Brand Logo FX, Theme, Collaboration Hub, Filters, and Form.
+ * HIMANSHU MISHRA — CINEMATIC PORTFOLIO ENGINE
+ * Architecture:
+ * 0. Minimalist Boot & Texture Preloader
+ * 1. Hero Atmospheric Embers & Volumetric Light Canvas
+ * 2. Web Audio API Cinematic Synthesizer
+ * 3. Scene 02: 3D Perspective Tilt on Tech Monoliths
+ * 4. Scene 03: Chrono Time Machine Engine (2024–2029)
+ * 5. Scene 04 & 05: Modals, Vero Simulator & Lightbox
+ * 6. Mobile Drawer & Navigation Smooth Anchor
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-  initInteractiveLoader();
-  initCustomCursor();
-  initTheme();
-  initSoundFX();
-  initNavigation();
-  initCollabHub();
-  initProjectFilters();
-  initStatsCounter();
-  initGitHubLiveSync();
-  initLightboxModals();
-  initBackToTop();
-  initContactForm();
-  setCurrentYear();
-});
-
-/* ==========================================================================
-   0. Minimalist Aesthetic Preloader
-   ========================================================================== */
-function initInteractiveLoader() {
-  const loader = document.getElementById('interactive-loader');
-  const progressBar = document.getElementById('loader-progress-bar');
-  const percentText = document.getElementById('loader-percent');
-
-  if (!loader) return;
-
-  let currentPercent = 0;
-  let isFinished = false;
-
-  function finishLoading() {
-    if (isFinished) return;
-    isFinished = true;
-    currentPercent = 100;
-    if (progressBar) progressBar.style.width = '100%';
-    if (percentText) percentText.textContent = '100%';
-
-    setTimeout(() => {
-      loader.classList.add('loader-hidden');
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 500);
-    }, 250);
-  }
-
-  function updateLoader() {
-    if (isFinished) return;
-
-    if (currentPercent < 100) {
-      const step = Math.floor(Math.random() * 8) + 8;
-      currentPercent = Math.min(100, currentPercent + step);
-
-      if (progressBar) progressBar.style.width = `${currentPercent}%`;
-      if (percentText) percentText.textContent = `${currentPercent}%`;
-
-      if (currentPercent < 100) {
-        setTimeout(updateLoader, 30);
-      } else {
-        finishLoading();
-      }
-    } else {
-      finishLoading();
-    }
-  }
-
-  // Click or keydown to instantly dismiss
-  loader.addEventListener('click', finishLoading);
-  window.addEventListener('keydown', (e) => {
-    if (e.code === 'Space' || e.code === 'Enter') finishLoading();
-  });
-
-  // Finish on window load if document already parsed
-  if (document.readyState === 'complete') {
-    setTimeout(finishLoading, 200);
-  } else {
-    window.addEventListener('load', () => setTimeout(finishLoading, 150));
-  }
-
-  // Failsafe: max 1.2s timeout
-  setTimeout(finishLoading, 1200);
-
-  // Start progress
-  setTimeout(updateLoader, 40);
-}
-
-/* ==========================================================================
-   1. Theme Management (Dark / Light with LocalStorage)
-   ========================================================================== */
-function initTheme() {
-  const toggleBtn = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
-  if (!toggleBtn || !themeIcon) return;
-
-  const savedTheme = localStorage.getItem('himanshu_theme') || 'dark';
-  applyTheme(savedTheme);
-
-  toggleBtn.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    applyTheme(newTheme);
-    localStorage.setItem('himanshu_theme', newTheme);
-  });
-
-  function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    if (theme === 'light') {
-      themeIcon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-      themeIcon.classList.replace('fa-sun', 'fa-moon');
-    }
-  }
-}
-
-/* ==========================================================================
-   1.1 Audio FX Feedback (Web Audio API Synthesizer - Optional, Crisp UI Clicks)
-   ========================================================================== */
-let audioCtx = null;
-let soundEnabled = localStorage.getItem('himanshu_sound') === 'true';
-
-function playSound(type = 'click') {
-  if (!soundEnabled) return;
-  try {
-    if (!audioCtx) {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-
-    const now = audioCtx.currentTime;
-    if (type === 'click') {
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(600, now);
-      osc.frequency.exponentialRampToValueAtTime(180, now + 0.04);
-      gain.gain.setValueAtTime(0.06, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
-      osc.start(now);
-      osc.stop(now + 0.04);
-    } else if (type === 'chime') {
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(523.25, now);
-      osc.frequency.exponentialRampToValueAtTime(880, now + 0.12);
-      gain.gain.setValueAtTime(0.08, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
-      osc.start(now);
-      osc.stop(now + 0.12);
-    }
-  } catch (err) {
-    // AudioContext blocked or not supported
-  }
-}
-
-function initSoundFX() {
-  const soundBtn = document.getElementById('sound-toggle');
-  const soundIcon = document.getElementById('sound-icon');
-  if (!soundBtn || !soundIcon) return;
-
-  function updateSoundUI() {
-    if (soundEnabled) {
-      soundIcon.className = 'fa-solid fa-volume-high';
-      soundBtn.title = 'Sound FX: ON (Click to Mute)';
-      soundBtn.setAttribute('aria-label', 'Sound FX enabled, click to mute');
-    } else {
-      soundIcon.className = 'fa-solid fa-volume-xmark';
-      soundBtn.title = 'Sound FX: OFF (Click to Enable)';
-      soundBtn.setAttribute('aria-label', 'Sound FX muted, click to enable');
-    }
-  }
-
-  updateSoundUI();
-
-  soundBtn.addEventListener('click', () => {
-    soundEnabled = !soundEnabled;
-    localStorage.setItem('himanshu_sound', soundEnabled);
-    updateSoundUI();
-    if (soundEnabled) {
-      playSound('chime');
-      showToast('Sound FX Enabled (Crisp Tactile Clicks)', 'info', 2500);
-    } else {
-      showToast('Sound FX Muted', 'info', 2000);
-    }
-  });
-
-  // Attach tactile sound to interactive elements
-  document.addEventListener('click', (e) => {
-    if (!soundEnabled) return;
-    const target = e.target.closest('button, .btn, .filter-chip, .collab-card, .nav-link, .interactive-logo');
-    if (target && target !== soundBtn) {
-      playSound('click');
-    }
-  });
-}
-
-/* ==========================================================================
-   2. Navigation, Sticky Header & Mobile Drawer
-   ========================================================================== */
-function initNavigation() {
-  const navbar = document.getElementById('navbar');
-  const mobileToggle = document.getElementById('mobile-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  const navBackdrop = document.getElementById('nav-backdrop');
-  const navLinks = document.querySelectorAll('.nav-link, .mobile-drawer-cta a');
-
-  // Sticky Navbar on Scroll
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-    highlightActiveNavLink();
-  }, { passive: true });
-
-  function openMenu() {
-    if (!navMenu || !mobileToggle) return;
-    navMenu.classList.add('open');
-    mobileToggle.classList.add('active');
-    if (navBackdrop) navBackdrop.classList.add('active');
-    document.body.classList.add('nav-open');
-  }
-
-  function closeMenu() {
-    if (!navMenu || !mobileToggle) return;
-    navMenu.classList.remove('open');
-    mobileToggle.classList.remove('active');
-    if (navBackdrop) navBackdrop.classList.remove('active');
-    document.body.classList.remove('nav-open');
-  }
-
-  // Mobile Menu Toggle
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      const isOpen = navMenu.classList.contains('open');
-      if (isOpen) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    });
-
-    if (navBackdrop) {
-      navBackdrop.addEventListener('click', closeMenu);
-    }
-
-    // Close on escape key
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
-        closeMenu();
-      }
-    });
-
-    // Close when window resized to desktop
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && navMenu.classList.contains('open')) {
-        closeMenu();
-      }
-    });
-
-    // Close mobile menu when clicking any nav link
-    navLinks.forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
-  }
-
-  // Active Link Spy using scroll position
-  const sections = document.querySelectorAll('section[id]');
-  function highlightActiveNavLink() {
-    const scrollY = window.pageYOffset;
-    sections.forEach(current => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120;
-      const sectionId = current.getAttribute('id');
-      const navItem = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-
-      if (navItem) {
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          navItem.classList.add('active');
-        } else {
-          navItem.classList.remove('active');
-        }
-      }
-    });
-  }
-}
-
-/* ==========================================================================
-   3. Collaboration Hub Interactions
-   ========================================================================== */
-function initCollabHub() {
-  const collabBtns = document.querySelectorAll('.collab-action-btn');
-  const directPitchBtn = document.getElementById('direct-pitch-btn');
-  const subjectInput = document.getElementById('subject');
-  const messageArea = document.getElementById('message');
-
-  collabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const collabType = btn.getAttribute('data-collab-type') || 'Student Project Collaboration';
-      
-      if (subjectInput) {
-        subjectInput.value = `Collaboration: ${collabType} (with Himanshu)`;
-      }
-
-      if (messageArea) {
-        messageArea.value = `Hi Himanshu,\n\nI saw your portfolio as a 2nd Year Engineering Student and would love to collaborate with you on ${collabType}.\n\nHere are some thoughts and ideas I have in mind: `;
-      }
-
-      // Smooth scroll to contact form
-      const contactSection = document.getElementById('contact');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-        setTimeout(() => {
-          if (messageArea) messageArea.focus();
-        }, 650);
-      }
-
-      showToast(`Collaboration mode: ${collabType} selected!`, 'info');
-    });
-  });
-
-  if (directPitchBtn) {
-    directPitchBtn.addEventListener('click', (e) => {
-      if (subjectInput && !subjectInput.value) {
-        subjectInput.value = `Collaboration Proposal (with 2nd Year Student Himanshu)`;
-      }
-    });
-  }
-}
-
-/* ==========================================================================
-   4. Project Category Filter Controls & Live Search
-   ========================================================================== */
-function initProjectFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-  const searchInput = document.getElementById('project-search');
-  const clearSearchBtn = document.getElementById('clear-search-btn');
-
-  if (projectCards.length === 0) return;
-
-  let activeCategory = 'all';
-  let searchQuery = '';
-
-  function applyFilters() {
-    projectCards.forEach(card => {
-      const cardCategory = card.getAttribute('data-category');
-      const cardText = card.textContent.toLowerCase();
-      const matchesCategory = activeCategory === 'all' || cardCategory === activeCategory;
-      const matchesSearch = !searchQuery || cardText.includes(searchQuery);
-
-      if (matchesCategory && matchesSearch) {
-        card.style.display = 'flex';
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(12px)';
-        setTimeout(() => {
-          card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, 30);
-      } else {
-        card.style.display = 'none';
-      }
-    });
-
-    if (clearSearchBtn) {
-      clearSearchBtn.style.display = searchQuery ? 'inline-flex' : 'none';
-    }
-  }
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeCategory = btn.getAttribute('data-filter') || 'all';
-      applyFilters();
-    });
-  });
-
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      searchQuery = e.target.value.trim().toLowerCase();
-      applyFilters();
-    });
-  }
-
-  if (clearSearchBtn && searchInput) {
-    clearSearchBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      searchQuery = '';
-      searchInput.focus();
-      applyFilters();
-    });
-  }
-}
-
-/* ==========================================================================
-   5. Animated Numerical Stats Counter
-   ========================================================================== */
-function initStatsCounter() {
-  const statNumbers = document.querySelectorAll('.stat-number');
-  if (statNumbers.length === 0) return;
-
-  let hasAnimated = false;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !hasAnimated) {
-        hasAnimated = true;
-        statNumbers.forEach(num => {
-          const target = parseInt(num.getAttribute('data-target'), 10);
-          animateCount(num, target, 1500);
-        });
-      }
-    });
-  }, { threshold: 0.3 });
-
-  const statsSection = document.querySelector('.hero-stats');
-  if (statsSection) {
-    observer.observe(statsSection);
-  }
-
-  function animateCount(el, target, duration) {
-    let start = 0;
-    const startTime = performance.now();
-
-    function updateCounter(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easedProgress = 1 - (1 - progress) * (1 - progress);
-      const currentVal = Math.floor(easedProgress * target);
-
-      el.textContent = currentVal;
-
-      if (progress < 1) {
-        requestAnimationFrame(updateCounter);
-      } else {
-        el.textContent = target;
-      }
-    }
-
-    requestAnimationFrame(updateCounter);
-  }
-}
-
-/* ==========================================================================
-   6. Interactive Contact Form with Validation & Feedback
-   ========================================================================== */
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  const feedback = document.getElementById('form-feedback');
-  const submitBtn = document.getElementById('submit-btn');
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    clearErrors();
-
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const subject = form.subject.value.trim();
-    const message = form.message.value.trim();
-
-    let isValid = true;
-
-    if (!name) {
-      showError('name', 'Please enter your name.');
-      isValid = false;
-    }
-
-    if (!email) {
-      showError('email', 'Please provide your email address.');
-      isValid = false;
-    } else if (!validateEmail(email)) {
-      showError('email', 'Please provide a valid email format (e.g. name@domain.com).');
-      isValid = false;
-    }
-
-    if (!subject) {
-      showError('subject', 'Please specify a subject or brief scope.');
-      isValid = false;
-    }
-
-    if (!message) {
-      showError('message', 'Please share a short message about your project or collaboration idea.');
-      isValid = false;
-    } else if (message.length < 8) {
-      showError('message', 'Please provide at least 8 characters.');
-      isValid = false;
-    }
-
-    if (!isValid) return;
-
-    const originalText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Transmitting...';
-
-    setTimeout(() => {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalText;
-
-      feedback.className = 'form-feedback success';
-      feedback.textContent = `Thank you, ${name}! Your collaboration note has been received by Himanshu. He'll get back to you shortly!`;
-      
-      showToast(`Collaboration request sent to Himanshu Mishra!`, 'success');
-
-      form.reset();
+// --- 0. Minimalist Boot & Asset Preloader ---
+function initBootSequence() {
+  const bootVeil = document.getElementById('bootVeil');
+  const bootFill = document.getElementById('bootFill');
+  const bootPercent = document.getElementById('bootPercent');
+
+  if (!bootVeil || !bootFill) return;
+
+  let progress = 0;
+  const targetDuration = 450; // ms
+  const interval = 25;
+  const step = 100 / (targetDuration / interval);
+
+  const timer = setInterval(() => {
+    progress += step;
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(timer);
+      bootFill.style.width = '100%';
+      if (bootPercent) bootPercent.textContent = '100%';
 
       setTimeout(() => {
-        feedback.style.display = 'none';
-      }, 7000);
-    }, 1100);
-  });
-
-  function showError(fieldId, msg) {
-    const errorEl = document.getElementById(`${fieldId}-error`);
-    const groupEl = errorEl ? errorEl.closest('.form-group') : null;
-    if (errorEl) errorEl.textContent = msg;
-    if (groupEl) groupEl.classList.add('has-error');
-  }
-
-  function clearErrors() {
-    document.querySelectorAll('.field-error').forEach(el => el.textContent = '');
-    document.querySelectorAll('.form-group').forEach(el => el.classList.remove('has-error'));
-    if (feedback) {
-      feedback.style.display = 'none';
-      feedback.textContent = '';
+        bootVeil.classList.add('boot-hidden');
+        document.body.classList.add('is-ready');
+        // Animate SVG rule in header
+        const rule = document.getElementById('hdrRulePath');
+        if (rule) rule.style.strokeDashoffset = '0';
+      }, 200);
+    } else {
+      bootFill.style.width = `${Math.floor(progress)}%`;
+      if (bootPercent) bootPercent.textContent = `${Math.floor(progress)}%`;
     }
+  }, interval);
+}
+
+// --- 1. Hero Atmospheric Embers & Light Canvas ---
+function initHeroCanvas() {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let particles = [];
+  const particleCount = 75;
+
+  const mouse = {
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
+    tx: window.innerWidth / 2,
+    ty: window.innerHeight / 2
+  };
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
   }
-
-  function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  }
-}
-
-/* ==========================================================================
-   7. Toast Notification Helper
-   ========================================================================== */
-function showToast(message, type = 'info', duration = 4000) {
-  const container = document.getElementById('toast-container');
-  if (!container) return;
-
-  const toast = document.createElement('div');
-  toast.className = `toast toast-${type}`;
-
-  let icon = 'fa-circle-info';
-  if (type === 'success') icon = 'fa-circle-check';
-  if (type === 'error') icon = 'fa-triangle-exclamation';
-
-  toast.innerHTML = `
-    <i class="fa-solid ${icon}"></i>
-    <span>${message}</span>
-  `;
-
-  container.appendChild(toast);
-
-  setTimeout(() => {
-    toast.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateX(50px)';
-    setTimeout(() => toast.remove(), 400);
-  }, duration);
-}
-
-/* ==========================================================================
-   8. Live GitHub Profile & Repositories Sync
-   ========================================================================== */
-function initGitHubLiveSync() {
-  fetch('https://api.github.com/users/himanshu931588-cmd')
-    .then(res => {
-      if (!res.ok) throw new Error('API Rate Limited or Offline');
-      return res.json();
-    })
-    .then(data => {
-      if (data && data.public_repos !== undefined) {
-        const repoStat = document.querySelector('.hero-stats .stat-number[data-target="10"]');
-        if (repoStat) {
-          repoStat.setAttribute('data-target', data.public_repos);
-          repoStat.textContent = data.public_repos;
-        }
-      }
-    })
-    .catch(() => {
-      // Graceful offline fallback: curated static metrics remain intact
-    });
-}
-
-/* ==========================================================================
-   9. Dynamic Current Year
-   ========================================================================== */
-function setCurrentYear() {
-  const yearEl = document.getElementById('current-year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-}
-
-/* ==========================================================================
-   10. Tactical Cyber-Architect Custom Cursor (Desktop Only)
-   ========================================================================== */
-function initCustomCursor() {
-  // Only initialize on desktop devices that have fine pointer and hover support
-  const isPointerDevice = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  if (!isPointerDevice) return;
-
-  const dot = document.getElementById('cursor-dot');
-  const ring = document.getElementById('cursor-ring');
-  if (!dot || !ring) return;
-
-  document.body.classList.add('custom-cursor-active');
-
-  let mouseX = -100, mouseY = -100;
-  let ringX = -100, ringY = -100;
-  let hasMoved = false;
+  resize();
+  window.addEventListener('resize', resize);
 
   window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    if (!hasMoved) {
-      ringX = mouseX;
-      ringY = mouseY;
-      hasMoved = true;
-    }
-    dot.classList.remove('cursor-hidden');
-    ring.classList.remove('cursor-hidden');
-  }, { passive: true });
-
-  window.addEventListener('mouseleave', () => {
-    dot.classList.add('cursor-hidden');
-    ring.classList.add('cursor-hidden');
+    mouse.tx = e.clientX;
+    mouse.ty = e.clientY;
   });
 
-  window.addEventListener('mouseenter', () => {
-    dot.classList.remove('cursor-hidden');
-    ring.classList.remove('cursor-hidden');
-  });
-
-  // Smooth lerp animation loop for 60fps/120fps high-refresh displays
-  function animateCursor() {
-    if (hasMoved) {
-      // 1:1 instantaneous tracking for the precision laser dot
-      dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
-
-      // Smooth fluid spring lerp for the outer tactical crosshair ring
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
-      ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
+  // Particle Class
+  class Ember {
+    constructor() {
+      this.reset(true);
     }
-    requestAnimationFrame(animateCursor);
+
+    reset(initial = false) {
+      this.x = Math.random() * width;
+      this.y = initial ? Math.random() * height : height + 10;
+      this.size = Math.random() * 2.2 + 0.6;
+      this.speedY = Math.random() * 0.7 + 0.25;
+      this.speedX = (Math.random() - 0.5) * 0.4;
+      this.opacity = Math.random() * 0.7 + 0.2;
+      this.hue = Math.random() > 0.4 ? 0 : 35; // Red or Warm Amber
+      this.life = Math.random() * 200 + 100;
+      this.age = 0;
+    }
+
+    update() {
+      this.age++;
+      this.y -= this.speedY;
+      this.x += this.speedX;
+
+      // React subtly to mouse pointer
+      const dx = this.x - mouse.x;
+      const dy = this.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 180) {
+        this.x += (dx / dist) * 0.6;
+        this.y += (dy / dist) * 0.6;
+      }
+
+      if (this.y < -20 || this.age > this.life) {
+        this.reset();
+      }
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = this.hue === 0 
+        ? `rgba(222, 27, 28, ${this.opacity})` 
+        : `rgba(255, 160, 60, ${this.opacity * 0.9})`;
+      ctx.shadowBlur = this.size * 5;
+      ctx.shadowColor = this.hue === 0 ? 'rgba(255, 42, 43, 0.8)' : 'rgba(255, 160, 60, 0.7)';
+      ctx.fill();
+    }
   }
-  requestAnimationFrame(animateCursor);
 
-  // Dynamic Hover and State Management using Event Delegation
-  document.addEventListener('mouseover', (e) => {
-    const isClickable = e.target.closest('a, button, .btn, .filter-btn, .collab-card, .project-card, .unique-logo-emblem, .loader-core-wrapper, .theme-toggle-btn, .spec-icon, .skill-pill, .interactive-logo, .avatar-photo-wrapper, .banner-avatar-group');
-    const isTextInput = e.target.closest('input[type="text"], input[type="email"], textarea');
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Ember());
+  }
 
-    if (isTextInput) {
-      ring.classList.add('cursor-text');
-      dot.classList.add('cursor-text');
-      ring.classList.remove('cursor-hover');
-      dot.classList.remove('cursor-hover');
-    } else if (isClickable) {
-      ring.classList.add('cursor-hover');
-      dot.classList.add('cursor-hover');
-      ring.classList.remove('cursor-text');
-      dot.classList.remove('cursor-text');
-    } else {
-      ring.classList.remove('cursor-hover', 'cursor-text');
-      dot.classList.remove('cursor-hover', 'cursor-text');
+  function render() {
+    // Smooth mouse damping
+    mouse.x += (mouse.tx - mouse.x) * 0.05;
+    mouse.y += (mouse.ty - mouse.y) * 0.05;
+
+    ctx.clearRect(0, 0, width, height);
+
+    // Dynamic volumetric gradient centered near subject
+    const grad = ctx.createRadialGradient(
+      width * 0.5, height * 0.48, 20,
+      width * 0.5, height * 0.48, width * 0.45
+    );
+    grad.addColorStop(0, 'rgba(222, 27, 28, 0.16)');
+    grad.addColorStop(0.5, 'rgba(10, 10, 14, 0.5)');
+    grad.addColorStop(1, 'rgba(0, 0, 0, 0.95)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, width, height);
+
+    // Render embers
+    for (let p of particles) {
+      p.update();
+      p.draw();
     }
-  });
 
-  // Tactical Mousedown & Click Micro-Ripple
-  window.addEventListener('mousedown', () => {
-    ring.classList.add('cursor-active');
-    dot.classList.add('cursor-active');
-    createClickRipple(mouseX, mouseY);
-  });
+    requestAnimationFrame(render);
+  }
 
-  window.addEventListener('mouseup', () => {
-    ring.classList.remove('cursor-active');
-    dot.classList.remove('cursor-active');
-  });
+  render();
+}
 
-  function createClickRipple(x, y) {
-    if (x <= 0 || y <= 0) return;
-    const ripple = document.createElement('div');
-    ripple.className = 'cursor-click-ripple';
-    ripple.style.left = `${x}px`;
-    ripple.style.top = `${y}px`;
-    document.body.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 450);
+// --- 2. Web Audio API Cinematic Synthesizer ---
+class CinematicSoundEngine {
+  constructor() {
+    this.ctx = null;
+    this.enabled = false;
+    this.droneGain = null;
+  }
+
+  init() {
+    if (this.ctx) return;
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    this.ctx = new AudioContext();
+  }
+
+  toggle() {
+    this.init();
+    if (!this.ctx) return false;
+
+    if (this.ctx.state === 'suspended') {
+      this.ctx.resume();
+    }
+
+    this.enabled = !this.enabled;
+
+    if (this.enabled) {
+      this.startAmbientDrone();
+      this.playChime(440, 0.1, 0.2);
+    } else {
+      this.stopAmbientDrone();
+    }
+
+    return this.enabled;
+  }
+
+  startAmbientDrone() {
+    if (!this.ctx || this.droneGain) return;
+    try {
+      const osc = this.ctx.createOscillator();
+      const osc2 = this.ctx.createOscillator();
+      this.droneGain = this.ctx.createGain();
+
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(55, this.ctx.currentTime); // Low A
+
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(55.5, this.ctx.currentTime); // Slight detune for slow beat
+
+      const filter = this.ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(140, this.ctx.currentTime);
+
+      this.droneGain.gain.setValueAtTime(0, this.ctx.currentTime);
+      this.droneGain.gain.linearRampToValueAtTime(0.045, this.ctx.currentTime + 3);
+
+      osc.connect(filter);
+      osc2.connect(filter);
+      filter.connect(this.droneGain);
+      this.droneGain.connect(this.ctx.destination);
+
+      osc.start();
+      osc2.start();
+      this.droneOsc = [osc, osc2];
+    } catch (e) {
+      console.warn('Audio drone error', e);
+    }
+  }
+
+  stopAmbientDrone() {
+    if (this.droneGain && this.ctx) {
+      this.droneGain.gain.linearRampToValueAtTime(0, this.ctx.currentTime + 0.8);
+      setTimeout(() => {
+        if (this.droneOsc) {
+          this.droneOsc.forEach(o => { try { o.stop(); } catch(e){} });
+          this.droneOsc = null;
+        }
+        this.droneGain = null;
+      }, 850);
+    }
+  }
+
+  playClick() {
+    if (!this.enabled || !this.ctx) return;
+    try {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(1200, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(300, this.ctx.currentTime + 0.035);
+
+      gain.gain.setValueAtTime(0.025, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 0.035);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.035);
+    } catch(e){}
+  }
+
+  playChime(freq = 660, vol = 0.04, duration = 0.4) {
+    if (!this.enabled || !this.ctx) return;
+    try {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+
+      gain.gain.setValueAtTime(vol, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + duration);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + duration);
+    } catch(e){}
   }
 }
 
-/* ==========================================================================
-   11. Lightbox Modals (Certificate & Reading Nook Bookshelf)
-   ========================================================================== */
-function initLightboxModals() {
-  bindModal('cert-preview-trigger', 'cert-modal', 'cert-modal-close', 'cert-modal-backdrop');
-  bindModal('books-photo-trigger', 'books-modal', 'books-modal-close', 'books-modal-backdrop');
+const audio = new CinematicSoundEngine();
 
-  function bindModal(triggerId, modalId, closeBtnId, backdropId) {
-    const trigger = document.getElementById(triggerId);
-    const modal = document.getElementById(modalId);
-    const closeBtn = document.getElementById(closeBtnId);
-    const backdrop = document.getElementById(backdropId);
+function setupAudioControls() {
+  const soundBtn = document.getElementById('soundToggle');
+  const soundIcon = document.getElementById('soundIcon');
+  if (!soundBtn || !soundIcon) return;
 
-    if (!trigger || !modal) return;
-
-    function openModal() {
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
+  soundBtn.addEventListener('click', () => {
+    const isOn = audio.toggle();
+    if (isOn) {
+      soundBtn.classList.add('is-active');
+      soundIcon.className = 'fa-solid fa-volume-high';
+    } else {
+      soundBtn.classList.remove('is-active');
+      soundIcon.className = 'fa-solid fa-volume-xmark';
     }
+  });
 
-    function closeModal() {
-      modal.classList.remove('open');
-      document.body.style.overflow = '';
-    }
+  // Attach hover sounds to buttons and nav
+  document.querySelectorAll('a, button, .chrono-node, .tech-monolith-card').forEach(el => {
+    el.addEventListener('mouseenter', () => audio.playClick());
+  });
+}
 
-    trigger.addEventListener('click', openModal);
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (backdrop) backdrop.addEventListener('click', closeModal);
+// --- 3. Scene 02: 3D Perspective Tilt on Tech Monoliths ---
+function init3DTilt() {
+  const cards = document.querySelectorAll('.tech-monolith-card[data-tilt]');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
 
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('open')) {
-        closeModal();
+      const rotX = ((y - cy) / cy) * -9;
+      const rotY = ((x - cx) / cx) * 9;
+
+      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.025, 1.025, 1.025)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    });
+  });
+}
+
+// --- 4. Scene 03: Chrono Time Machine Engine ---
+const CHRONO_DATA = {
+  '2024': {
+    badge: 'FOUNDATIONAL ARCHITECTURE // 2024',
+    title: 'Algorithmic Foundations & Low-Level Systems',
+    body: 'Commenced intensive deep dive into computational systems, mastery of Python algorithmic paradigms, data structures, Linux system internals, and clean architectural design patterns. Laid the rigorous foundation for scalable cloud and AI systems.',
+    chips: ['Python 3', 'Data Structures', 'Linux Internals', 'OOP Design']
+  },
+  '2025': {
+    badge: 'CLOUD & SECURITY ADVANCEMENT // 2025',
+    title: 'Cloud Infrastructure & BaseGuard Defense',
+    body: 'Expanded focus into distributed cloud architecture and automated policy enforcement. Architected BaseGuard to vet IAM privileges and prevent security drift across containerized Docker workflows; actively contributed to open-source software.',
+    chips: ['Cloud Architecture', 'BaseGuard', 'Docker Containers', 'IAM Governance']
+  },
+  '2026': {
+    badge: 'NATIONAL RECOGNITION & APPLIED AI // 2026',
+    title: 'National Science Award & Real-World AI Systems',
+    body: 'Secured 2nd Position at National Science Day 2026 (Tech Sci Nova) with project Digital Rakshak alongside team members Vaidehi Gupta and Shubham Kumar Singh. Engineered the Vero real-time digital content authenticity analyzer and satellite-guided KrishiAlert.',
+    chips: ['National Award Winner', 'Vero AI Forensics', 'KrishiAlert Telemetry', 'PyTorch / OpenCV']
+  },
+  '2027': {
+    badge: 'DISTRIBUTED INTELLIGENCE // 2027',
+    title: 'Distributed Cloud Scale & Intelligent Systems',
+    body: 'Expanding architectures toward high-throughput distributed microservices, multi-cloud resilience, and autonomous AI verification pipelines. Actively participating in national hackathons and developer summits.',
+    chips: ['Distributed Computing', 'Autonomous Agents', 'Kubernetes Clusters', 'System Resilience']
+  },
+  '2028': {
+    badge: 'ENTERPRISE ARCHITECTURE // 2028',
+    title: 'Enterprise Systems & Research Innovation',
+    body: 'Spearheading advanced cloud research and deep-tech prototypes with measurable societal and enterprise impact. Focusing on robust security pipelines and applied ML deployment across heterogeneous clouds.',
+    chips: ['Enterprise Cloud', 'Research Papers', 'Security Audits', 'Scale Engineering']
+  },
+  '2029': {
+    badge: 'GRADUATION & LEADERSHIP // 2029',
+    title: 'B.Tech CSE Graduation & Future Trajectory',
+    body: 'Completing B.Tech Computer Science & Engineering degree (2025–2029). Stepping into industry leadership as a seasoned Cloud Architect and AI/ML Engineer dedicated to building transformative digital products.',
+    chips: ['B.Tech CSE Graduate', 'Cloud Leadership', 'Global Innovation', 'Production AI']
+  }
+};
+
+function initChronoEngine() {
+  const rail = document.getElementById('chronoRail');
+  const card = document.getElementById('chronoCard');
+  const badgeEl = document.getElementById('chronoBadge');
+  const titleEl = document.getElementById('chronoCardTitle');
+  const bodyEl = document.getElementById('chronoCardBody');
+  const metaEl = document.getElementById('chronoCardMeta');
+
+  if (!rail || !card) return;
+
+  const nodes = rail.querySelectorAll('.chrono-node');
+
+  function setYear(year) {
+    const data = CHRONO_DATA[year];
+    if (!data) return;
+
+    nodes.forEach(n => {
+      if (n.dataset.year === year) {
+        n.classList.add('is-active');
+      } else {
+        n.classList.remove('is-active');
       }
     });
+
+    audio.playChime(750, 0.05, 0.35);
+
+    // Smooth card transition
+    card.style.opacity = '0.35';
+    card.style.transform = 'translateY(8px)';
+
+    setTimeout(() => {
+      badgeEl.innerHTML = `<i class="fa-solid fa-clock-rotate-left"></i> <span>${data.badge}</span>`;
+      titleEl.textContent = data.title;
+      bodyEl.textContent = data.body;
+      metaEl.innerHTML = data.chips.map(c => `<span class="chrono-chip">${c}</span>`).join('');
+
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, 150);
   }
-}
 
-/* ==========================================================================
-   12. Floating Back to Top Button
-   ========================================================================== */
-function initBackToTop() {
-  const btn = document.getElementById('back-to-top');
-  if (!btn) return;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 450) {
-      btn.classList.add('visible');
-    } else {
-      btn.classList.remove('visible');
-    }
-  }, { passive: true });
-
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  nodes.forEach(n => {
+    n.addEventListener('click', () => {
+      setYear(n.dataset.year);
+    });
   });
 }
+
+// --- 5. Modals & Lightbox ---
+function initModals() {
+  // Certificate Modal
+  const certModal = document.getElementById('certModal');
+  const viewCertBtn = document.getElementById('viewCertBtn');
+  const closeCertBtn = document.getElementById('closeCertBtn');
+  const certModalBackdrop = document.getElementById('certModalBackdrop');
+
+  function openModal(modal) {
+    if (!modal) return;
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    audio.playChime(520, 0.04, 0.3);
+  }
+
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  if (viewCertBtn) viewCertBtn.addEventListener('click', () => openModal(certModal));
+  if (closeCertBtn) closeCertBtn.addEventListener('click', () => closeModal(certModal));
+  if (certModalBackdrop) certModalBackdrop.addEventListener('click', () => closeModal(certModal));
+
+  // Vero Simulator Modal
+  const veroModal = document.getElementById('veroModal');
+  const openVeroDemo = document.getElementById('openVeroDemo');
+  const closeVeroBtn = document.getElementById('closeVeroBtn');
+  const veroModalBackdrop = document.getElementById('veroModalBackdrop');
+  const runVeroScanBtn = document.getElementById('runVeroScanBtn');
+  const veroInput = document.getElementById('veroInput');
+  const veroVerdict = document.getElementById('veroVerdict');
+  const veroConfidence = document.getElementById('veroConfidence');
+
+  if (openVeroDemo) openVeroDemo.addEventListener('click', () => openModal(veroModal));
+  if (closeVeroBtn) closeVeroBtn.addEventListener('click', () => closeModal(veroModal));
+  if (veroModalBackdrop) veroModalBackdrop.addEventListener('click', () => closeModal(veroModal));
+
+  if (runVeroScanBtn && veroInput) {
+    runVeroScanBtn.addEventListener('click', () => {
+      audio.playChime(880, 0.05, 0.2);
+      runVeroScanBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Analyzing Latent Tokens...';
+
+      setTimeout(() => {
+        runVeroScanBtn.innerHTML = '<i class="fa-solid fa-bolt"></i> Run Forensic Scan';
+        const text = veroInput.value.toLowerCase();
+        if (text.includes('urgent leak') || text.includes('synthetic') || text.includes('fake')) {
+          veroVerdict.textContent = 'SYNTHETIC ARTIFACT DETECTED';
+          veroVerdict.style.color = 'var(--ink-hot)';
+          veroConfidence.textContent = '96.2%';
+        } else {
+          veroVerdict.textContent = 'AUTHENTIC & VERIFIED';
+          veroVerdict.style.color = '#22c55e';
+          veroConfidence.textContent = '98.8%';
+        }
+      }, 550);
+    });
+  }
+
+  // Bookshelf trigger modal / click
+  const bookshelfTrigger = document.getElementById('bookshelfModalTrigger');
+  if (bookshelfTrigger) {
+    bookshelfTrigger.addEventListener('click', () => {
+      audio.playChime(640, 0.04, 0.3);
+    });
+  }
+
+  // Close modals on Escape key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal(certModal);
+      closeModal(veroModal);
+    }
+  });
+}
+
+// --- 6. Mobile Drawer & Navigation Smooth Anchor ---
+function initNavigation() {
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  if (burgerBtn && mobileDrawer) {
+    burgerBtn.addEventListener('click', () => {
+      const isOpen = mobileDrawer.classList.toggle('is-open');
+      burgerBtn.setAttribute('aria-expanded', isOpen);
+      audio.playClick();
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('is-open');
+        burgerBtn.setAttribute('aria-expanded', false);
+      });
+    });
+  }
+
+  // Update active navigation link on scroll
+  const sections = document.querySelectorAll('.scene-section, .fin-section, #heroStage');
+  const navLinks = document.querySelectorAll('.hdr__nav a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPos = window.scrollY + 120;
+
+    sections.forEach(sec => {
+      const top = sec.offsetTop;
+      const height = sec.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        current = sec.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(a => {
+      a.classList.remove('is-active');
+      if (a.getAttribute('href') === `#${current}`) {
+        a.classList.add('is-active');
+      }
+    });
+  }, { passive: true });
+}
+
+// --- Initialize App ---
+document.addEventListener('DOMContentLoaded', () => {
+  initBootSequence();
+  initHeroCanvas();
+  setupAudioControls();
+  init3DTilt();
+  initChronoEngine();
+  initModals();
+  initNavigation();
+});
